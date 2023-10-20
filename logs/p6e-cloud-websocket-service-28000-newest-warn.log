@@ -1,0 +1,1344 @@
+2023-10-20 09:36:32 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:36:33 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 09:36:33 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 09:36:33 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:36:36 [main] WARN -  [DUBBO] Use random available port(20880) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 09:36:37 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:36:37 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:36:39 [NettyServerWorker-9-1] WARN -  [DUBBO] Decode rpc invocation failed: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 4-20. This may be caused by , go to https://dubbo.apache.org/faq/4/20 to find instructions. 
+java.io.IOException: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.handleToIOException(DefaultSerializationExceptionWrapper.java:358) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.access$000(DefaultSerializationExceptionWrapper.java:28) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:168) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.drawArgs(DecodeableRpcInvocation.java:268) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:169) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:102) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody(DubboCodec.java:195) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:138) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:92) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode(DubboCountCodec.java:60) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.transport.netty4.NettyCodecAdapter$InternalDecoder.decode(NettyCodecAdapter.java:103) ~[dubbo-3.2.7.jar:3.2.7]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.handlerRemoved(ByteToMessageDecoder.java:266) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:536) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	... 37 common frames omitted
+Caused by: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.fastjson2.Fastjson2SecurityManager$Handler.apply(Fastjson2SecurityManager.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoTypeWithHandler(JSONReaderJSONB.java:1304) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoType(JSONReaderJSONB.java:1251) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.reader.ObjectReaderInterface.readJSONBObject(ObjectReaderInterface.java:34) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONB.parseObject(JSONB.java:540) ~[fastjson2-2.0.40.jar:na]
+	at org.apache.dubbo.common.serialize.fastjson2.FastJson2ObjectInput.readObject(FastJson2ObjectInput.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:166) ~[dubbo-3.2.7.jar:3.2.7]
+	... 34 common frames omitted
+2023-10-20 09:36:39 [NettyServerWorker-9-1] WARN -  [DUBBO] Decode rpc invocation failed: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 4-20. This may be caused by , go to https://dubbo.apache.org/faq/4/20 to find instructions. 
+java.io.IOException: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.handleToIOException(DefaultSerializationExceptionWrapper.java:358) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.access$000(DefaultSerializationExceptionWrapper.java:28) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:168) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.drawArgs(DecodeableRpcInvocation.java:268) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:169) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:102) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody(DubboCodec.java:195) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:138) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:92) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode(DubboCountCodec.java:60) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.transport.netty4.NettyCodecAdapter$InternalDecoder.decode(NettyCodecAdapter.java:103) ~[dubbo-3.2.7.jar:3.2.7]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	... 30 common frames omitted
+Caused by: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.fastjson2.Fastjson2SecurityManager$Handler.apply(Fastjson2SecurityManager.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoTypeWithHandler(JSONReaderJSONB.java:1304) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoType(JSONReaderJSONB.java:1251) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.reader.ObjectReaderInterface.readJSONBObject(ObjectReaderInterface.java:34) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONB.parseObject(JSONB.java:540) ~[fastjson2-2.0.40.jar:na]
+	at org.apache.dubbo.common.serialize.fastjson2.FastJson2ObjectInput.readObject(FastJson2ObjectInput.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:166) ~[dubbo-3.2.7.jar:3.2.7]
+	... 27 common frames omitted
+2023-10-20 09:36:39 [NettyServerWorker-9-1] WARN -  [DUBBO] Decode rpc invocation failed: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 4-20. This may be caused by , go to https://dubbo.apache.org/faq/4/20 to find instructions. 
+java.io.IOException: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.handleToIOException(DefaultSerializationExceptionWrapper.java:358) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.access$000(DefaultSerializationExceptionWrapper.java:28) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:168) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.drawArgs(DecodeableRpcInvocation.java:268) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:169) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:102) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody(DubboCodec.java:195) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:138) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:92) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode(DubboCountCodec.java:60) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.transport.netty4.NettyCodecAdapter$InternalDecoder.decode(NettyCodecAdapter.java:103) ~[dubbo-3.2.7.jar:3.2.7]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	... 30 common frames omitted
+Caused by: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.fastjson2.Fastjson2SecurityManager$Handler.apply(Fastjson2SecurityManager.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoTypeWithHandler(JSONReaderJSONB.java:1304) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoType(JSONReaderJSONB.java:1251) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.reader.ObjectReaderInterface.readJSONBObject(ObjectReaderInterface.java:34) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONB.parseObject(JSONB.java:540) ~[fastjson2-2.0.40.jar:na]
+	at org.apache.dubbo.common.serialize.fastjson2.FastJson2ObjectInput.readObject(FastJson2ObjectInput.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:166) ~[dubbo-3.2.7.jar:3.2.7]
+	... 27 common frames omitted
+2023-10-20 09:36:39 [NettyServerWorker-9-1] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20880. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 09:41:25 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 09:41:25 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 09:41:25 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 09:41:25 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 09:41:26 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:41:28 [nacos-grpc-client-executor-192.168.0.99-67] WARN - [1697765798406_192.168.0.2_56202]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:41:28 [nacos-grpc-client-executor-192.168.0.99-81] WARN - [1697765796099_192.168.0.2_56195]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:41:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:41:28 [nacos-grpc-client-executor-192.168.0.99-67] WARN - [1697765797545_192.168.0.2_56200]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:41:31 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:41:31 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 09:41:31 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 09:41:31 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:41:34 [main] WARN -  [DUBBO] Use random available port(20880) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 09:41:35 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:41:36 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:42:03 [NettyServerWorker-9-1] WARN -  [DUBBO] Decode rpc invocation failed: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 4-20. This may be caused by , go to https://dubbo.apache.org/faq/4/20 to find instructions. 
+java.io.IOException: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.handleToIOException(DefaultSerializationExceptionWrapper.java:358) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.access$000(DefaultSerializationExceptionWrapper.java:28) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:168) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.drawArgs(DecodeableRpcInvocation.java:268) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:169) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:102) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody(DubboCodec.java:195) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:138) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:92) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode(DubboCountCodec.java:60) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.transport.netty4.NettyCodecAdapter$InternalDecoder.decode(NettyCodecAdapter.java:103) ~[dubbo-3.2.7.jar:3.2.7]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.handlerRemoved(ByteToMessageDecoder.java:266) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:536) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	... 37 common frames omitted
+Caused by: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.fastjson2.Fastjson2SecurityManager$Handler.apply(Fastjson2SecurityManager.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoTypeWithHandler(JSONReaderJSONB.java:1304) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoType(JSONReaderJSONB.java:1251) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.reader.ObjectReaderInterface.readJSONBObject(ObjectReaderInterface.java:34) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONB.parseObject(JSONB.java:540) ~[fastjson2-2.0.40.jar:na]
+	at org.apache.dubbo.common.serialize.fastjson2.FastJson2ObjectInput.readObject(FastJson2ObjectInput.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:166) ~[dubbo-3.2.7.jar:3.2.7]
+	... 34 common frames omitted
+2023-10-20 09:42:03 [NettyServerWorker-9-1] WARN -  [DUBBO] Decode rpc invocation failed: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 4-20. This may be caused by , go to https://dubbo.apache.org/faq/4/20 to find instructions. 
+java.io.IOException: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.handleToIOException(DefaultSerializationExceptionWrapper.java:358) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.access$000(DefaultSerializationExceptionWrapper.java:28) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:168) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.drawArgs(DecodeableRpcInvocation.java:268) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:169) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:102) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody(DubboCodec.java:195) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:138) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:92) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode(DubboCountCodec.java:60) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.transport.netty4.NettyCodecAdapter$InternalDecoder.decode(NettyCodecAdapter.java:103) ~[dubbo-3.2.7.jar:3.2.7]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	... 30 common frames omitted
+Caused by: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.fastjson2.Fastjson2SecurityManager$Handler.apply(Fastjson2SecurityManager.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoTypeWithHandler(JSONReaderJSONB.java:1304) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoType(JSONReaderJSONB.java:1251) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.reader.ObjectReaderInterface.readJSONBObject(ObjectReaderInterface.java:34) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONB.parseObject(JSONB.java:540) ~[fastjson2-2.0.40.jar:na]
+	at org.apache.dubbo.common.serialize.fastjson2.FastJson2ObjectInput.readObject(FastJson2ObjectInput.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:166) ~[dubbo-3.2.7.jar:3.2.7]
+	... 27 common frames omitted
+2023-10-20 09:42:03 [NettyServerWorker-9-1] WARN -  [DUBBO] Decode rpc invocation failed: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 4-20. This may be caused by , go to https://dubbo.apache.org/faq/4/20 to find instructions. 
+java.io.IOException: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.handleToIOException(DefaultSerializationExceptionWrapper.java:358) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper.access$000(DefaultSerializationExceptionWrapper.java:28) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:168) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.drawArgs(DecodeableRpcInvocation.java:268) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:169) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DecodeableRpcInvocation.decode(DecodeableRpcInvocation.java:102) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCodec.decodeBody(DubboCodec.java:195) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:138) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.exchange.codec.ExchangeCodec.decode(ExchangeCodec.java:92) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.dubbo.DubboCountCodec.decode(DubboCountCodec.java:60) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.remoting.transport.netty4.NettyCodecAdapter$InternalDecoder.decode(NettyCodecAdapter.java:103) ~[dubbo-3.2.7.jar:3.2.7]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:468) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290) ~[netty-codec-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.apache.dubbo.common.serialize.SerializationException: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	... 30 common frames omitted
+Caused by: java.lang.IllegalArgumentException: [Serialization Security] Serialized class club.p6e.cloud.websocket.dubbo.DubboCr$A is not in allow list. Current mode is `STRICT`, will disallow to deserialize it by default. Please add it into security/serialize.allowlist or follow FAQ to configure it.
+	at org.apache.dubbo.common.serialize.fastjson2.Fastjson2SecurityManager$Handler.apply(Fastjson2SecurityManager.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoTypeWithHandler(JSONReaderJSONB.java:1304) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONReaderJSONB.checkAutoType(JSONReaderJSONB.java:1251) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.reader.ObjectReaderInterface.readJSONBObject(ObjectReaderInterface.java:34) ~[fastjson2-2.0.40.jar:na]
+	at com.alibaba.fastjson2.JSONB.parseObject(JSONB.java:540) ~[fastjson2-2.0.40.jar:na]
+	at org.apache.dubbo.common.serialize.fastjson2.FastJson2ObjectInput.readObject(FastJson2ObjectInput.java:118) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.common.serialize.DefaultSerializationExceptionWrapper$ProxyObjectInput.readObject(DefaultSerializationExceptionWrapper.java:166) ~[dubbo-3.2.7.jar:3.2.7]
+	... 27 common frames omitted
+2023-10-20 09:42:03 [NettyServerWorker-9-1] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20880. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 09:46:34 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 09:46:34 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 09:46:34 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 09:46:34 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 09:46:35 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:46:36 [nacos-grpc-client-executor-192.168.0.99-67] WARN - [1697766096599_192.168.0.2_57116]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:46:36 [nacos-grpc-client-executor-192.168.0.99-87] WARN - [1697766094376_192.168.0.2_57112]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:46:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:46:36 [nacos-grpc-client-executor-192.168.0.99-67] WARN - [1697766095785_192.168.0.2_57115]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:46:40 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:46:41 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 09:46:41 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 09:46:41 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:46:44 [main] WARN -  [DUBBO] Use random available port(20880) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 09:46:45 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:46:45 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:47:10 [NettyServerWorker-9-1] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20880. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 09:48:31 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 09:48:31 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 09:48:31 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 09:48:31 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 09:48:31 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:48:33 [nacos-grpc-client-executor-192.168.0.99-28] WARN - [1697766406451_192.168.0.2_57328]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:48:33 [nacos-grpc-client-executor-192.168.0.99-46] WARN - [1697766404185_192.168.0.2_57321]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:48:33 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:48:33 [nacos-grpc-client-executor-192.168.0.99-31] WARN - [1697766405624_192.168.0.2_57325]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:48:36 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:48:37 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 09:48:37 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 09:48:37 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:48:40 [main] WARN -  [DUBBO] Use random available port(20880) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 09:48:41 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:48:41 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:48:49 [NettyServerWorker-9-1] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20880. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 09:51:22 [NettyServerWorker-9-3] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20880. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 09:53:53 [NettyServerWorker-9-5] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20880. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 09:54:12 [NettyServerWorker-9-7] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20880. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 09:58:25 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 09:58:25 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 09:58:25 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 09:58:25 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 09:58:26 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:58:27 [nacos-grpc-client-executor-192.168.0.99-129] WARN - [1697766522208_192.168.0.2_57415]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:58:27 [nacos-grpc-client-executor-192.168.0.99-143] WARN - [1697766519959_192.168.0.2_57412]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 09:58:27 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 09:58:27 [nacos-grpc-client-executor-192.168.0.99-127] WARN - [1697766521394_192.168.0.2_57414]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:58:30 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:58:30 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 09:58:30 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 09:58:30 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:58:31 [nacos-grpc-client-executor-192.168.0.99-12] WARN - [1697767113418_192.168.0.2_58076]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:58:31 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 09:58:31 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 09:58:31 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 09:58:31 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 09:58:39 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:58:40 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 09:58:40 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 09:58:40 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:58:41 [nacos-grpc-client-executor-192.168.0.99-11] WARN - [1697767122852_192.168.0.2_58089]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 09:58:41 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 09:58:41 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 09:58:41 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 09:58:41 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 09:59:27 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:59:27 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 09:59:27 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 09:59:27 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 09:59:30 [main] WARN -  [DUBBO] Use random available port(20881) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 09:59:30 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:61) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportLocal(ServiceConfig.java:878) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:754) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServiceInternal(DefaultModuleDeployer.java:438) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServices(DefaultModuleDeployer.java:393) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:167) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 09:59:30 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:58) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportRemote(ServiceConfig.java:830) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:771) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServiceInternal(DefaultModuleDeployer.java:438) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServices(DefaultModuleDeployer.java:393) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:167) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 09:59:30 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:61) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.registry.integration.RegistryProtocol.lambda$doLocalExport$5(RegistryProtocol.java:333) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.registry.integration.ExporterFactory.lambda$createExporter$0(ExporterFactory.java:32) ~[dubbo-3.2.7.jar:3.2.7]
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[na:na]
+	at org.apache.dubbo.registry.integration.ExporterFactory.createExporter(ExporterFactory.java:29) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.registry.integration.RegistryProtocol.doLocalExport(RegistryProtocol.java:333) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:273) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSecurityWrapper.export(ProtocolSecurityWrapper.java:83) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:66) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:79) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:58) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportRemote(ServiceConfig.java:830) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:771) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServiceInternal(DefaultModuleDeployer.java:438) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServices(DefaultModuleDeployer.java:393) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:167) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 09:59:31 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:58) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportRemote(ServiceConfig.java:830) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:771) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServiceInternal(DefaultModuleDeployer.java:438) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServices(DefaultModuleDeployer.java:393) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:167) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 09:59:31 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 09:59:31 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:61) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportLocal(ServiceConfig.java:878) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:754) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfigBase.export(ServiceConfigBase.java:421) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.metadata.ConfigurableMetadataServiceExporter.export(ConfigurableMetadataServiceExporter.java:72) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.metadata.ExporterDeployListener.onModuleStarted(ExporterDeployListener.java:85) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.exportMetadataService(DefaultApplicationDeployer.java:1177) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.prepareApplicationInstance(DefaultApplicationDeployer.java:744) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.checkState(DefaultApplicationDeployer.java:1068) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.notifyModuleChanged(DefaultApplicationDeployer.java:1056) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.onModuleStarted(DefaultModuleDeployer.java:332) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:181) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 09:59:31 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:61) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportRemote(ServiceConfig.java:839) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:771) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfigBase.export(ServiceConfigBase.java:421) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.metadata.ConfigurableMetadataServiceExporter.export(ConfigurableMetadataServiceExporter.java:72) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.metadata.ExporterDeployListener.onModuleStarted(ExporterDeployListener.java:85) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.exportMetadataService(DefaultApplicationDeployer.java:1177) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.prepareApplicationInstance(DefaultApplicationDeployer.java:744) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.checkState(DefaultApplicationDeployer.java:1068) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.notifyModuleChanged(DefaultApplicationDeployer.java:1056) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.onModuleStarted(DefaultModuleDeployer.java:332) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:181) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 09:59:32 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:07:18 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 10:07:18 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 10:07:18 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 10:07:18 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 10:07:18 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:07:18 [NettyServerWorker-13-1] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20881. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:07:20 [nacos-grpc-client-executor-192.168.0.99-100] WARN - [1697767172820_192.168.0.2_58146]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:07:20 [nacos-grpc-client-executor-192.168.0.99-120] WARN - [1697767170506_192.168.0.2_58138]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:07:20 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:07:20 [nacos-grpc-client-executor-192.168.0.99-100] WARN - [1697767171951_192.168.0.2_58141]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:07:51 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 10:07:52 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 10:07:52 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 10:07:52 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 10:07:55 [main] WARN -  [DUBBO] Use random available port(20881) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 10:07:55 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:73) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:61) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportLocal(ServiceConfig.java:878) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:754) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServiceInternal(DefaultModuleDeployer.java:438) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServices(DefaultModuleDeployer.java:393) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:167) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 10:07:55 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:66) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:58) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportRemote(ServiceConfig.java:830) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:771) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServiceInternal(DefaultModuleDeployer.java:438) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServices(DefaultModuleDeployer.java:393) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:167) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 10:07:55 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:73) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:61) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.registry.integration.RegistryProtocol.lambda$doLocalExport$5(RegistryProtocol.java:333) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.registry.integration.ExporterFactory.lambda$createExporter$0(ExporterFactory.java:32) ~[dubbo-3.2.7.jar:3.2.7]
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[na:na]
+	at org.apache.dubbo.registry.integration.ExporterFactory.createExporter(ExporterFactory.java:29) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.registry.integration.RegistryProtocol.doLocalExport(RegistryProtocol.java:333) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.registry.integration.RegistryProtocol.export(RegistryProtocol.java:273) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSecurityWrapper.export(ProtocolSecurityWrapper.java:83) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:79) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:66) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:58) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportRemote(ServiceConfig.java:830) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:771) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServiceInternal(DefaultModuleDeployer.java:438) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServices(DefaultModuleDeployer.java:393) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:167) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 10:07:56 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:66) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:58) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportRemote(ServiceConfig.java:830) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:771) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServiceInternal(DefaultModuleDeployer.java:438) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.exportServices(DefaultModuleDeployer.java:393) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:167) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 10:07:56 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:07:56 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:73) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:61) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportLocal(ServiceConfig.java:878) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:754) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfigBase.export(ServiceConfigBase.java:421) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.metadata.ConfigurableMetadataServiceExporter.export(ConfigurableMetadataServiceExporter.java:72) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.metadata.ExporterDeployListener.onModuleStarted(ExporterDeployListener.java:85) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.exportMetadataService(DefaultApplicationDeployer.java:1177) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.prepareApplicationInstance(DefaultApplicationDeployer.java:744) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.checkState(DefaultApplicationDeployer.java:1068) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.notifyModuleChanged(DefaultApplicationDeployer.java:1056) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.onModuleStarted(DefaultModuleDeployer.java:332) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:181) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 10:07:56 [main] WARN -  [DUBBO] Fail to start qos server: , dubbo version: 3.2.7, current host: 192.168.5.19, error code: 7-4. This may be caused by , go to https://dubbo.apache.org/faq/7/4 to find instructions. 
+org.apache.dubbo.qos.server.QosBindException: qos-server can not bind localhost:33333
+	at org.apache.dubbo.qos.server.Server.start(Server.java:125) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.startQosServer(QosProtocolWrapper.java:133) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.qos.protocol.QosProtocolWrapper.export(QosProtocolWrapper.java:78) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolListenerWrapper.export(ProtocolListenerWrapper.java:73) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.cluster.filter.ProtocolFilterWrapper.export(ProtocolFilterWrapper.java:61) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.ProtocolSerializationWrapper.export(ProtocolSerializationWrapper.java:47) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.protocol.InvokerCountWrapper.export(InvokerCountWrapper.java:42) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.Protocol$Adaptive.export(Protocol$Adaptive.java) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrl(ServiceConfig.java:861) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportRemote(ServiceConfig.java:839) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.exportUrl(ServiceConfig.java:771) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrlsFor1Protocol(ServiceConfig.java:554) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExportUrls(ServiceConfig.java:536) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.doExport(ServiceConfig.java:498) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfig.export(ServiceConfig.java:327) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.ServiceConfigBase.export(ServiceConfigBase.java:421) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.metadata.ConfigurableMetadataServiceExporter.export(ConfigurableMetadataServiceExporter.java:72) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.metadata.ExporterDeployListener.onModuleStarted(ExporterDeployListener.java:85) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.exportMetadataService(DefaultApplicationDeployer.java:1177) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.prepareApplicationInstance(DefaultApplicationDeployer.java:744) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.checkState(DefaultApplicationDeployer.java:1068) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.notifyModuleChanged(DefaultApplicationDeployer.java:1056) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.onModuleStarted(DefaultModuleDeployer.java:332) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.startSync(DefaultModuleDeployer.java:181) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultModuleDeployer.start(DefaultModuleDeployer.java:148) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextRefreshedEvent(DubboDeployApplicationListener.java:155) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:141) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:961) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at club.p6e.cloud.websocket.P6eCloudWebSocketApplication.main(P6eCloudWebSocketApplication.java:19) ~[classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:555) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294) ~[na:na]
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:141) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1334) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:600) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:579) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:973) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannel.bind(AbstractChannel.java:260) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:356) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 10:07:57 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:09:40 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 10:09:40 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 10:09:40 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 10:09:40 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 10:09:40 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:09:40 [NettyServerWorker-13-1] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20881. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:09:42 [nacos-grpc-client-executor-192.168.0.99-31] WARN - [1697767677630_192.168.0.2_58300]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:09:42 [nacos-grpc-client-executor-192.168.0.99-48] WARN - [1697767675162_192.168.0.2_58297]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:09:42 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:09:42 [nacos-grpc-client-executor-192.168.0.99-34] WARN - [1697767676770_192.168.0.2_58299]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:09:45 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 10:09:45 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 10:09:45 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 10:09:45 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 10:09:48 [main] WARN -  [DUBBO] Use random available port(20881) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 10:09:49 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:09:50 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:10:36 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 10:10:36 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 10:10:36 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 10:10:36 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 10:10:36 [SpringApplicationShutdownHook] WARN -  [DUBBO] unregister shutdown hook failed: Shutdown in progress, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-2. This may be caused by , go to https://dubbo.apache.org/faq/5/2 to find instructions. 
+java.lang.IllegalStateException: Shutdown in progress
+	at java.base/java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82) ~[na:na]
+	at java.base/java.lang.Runtime.removeShutdownHook(Runtime.java:245) ~[na:na]
+	at org.apache.dubbo.config.DubboShutdownHook.unregister(DubboShutdownHook.java:166) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.unRegisterShutdownHook(DefaultApplicationDeployer.java:179) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.preDestroy(DefaultApplicationDeployer.java:985) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ApplicationModel.onDestroy(ApplicationModel.java:152) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ScopeModel.destroy(ScopeModel.java:121) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ApplicationModel.tryDestroy(ApplicationModel.java:272) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ModuleModel.onDestroy(ModuleModel.java:132) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ScopeModel.destroy(ScopeModel.java:121) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextClosedEvent(DubboDeployApplicationListener.java:178) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:143) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1060) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:173) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1027) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:139) ~[spring-boot-3.1.0.jar:3.1.0]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108) ~[spring-boot-3.1.0.jar:3.1.0]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 10:10:36 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:10:36 [NettyServerWorker-9-1] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20881. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:10:38 [nacos-grpc-client-executor-192.168.0.99-19] WARN - [1697767790978_192.168.0.2_58404]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:10:38 [nacos-grpc-client-executor-192.168.0.99-33] WARN - [1697767788689_192.168.0.2_58397]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:10:38 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:10:38 [nacos-grpc-client-executor-192.168.0.99-18] WARN - [1697767790151_192.168.0.2_58400]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:10:41 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 10:10:42 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 10:10:42 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 10:10:42 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 10:10:45 [main] WARN -  [DUBBO] Use random available port(20881) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 10:10:46 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:10:46 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:34:03 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 10:34:03 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 10:34:03 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 10:34:03 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 10:34:03 [NettyServerWorker-9-1] WARN -  [DUBBO] All clients has disconnected from /192.168.5.19:20881. You can graceful shutdown now., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 99-0. This may be caused by unknown error in remoting module, go to https://dubbo.apache.org/faq/99/0 to find instructions. 
+2023-10-20 10:34:03 [DubboServerHandler-192.168.5.19:20881-thread-3] WARN -  [DUBBO] The timeout response finally returned at 2023-10-20 10:34:03.991, response status is 40, channel: /192.168.5.19:20881 -> /192.168.5.19:58612, please check provider side for detailed result., dubbo version: 3.2.7, current host: 192.168.5.19, error code: 4-13. This may be caused by , go to https://dubbo.apache.org/faq/4/13 to find instructions. 
+2023-10-20 10:34:04 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:34:06 [nacos-grpc-client-executor-192.168.0.99-286] WARN - [1697767847478_192.168.0.2_58607]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:34:06 [nacos-grpc-client-executor-192.168.0.99-310] WARN - [1697767845190_192.168.0.2_58604]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 10:34:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 10:34:06 [nacos-grpc-client-executor-192.168.0.99-287] WARN - [1697767846630_192.168.0.2_58606]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 14:50:39 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 14:50:40 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 14:50:40 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 14:50:40 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 14:50:43 [main] WARN -  [DUBBO] Use random available port(20880) for protocol dubbo, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-8. This may be caused by , go to https://dubbo.apache.org/faq/5/8 to find instructions. 
+2023-10-20 14:50:44 [main] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 14:50:44 [Dubbo-framework-registry-notification-0-thread-1] WARN -  [DUBBO] Received empty url address list and empty protection is disabled, will clear current available addresses, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 1-37. This may be caused by , go to https://dubbo.apache.org/faq/1/37 to find instructions. 
+2023-10-20 14:50:55 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 14:50:55 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 14:50:55 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 14:50:55 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 14:50:55 [SpringApplicationShutdownHook] WARN -  [DUBBO] unregister shutdown hook failed: Shutdown in progress, dubbo version: 3.2.7, current host: 192.168.5.19, error code: 5-2. This may be caused by , go to https://dubbo.apache.org/faq/5/2 to find instructions. 
+java.lang.IllegalStateException: Shutdown in progress
+	at java.base/java.lang.ApplicationShutdownHooks.remove(ApplicationShutdownHooks.java:82) ~[na:na]
+	at java.base/java.lang.Runtime.removeShutdownHook(Runtime.java:245) ~[na:na]
+	at org.apache.dubbo.config.DubboShutdownHook.unregister(DubboShutdownHook.java:166) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.unRegisterShutdownHook(DefaultApplicationDeployer.java:179) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.deploy.DefaultApplicationDeployer.preDestroy(DefaultApplicationDeployer.java:985) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ApplicationModel.onDestroy(ApplicationModel.java:152) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ScopeModel.destroy(ScopeModel.java:121) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ApplicationModel.tryDestroy(ApplicationModel.java:272) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ModuleModel.onDestroy(ModuleModel.java:132) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.rpc.model.ScopeModel.destroy(ScopeModel.java:121) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onContextClosedEvent(DubboDeployApplicationListener.java:178) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:143) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.apache.dubbo.config.spring.context.DubboDeployApplicationListener.onApplicationEvent(DubboDeployApplicationListener.java:52) ~[dubbo-3.2.7.jar:3.2.7]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:437) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:370) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1060) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:173) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1027) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:139) ~[spring-boot-3.1.0.jar:3.1.0]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:108) ~[spring-boot-3.1.0.jar:3.1.0]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 16:12:33 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 16:12:34 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service] & group[P6E-CLOUD]
+2023-10-20 16:12:34 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-websocket-service.yaml] & group[P6E-CLOUD]
+2023-10-20 16:12:34 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-20 16:12:36 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'customErrorWebExceptionHandler' defined in file [D:\CodeContents\github\p6e-cloud\p6e-cloud-gateway\target\classes\club\p6e\cloud\gateway\CustomErrorWebExceptionHandler.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.springframework.http.codec.CodecConfigurer' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2023-10-20 16:12:36 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 16:12:36 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 16:12:36 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 16:12:36 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end

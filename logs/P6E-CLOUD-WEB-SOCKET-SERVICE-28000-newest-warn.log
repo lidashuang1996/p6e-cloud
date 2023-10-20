@@ -1,0 +1,55 @@
+2023-10-19 15:35:05 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:35:06 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE] & group[SMART-SITE]
+2023-10-19 15:35:06 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE.yaml] & group[SMART-SITE]
+2023-10-19 15:35:06 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml] & group[SMART-SITE]
+2023-10-19 15:35:06 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:35:06 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-19 15:35:06 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-19 15:35:06 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-19 15:38:52 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:38:52 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE] & group[P6E-CLOUD]
+2023-10-19 15:38:52 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE.yaml] & group[P6E-CLOUD]
+2023-10-19 15:38:52 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml] & group[P6E-CLOUD]
+2023-10-19 15:38:52 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:38:52 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-19 15:38:52 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-19 15:38:52 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-19 15:38:52 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-19 15:39:06 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:39:07 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE] & group[P6E-CLOUD]
+2023-10-19 15:39:07 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE.yaml] & group[P6E-CLOUD]
+2023-10-19 15:39:07 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml] & group[P6E-CLOUD]
+2023-10-19 15:39:07 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:39:07 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-19 15:39:07 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-19 15:39:07 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-19 15:39:07 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-19 15:49:23 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:49:24 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE] & group[P6E-CLOUD]
+2023-10-19 15:49:24 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE.yaml] & group[P6E-CLOUD]
+2023-10-19 15:49:24 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml] & group[P6E-CLOUD]
+2023-10-19 15:49:24 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:49:24 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-19 15:49:24 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-19 15:49:24 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-19 15:50:15 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:50:16 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE] & group[P6E-CLOUD]
+2023-10-19 15:50:16 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE.yaml] & group[P6E-CLOUD]
+2023-10-19 15:50:16 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml] & group[P6E-CLOUD]
+2023-10-19 15:50:16 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:50:17 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2023-10-19 15:50:18 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-19 15:50:18 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-19 15:50:18 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-19 15:50:18 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-19 15:50:50 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:50:51 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE] & group[P6E-CLOUD]
+2023-10-19 15:50:51 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE.yaml] & group[P6E-CLOUD]
+2023-10-19 15:50:51 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml] & group[P6E-CLOUD]
+2023-10-19 15:50:51 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-10-19 15:50:52 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2023-10-19 15:50:52 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-19 15:50:52 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-19 15:50:52 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-19 15:50:52 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-19 15:51:26 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class

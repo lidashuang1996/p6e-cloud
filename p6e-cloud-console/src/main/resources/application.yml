@@ -1,0 +1,9 @@
+server:
+  port: 30000
+
+spring:
+  application:
+    name: 'p6e-cloud-websocket-service-xxxx'
+
+logging:
+  config: 'classpath:p6e-cloud-logback.xml'

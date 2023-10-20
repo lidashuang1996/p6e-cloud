@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>club.p6e.cloud</groupId>
+        <artifactId>p6e-cloud-starter-parent</artifactId>
+        <version>3.1.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <artifactId>p6e-cloud-console</artifactId>
+    <version>3.1.0</version>
+    <name>p6e-cloud-console</name>
+    <description>p6e-cloud-console</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>club.p6e.cloud</groupId>
+            <artifactId>p6e-cloud-websocket-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Alibaba Nacos [START] -->
+        <!-- Spring Cloud Alibaba BootStrap [ START ] -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+        <!-- Spring Cloud Alibaba BootStrap [ END ] -->
+        <!-- Spring Cloud Alibaba Nacos Config [START] -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!-- Spring Cloud Alibaba Nacos Config [END] -->
+        <!-- Spring Cloud Alibaba Nacos Discovery [START] -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!-- Spring Cloud Alibaba Nacos Discovery [END] -->
+        <!-- Spring Cloud Alibaba Nacos [END] -->
+    </dependencies>
+</project>

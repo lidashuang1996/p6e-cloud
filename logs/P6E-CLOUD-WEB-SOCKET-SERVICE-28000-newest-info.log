@@ -1,0 +1,292 @@
+2023-10-19 15:35:05 [main] INFO - LOCAL_SNAPSHOT_PATH:C:\Users\a1294\nacos\config
+2023-10-19 15:35:05 [main] INFO - [RpcClientFactory] create a new rpc client of efefec82-b302-4580-8f35-b6f40a684ebf_config-0
+2023-10-19 15:35:05 [main] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3b140
+2023-10-19 15:35:05 [main] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3b560
+2023-10-19 15:35:05 [main] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:35:05 [main] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:35:05 [main] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:35:05 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:35:06 [main] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697700905848_192.168.0.2_57937
+2023-10-19 15:35:06 [com.alibaba.nacos.client.remote.worker] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Notify connected event to listeners.
+2023-10-19 15:35:06 [com.alibaba.nacos.client.remote.worker] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Connected,notify listen context...
+2023-10-19 15:35:06 [main] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:35:06 [main] INFO - [efefec82-b302-4580-8f35-b6f40a684ebf_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010c0a88
+2023-10-19 15:35:06 [main] INFO - limitTime:5.0
+2023-10-19 15:35:06 [main] INFO - Located property source: [BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml,SMART-SITE'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE.yaml,SMART-SITE'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE,SMART-SITE'}]
+2023-10-19 15:35:06 [main] INFO - The following 1 profile is active: "dev"
+2023-10-19 15:38:52 [main] INFO - LOCAL_SNAPSHOT_PATH:C:\Users\a1294\nacos\config
+2023-10-19 15:38:52 [main] INFO - [RpcClientFactory] create a new rpc client of 49984de3-c82e-4652-8624-f842be7cced2_config-0
+2023-10-19 15:38:52 [main] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f7b140
+2023-10-19 15:38:52 [main] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f7b560
+2023-10-19 15:38:52 [main] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:38:52 [main] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:38:52 [main] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:38:52 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:38:52 [main] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701132399_192.168.0.2_58099
+2023-10-19 15:38:52 [com.alibaba.nacos.client.remote.worker] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Notify connected event to listeners.
+2023-10-19 15:38:52 [com.alibaba.nacos.client.remote.worker] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Connected,notify listen context...
+2023-10-19 15:38:52 [main] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:38:52 [main] INFO - [49984de3-c82e-4652-8624-f842be7cced2_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010c4a98
+2023-10-19 15:38:52 [main] INFO - limitTime:5.0
+2023-10-19 15:38:52 [main] INFO - Located property source: [BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE,P6E-CLOUD'}]
+2023-10-19 15:38:52 [main] INFO - The following 1 profile is active: "dev"
+2023-10-19 15:39:06 [main] INFO - LOCAL_SNAPSHOT_PATH:C:\Users\a1294\nacos\config
+2023-10-19 15:39:06 [main] INFO - [RpcClientFactory] create a new rpc client of 04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0
+2023-10-19 15:39:06 [main] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3ae60
+2023-10-19 15:39:06 [main] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3b280
+2023-10-19 15:39:06 [main] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:39:06 [main] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:39:06 [main] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:39:06 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:39:07 [main] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701147038_192.168.0.2_58118
+2023-10-19 15:39:07 [com.alibaba.nacos.client.remote.worker] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Notify connected event to listeners.
+2023-10-19 15:39:07 [com.alibaba.nacos.client.remote.worker] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Connected,notify listen context...
+2023-10-19 15:39:07 [main] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:39:07 [main] INFO - [04d80dee-f4ef-483c-93d6-ee4f5d04f324_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010bfde8
+2023-10-19 15:39:07 [main] INFO - limitTime:5.0
+2023-10-19 15:39:07 [main] INFO - Located property source: [BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE,P6E-CLOUD'}]
+2023-10-19 15:39:07 [main] INFO - The following 1 profile is active: "dev"
+2023-10-19 15:49:23 [main] INFO - LOCAL_SNAPSHOT_PATH:C:\Users\a1294\nacos\config
+2023-10-19 15:49:23 [main] INFO - [RpcClientFactory] create a new rpc client of 562591fb-ca82-4ebd-a8b2-761706878813_config-0
+2023-10-19 15:49:23 [main] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3c068
+2023-10-19 15:49:23 [main] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3c488
+2023-10-19 15:49:23 [main] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:49:23 [main] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:49:23 [main] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:49:24 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:49:24 [main] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701764332_192.168.0.2_58338
+2023-10-19 15:49:24 [com.alibaba.nacos.client.remote.worker] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Notify connected event to listeners.
+2023-10-19 15:49:24 [com.alibaba.nacos.client.remote.worker] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Connected,notify listen context...
+2023-10-19 15:49:24 [main] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:49:24 [main] INFO - [562591fb-ca82-4ebd-a8b2-761706878813_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010c1ad0
+2023-10-19 15:49:24 [main] INFO - limitTime:5.0
+2023-10-19 15:49:24 [main] INFO - Located property source: [BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE,P6E-CLOUD'}]
+2023-10-19 15:49:24 [main] INFO - The following 1 profile is active: "dev"
+2023-10-19 15:50:15 [main] INFO - LOCAL_SNAPSHOT_PATH:C:\Users\a1294\nacos\config
+2023-10-19 15:50:15 [main] INFO - [RpcClientFactory] create a new rpc client of 6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0
+2023-10-19 15:50:15 [main] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3ae60
+2023-10-19 15:50:15 [main] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3b280
+2023-10-19 15:50:15 [main] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:50:15 [main] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:50:15 [main] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:50:15 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:50:16 [main] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701816243_192.168.0.2_58381
+2023-10-19 15:50:16 [com.alibaba.nacos.client.remote.worker] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Notify connected event to listeners.
+2023-10-19 15:50:16 [com.alibaba.nacos.client.remote.worker] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Connected,notify listen context...
+2023-10-19 15:50:16 [main] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:50:16 [main] INFO - [6f3adeb0-8596-483d-a4fe-f8d04f0a27d3_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010bfde8
+2023-10-19 15:50:16 [main] INFO - limitTime:5.0
+2023-10-19 15:50:16 [main] INFO - Located property source: [BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE,P6E-CLOUD'}]
+2023-10-19 15:50:16 [main] INFO - The following 1 profile is active: "dev"
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Dubbo Framework[1] is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Creating global shared handler ..., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Dubbo Application[1.0](unknown) is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Dubbo Module[1.0.0] is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Serialize check serializable: true, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.allowlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.blockedlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Dubbo Application[1.1](unknown) is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Dubbo Module[1.1.0] is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.allowlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.blockedlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Use default application: Dubbo Application[1.1](unknown), dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Dubbo Module[1.1.1] is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.allowlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.blockedlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Use default module model of target application: Dubbo Module[1.1.1], dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO -  [DUBBO] Bind Dubbo Module[1.1.1] to spring container: org.springframework.beans.factory.support.DefaultListableBeanFactory@66a53104, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:16 [main] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-19 15:50:16 [main] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-19 15:50:16 [main] INFO - Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2023-10-19 15:50:16 [main] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-19 15:50:16 [main] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-19 15:50:16 [main] INFO - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] Found 1 classes annotated by Dubbo @Service under package [club.p6e.cloud.websocket]: [club.p6e.cloud.websocket.dubbo.DubboProvider], dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] Register ServiceBean[ServiceBean:club.p6e.cloud.websocket.api.PushService::]: Root bean: class [org.apache.dubbo.config.spring.ServiceBean]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO - BeanFactory id=183d533c-7420-3170-acaa-f34a7e2f8716
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO - Tomcat initialized with port(s): 28000 (http)
+2023-10-19 15:50:17 [main] INFO - Initializing ProtocolHandler ["http-nio-28000"]
+2023-10-19 15:50:17 [main] INFO - Starting service [Tomcat]
+2023-10-19 15:50:17 [main] INFO - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-10-19 15:50:17 [main] INFO - Initializing Spring embedded WebApplicationContext
+2023-10-19 15:50:17 [main] INFO - Root WebApplicationContext: initialization completed in 1016 ms
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] loading dubbo config beans ..., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] dubbo config beans are loaded., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] No value is configured in the registry, the DynamicConfigurationFactory extension[name : nacos] supports as the config center, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] The registry[<dubbo:registry port="8848" address="nacos://192.168.0.99:8848" protocol="nacos" />] will be used as the config center, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] use registry as config-center: <dubbo:config-center highestPriority="false" id="config-center-nacos-192.168.0.99-8848" address="nacos://192.168.0.99:8848" protocol="nacos" port="8848" parameters="{client=null}" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-10-19 15:50:17 [main] INFO - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-10-19 15:50:17 [main] INFO - [RpcClientFactory] create a new rpc client of b0d7658b-41b0-4677-a92f-894db66ecc17_config-0
+2023-10-19 15:50:17 [main] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3ae60
+2023-10-19 15:50:17 [main] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3b280
+2023-10-19 15:50:17 [main] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:50:17 [main] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:50:17 [main] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:50:17 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:50:17 [main] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701817588_192.168.0.2_58382
+2023-10-19 15:50:17 [main] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:50:17 [com.alibaba.nacos.client.remote.worker] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Notify connected event to listeners.
+2023-10-19 15:50:17 [main] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010bfde8
+2023-10-19 15:50:17 [com.alibaba.nacos.client.remote.worker] INFO - [b0d7658b-41b0-4677-a92f-894db66ecc17_config-0] Connected,notify listen context...
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] The current configurations or effective configurations are as follows:, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] <dubbo:application enableFileCache="true" executorManagementMode="isolation" parameters="{}" name="P6E-CLOUD-WEB-SOCKET-SERVICE" protocol="dubbo" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] <dubbo:protocol preferSerialization="fastjson2,hessian2" name="dubbo" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] <dubbo:registry port="8848" address="nacos://192.168.0.99:8848" protocol="nacos" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] <dubbo:ssl />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] Dubbo Module[1.1.0] has been initialized!, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] Dubbo Module[1.1.1] has been initialized!, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] No value is configured in the registry, the MetadataReportFactory extension[name : nacos] supports as the metadata center, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] The registry[<dubbo:registry port="8848" address="nacos://192.168.0.99:8848" protocol="nacos" />] will be used as the metadata center, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] use registry as metadata-center: <dubbo:metadata-report address="nacos://192.168.0.99:8848" protocol="nacos" port="8848" parameters="{client=null}" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-10-19 15:50:17 [main] INFO - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-10-19 15:50:17 [main] INFO - [RpcClientFactory] create a new rpc client of 2d4745df-6311-4a57-9b2c-963865bcdb81_config-0
+2023-10-19 15:50:17 [main] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3ae60
+2023-10-19 15:50:17 [main] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3b280
+2023-10-19 15:50:17 [main] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:50:17 [main] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:50:17 [main] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:50:17 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:50:17 [main] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701817829_192.168.0.2_58383
+2023-10-19 15:50:17 [main] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:50:17 [main] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010bfde8
+2023-10-19 15:50:17 [com.alibaba.nacos.client.remote.worker] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Notify connected event to listeners.
+2023-10-19 15:50:17 [com.alibaba.nacos.client.remote.worker] INFO - [2d4745df-6311-4a57-9b2c-963865bcdb81_config-0] Connected,notify listen context...
+2023-10-19 15:50:17 [main] INFO -  [DUBBO] Dubbo Application[1.1](P6E-CLOUD-WEB-SOCKET-SERVICE) has been initialized!, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:17 [main] INFO - Stopping service [Tomcat]
+2023-10-19 15:50:18 [main] INFO - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-10-19 15:50:18 [DubboShutdownHook] INFO -  [DUBBO] Run shutdown hook now., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:50 [main] INFO - LOCAL_SNAPSHOT_PATH:C:\Users\a1294\nacos\config
+2023-10-19 15:50:50 [main] INFO - [RpcClientFactory] create a new rpc client of 6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0
+2023-10-19 15:50:50 [main] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3b3e0
+2023-10-19 15:50:50 [main] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3b800
+2023-10-19 15:50:50 [main] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:50:50 [main] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:50:50 [main] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:50:50 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:50:51 [main] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701850857_192.168.0.2_58408
+2023-10-19 15:50:51 [com.alibaba.nacos.client.remote.worker] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Notify connected event to listeners.
+2023-10-19 15:50:51 [com.alibaba.nacos.client.remote.worker] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Connected,notify listen context...
+2023-10-19 15:50:51 [main] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:50:51 [main] INFO - [6b8a0c98-f2a9-4407-ba93-5ec06bd8c2cf_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010c4a98
+2023-10-19 15:50:51 [main] INFO - limitTime:5.0
+2023-10-19 15:50:51 [main] INFO - Located property source: [BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE-dev.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE.yaml,P6E-CLOUD'}, BootstrapPropertySource {name='bootstrapProperties-P6E-CLOUD-WEB-SOCKET-SERVICE,P6E-CLOUD'}]
+2023-10-19 15:50:51 [main] INFO - The following 1 profile is active: "dev"
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Dubbo Framework[1] is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Creating global shared handler ..., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Dubbo Application[1.0](unknown) is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Dubbo Module[1.0.0] is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Serialize check serializable: true, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.allowlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.blockedlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Dubbo Application[1.1](unknown) is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Dubbo Module[1.1.0] is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.allowlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.blockedlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Use default application: Dubbo Application[1.1](unknown), dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Dubbo Module[1.1.1] is created, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Config settings: {dubbo.config.mode=STRICT, dubbo.config.ignore-duplicated-interface=false}, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Read serialize allow list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.allowlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Read serialize blocked list from jar:file:/C:/Users/a1294/.m2/repository/org/apache/dubbo/dubbo/3.2.7/dubbo-3.2.7.jar!/security/serialize.blockedlist, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Use default module model of target application: Dubbo Module[1.1.1], dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] Bind Dubbo Module[1.1.1] to spring container: org.springframework.beans.factory.support.DefaultListableBeanFactory@5d5a51b1, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:51 [main] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-19 15:50:51 [main] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-19 15:50:51 [main] INFO - Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2023-10-19 15:50:51 [main] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-19 15:50:51 [main] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-19 15:50:51 [main] INFO - Finished Spring Data repository scanning in 0 ms. Found 0 Redis repository interfaces.
+2023-10-19 15:50:51 [main] INFO - BeanFactory id=479afe15-2435-364d-b7e2-3e3f466e352a
+2023-10-19 15:50:51 [main] INFO -  [DUBBO] class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO - Tomcat initialized with port(s): 28000 (http)
+2023-10-19 15:50:52 [main] INFO - Initializing ProtocolHandler ["http-nio-28000"]
+2023-10-19 15:50:52 [main] INFO - Starting service [Tomcat]
+2023-10-19 15:50:52 [main] INFO - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-10-19 15:50:52 [main] INFO - Initializing Spring embedded WebApplicationContext
+2023-10-19 15:50:52 [main] INFO - Root WebApplicationContext: initialization completed in 988 ms
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] loading dubbo config beans ..., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] dubbo config beans are loaded., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] No value is configured in the registry, the DynamicConfigurationFactory extension[name : nacos] supports as the config center, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] The registry[<dubbo:registry port="8848" address="nacos://192.168.0.99:8848" protocol="nacos" />] will be used as the config center, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] use registry as config-center: <dubbo:config-center highestPriority="false" id="config-center-nacos-192.168.0.99-8848" address="nacos://192.168.0.99:8848" protocol="nacos" port="8848" parameters="{client=null}" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-10-19 15:50:52 [main] INFO - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-10-19 15:50:52 [main] INFO - [RpcClientFactory] create a new rpc client of 81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0
+2023-10-19 15:50:52 [main] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3b3e0
+2023-10-19 15:50:52 [main] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3b800
+2023-10-19 15:50:52 [main] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:50:52 [main] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:50:52 [main] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:50:52 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:50:52 [main] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701852169_192.168.0.2_58412
+2023-10-19 15:50:52 [main] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:50:52 [main] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010c4a98
+2023-10-19 15:50:52 [com.alibaba.nacos.client.remote.worker] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Notify connected event to listeners.
+2023-10-19 15:50:52 [com.alibaba.nacos.client.remote.worker] INFO - [81ea1f7a-f8da-4e2e-a084-45a9f2c2e216_config-0] Connected,notify listen context...
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] Config center was specified, but no config item found., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] The current configurations or effective configurations are as follows:, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] <dubbo:application enableFileCache="true" executorManagementMode="isolation" parameters="{}" name="P6E-CLOUD-WEB-SOCKET-SERVICE" protocol="dubbo" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] <dubbo:protocol preferSerialization="fastjson2,hessian2" name="dubbo" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] <dubbo:registry port="8848" address="nacos://192.168.0.99:8848" protocol="nacos" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] <dubbo:ssl />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] Dubbo Module[1.1.0] has been initialized!, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] Dubbo Module[1.1.1] has been initialized!, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] No value is configured in the registry, the MetadataReportFactory extension[name : nacos] supports as the metadata center, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] The registry[<dubbo:registry port="8848" address="nacos://192.168.0.99:8848" protocol="nacos" />] will be used as the metadata center, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] use registry as metadata-center: <dubbo:metadata-report address="nacos://192.168.0.99:8848" protocol="nacos" port="8848" parameters="{client=null}" />, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-10-19 15:50:52 [main] INFO - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-10-19 15:50:52 [main] INFO - [RpcClientFactory] create a new rpc client of 8c1a1caf-d878-4b6b-82ce-72adea461494_config-0
+2023-10-19 15:50:52 [main] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$607/0x0000000800f3b3e0
+2023-10-19 15:50:52 [main] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda$608/0x0000000800f3b800
+2023-10-19 15:50:52 [main] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2023-10-19 15:50:52 [main] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2023-10-19 15:50:52 [main] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Try to connect to server on start up, server: {serverIp = '192.168.0.99', server main port = 8848}
+2023-10-19 15:50:52 [main] INFO - grpc client connection server:192.168.0.99 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2023-10-19 15:50:52 [main] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Success to connect to server [192.168.0.99:8848] on start up, connectionId = 1697701852397_192.168.0.2_58413
+2023-10-19 15:50:52 [main] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-10-19 15:50:52 [main] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$628/0x00000008010c4a98
+2023-10-19 15:50:52 [com.alibaba.nacos.client.remote.worker] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Notify connected event to listeners.
+2023-10-19 15:50:52 [com.alibaba.nacos.client.remote.worker] INFO - [8c1a1caf-d878-4b6b-82ce-72adea461494_config-0] Connected,notify listen context...
+2023-10-19 15:50:52 [main] INFO -  [DUBBO] Dubbo Application[1.1](P6E-CLOUD-WEB-SOCKET-SERVICE) has been initialized!, dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:50:52 [main] INFO - Stopping service [Tomcat]
+2023-10-19 15:50:52 [main] INFO - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-10-19 15:50:52 [DubboShutdownHook] INFO -  [DUBBO] Run shutdown hook now., dubbo version: 3.2.7, current host: 192.168.5.19
+2023-10-19 15:51:26 [main] INFO - Starting P6eCloudWebSocketApplication using Java 17.0.7 with PID 40764 (D:\CodeContents\github\p6e-cloud\p6e-cloud-websocket\target\classes started by a1294 in D:\CodeContents\github\p6e-cloud)
+2023-10-19 15:51:26 [main] INFO - The following 1 profile is active: "dev"
+2023-10-19 15:51:26 [main] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-19 15:51:26 [main] INFO - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-19 15:51:26 [main] INFO - Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2023-10-19 15:51:26 [main] INFO - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-10-19 15:51:26 [main] INFO - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-10-19 15:51:26 [main] INFO - Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2023-10-19 15:51:26 [main] INFO - Tomcat initialized with port(s): 28000 (http)
+2023-10-19 15:51:26 [main] INFO - Initializing ProtocolHandler ["http-nio-28000"]
+2023-10-19 15:51:26 [main] INFO - Starting service [Tomcat]
+2023-10-19 15:51:26 [main] INFO - Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-10-19 15:51:26 [main] INFO - Initializing Spring embedded WebApplicationContext
+2023-10-19 15:51:26 [main] INFO - Root WebApplicationContext: initialization completed in 686 ms
+2023-10-19 15:51:26 [main] INFO - Stopping service [Tomcat]
+2023-10-19 15:51:26 [main] INFO - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.

@@ -1,0 +1,27 @@
+server:
+  port: 20000
+
+spring:
+  application:
+    name: 'p6e-cloud-gateway-service'
+  config:
+    import: D://env/p6e.yml
+
+logging:
+  config: 'classpath:p6e-cloud-logback.xml'
+
+p6e:
+  cloud:
+    gateway:
+      version: '20231020'
+      log:
+        details: false
+      referer:
+        enable: false
+        white-list:
+          - '*'
+      cross-domain:
+        enable: false
+      routes:
+      request-header-clear:
+      response-header-only:
