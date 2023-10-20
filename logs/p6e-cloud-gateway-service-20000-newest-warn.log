@@ -266,3 +266,4 @@ java.lang.IllegalStateException: Subscriber not created; Configure RedisConnecti
 2023-10-20 17:14:35 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
 2023-10-20 17:14:36 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
 2023-10-20 17:14:36 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-10-20 17:14:36 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
