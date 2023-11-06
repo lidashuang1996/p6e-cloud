@@ -773,3 +773,25 @@ Error starting ApplicationContext. To display the condition evaluation report re
 2023-10-20 17:14:38 [main] INFO - [fixed-192.168.0.99_8848] [subscribe] p6e-cloud-gateway-service.yaml+P6E-CLOUD
 2023-10-20 17:14:38 [main] INFO - [fixed-192.168.0.99_8848] [add-listener] ok, tenant=, dataId=p6e-cloud-gateway-service.yaml, group=P6E-CLOUD, cnt=1
 2023-10-20 17:14:38 [main] INFO - [Nacos Config] Listening config: dataId=p6e-cloud-gateway-service.yaml, group=P6E-CLOUD
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - De-registering from Nacos Server now...
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - [DEREGISTER-SERVICE] public deregistering service p6e-cloud-gateway-service with instance: Instance{instanceId='null', ip='192.168.5.19', port=20000, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - De-registration finished.
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Shutdown rpc client, set status to shutdown
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@63011dad[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Close current connection 1697793278528_192.168.0.2_62198
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@a896530[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 92]
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@74e0d1e2[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 129]
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - [null] CredentialWatcher is stopped
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - [null] CredentialService is freed
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop

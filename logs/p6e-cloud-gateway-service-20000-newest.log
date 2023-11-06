@@ -1412,3 +1412,79 @@ Caused by: java.util.concurrent.CancellationException: Disconnected
 2023-10-20 17:14:38 [main] INFO - [fixed-192.168.0.99_8848] [subscribe] p6e-cloud-gateway-service.yaml+P6E-CLOUD
 2023-10-20 17:14:38 [main] INFO - [fixed-192.168.0.99_8848] [add-listener] ok, tenant=, dataId=p6e-cloud-gateway-service.yaml, group=P6E-CLOUD, cnt=1
 2023-10-20 17:14:38 [main] INFO - [Nacos Config] Listening config: dataId=p6e-cloud-gateway-service.yaml, group=P6E-CLOUD
+2023-10-20 17:21:07 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-10-20 17:21:07 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-10-20 17:21:07 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-10-20 17:21:07 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-10-20 17:21:07 [lettuce-nioEventLoop-5-2] ERROR - Operator called default onErrorDropped
+reactor.core.Exceptions$ErrorCallbackNotImplemented: java.util.concurrent.CancellationException: Disconnected
+Caused by: java.util.concurrent.CancellationException: Disconnected
+	at reactor.core.publisher.FluxPublish$PublishSubscriber.disconnectAction(FluxPublish.java:327) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.FluxPublish$PublishSubscriber.dispose(FluxPublish.java:318) ~[reactor-core-3.5.6.jar:3.5.6]
+	at org.springframework.data.redis.connection.lettuce.LettuceReactiveSubscription$State.terminate(LettuceReactiveSubscription.java:271) ~[spring-data-redis-3.1.0.jar:3.1.0]
+	at org.springframework.data.redis.connection.lettuce.LettuceReactiveSubscription.lambda$cancel$8(LettuceReactiveSubscription.java:149) ~[spring-data-redis-3.1.0.jar:3.1.0]
+	at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:44) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.subscribeNext(MonoIgnoreThen.java:240) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.onComplete(MonoIgnoreThen.java:203) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onComplete(Operators.java:2205) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onComplete(MonoPeekTerminal.java:299) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onComplete(Operators.java:2205) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondComplete(MonoFlatMap.java:250) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.MonoFlatMap$FlatMapInner.onComplete(MonoFlatMap.java:324) ~[reactor-core-3.5.6.jar:3.5.6]
+	at reactor.core.publisher.MonoIgnoreElements$IgnoreElementsSubscriber.onComplete(MonoIgnoreElements.java:89) ~[reactor-core-3.5.6.jar:3.5.6]
+	at io.lettuce.core.RedisPublisher$ImmediateSubscriber.onComplete(RedisPublisher.java:900) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.RedisPublisher$State.onAllDataRead(RedisPublisher.java:702) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.RedisPublisher$State$3.read(RedisPublisher.java:612) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.RedisPublisher$State$3.onDataAvailable(RedisPublisher.java:569) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.RedisPublisher$RedisSubscription.onDataAvailable(RedisPublisher.java:326) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.RedisPublisher$RedisSubscription.onAllDataRead(RedisPublisher.java:341) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.RedisPublisher$SubscriptionCommand.doOnComplete(RedisPublisher.java:782) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.protocol.CommandWrapper.complete(CommandWrapper.java:65) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.pubsub.PubSubCommandHandler.completeCommand(PubSubCommandHandler.java:260) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.pubsub.PubSubCommandHandler.notifyPushListeners(PubSubCommandHandler.java:220) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:647) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.pubsub.PubSubCommandHandler.decode(PubSubCommandHandler.java:112) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:599) ~[lettuce-core-6.2.4.RELEASE.jar:6.2.4.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.97.Final.jar:4.1.97.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - De-registering from Nacos Server now...
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - [DEREGISTER-SERVICE] public deregistering service p6e-cloud-gateway-service with instance: Instance{instanceId='null', ip='192.168.5.19', port=20000, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - De-registration finished.
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Shutdown rpc client, set status to shutdown
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@63011dad[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Close current connection 1697793278528_192.168.0.2_62198
+2023-10-20 17:21:07 [nacos-grpc-client-executor-192.168.0.99-91] WARN - [1697793278528_192.168.0.2_62198]Ignore error event,isRunning:false,isAbandon=false
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@a896530[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 92]
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@74e0d1e2[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 129]
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - [null] CredentialWatcher is stopped
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - [null] CredentialService is freed
+2023-10-20 17:21:07 [SpringApplicationShutdownHook] INFO - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop

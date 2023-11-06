@@ -32,7 +32,6 @@ public class CustomRequestHeaderClearWebFilter implements WebFilter, Ordered {
      */
     private static final String[] HEADER_FILTERED = new String[]{
             "P6e-Voucher",
-            "P6e-Permission",
             "P6e-User-Info",
             "P6e-User-Permission",
     };
