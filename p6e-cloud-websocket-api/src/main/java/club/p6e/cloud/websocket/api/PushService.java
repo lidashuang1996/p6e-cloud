@@ -2,8 +2,6 @@ package club.p6e.cloud.websocket.api;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
 
 /**
  * Web Socket Push Service API

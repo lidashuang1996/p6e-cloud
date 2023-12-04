@@ -16,7 +16,6 @@ public class P6eCloudWebSocketApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(P6eCloudWebSocketApplication.class, args).getBean(DubboCr.class).send();
-
     }
 
 }
