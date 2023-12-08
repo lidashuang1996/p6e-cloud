@@ -64,6 +64,11 @@ public class Properties implements Serializable {
     @Accessors(chain = true)
     public static class Log implements Serializable {
         /**
+         * 是否启动
+         */
+        private boolean enabled = false;
+
+        /**
          * 是否启动打印
          */
         private boolean details = false;

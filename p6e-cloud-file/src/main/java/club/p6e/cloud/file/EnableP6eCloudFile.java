@@ -18,6 +18,7 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Import({
+        AuthValidator.class,
         AuthController.class,
         AuthRedisCache.class,
         VoucherRedisCache.class,

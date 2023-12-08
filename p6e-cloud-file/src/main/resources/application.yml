@@ -13,7 +13,7 @@ spring:
 
 
 p6e:
-  coat:
+  cloud:
     file:
       cross-domain:
         enable: true

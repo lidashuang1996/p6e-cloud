@@ -1,31 +1,36 @@
 package club.p6e.cloud.file.aspect;
 
+import club.p6e.coat.common.error.AuthException;
 import club.p6e.coat.file.aspect.CloseUploadAspect;
-import club.p6e.coat.file.aspect.DefaultCloseUploadAspectImpl;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
 /**
- * 切面（钩子）的默认实现
- *
  * @author lidashuang
  * @version 1.0
  */
 @Component
-@ConditionalOnMissingBean(
-        value = AuthCloseUploadAspectImpl.class,
-        ignored = AuthCloseUploadAspectImpl.class
-)
-public class AuthCloseUploadAspectImpl
-        extends DefaultCloseUploadAspectImpl implements CloseUploadAspect {
+public class AuthCloseUploadAspectImpl implements CloseUploadAspect {
 
+    /**
+     * 认证验证器对象
+     */
     private final AuthValidator validator;
 
+    /**
+     * 构造方法初始化
+     *
+     * @param validator 认证验证器对象
+     */
     public AuthCloseUploadAspectImpl(AuthValidator validator) {
         this.validator = validator;
+    }
+
+    @Override
+    public int order() {
+        return -1000;
     }
 
     @Override
@@ -33,12 +38,16 @@ public class AuthCloseUploadAspectImpl
         return validator
                 .execute(data)
                 .map(s -> true)
-                .switchIfEmpty(Mono.just(false));
+                .switchIfEmpty(Mono.error(new AuthException(
+                        this.getClass(),
+                        "fun before(Map<String, Object> data).",
+                        "Request authentication information has expired"
+                )));
     }
 
     @Override
     public Mono<Boolean> after(Map<String, Object> data, Map<String, Object> result) {
-        return super.after(data, result);
+        return Mono.just(true);
     }
 
 }

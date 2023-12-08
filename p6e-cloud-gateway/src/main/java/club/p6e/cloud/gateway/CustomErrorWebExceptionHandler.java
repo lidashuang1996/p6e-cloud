@@ -1,5 +1,6 @@
 package club.p6e.cloud.gateway;
 
+import club.p6e.coat.common.utils.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.web.WebProperties;
@@ -44,12 +45,6 @@ public class CustomErrorWebExceptionHandler
             = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
-     * 错误结果内容
-     */
-    private static final String ERROR_RESULT_CONTENT =
-            "{\"code\":500,\"message\":\"Service Error\",\"data\":\"Service Error\"}";
-
-    /**
      * 注入日志对象
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomErrorWebExceptionHandler.class);
@@ -59,11 +54,13 @@ public class CustomErrorWebExceptionHandler
      */
     private static final String DATE = "date";
     private static final String CODE = "code";
-    private static final String PATH = "path";
     private static final String ERROR = "error";
     private static final String STATUS = "status";
     private static final String MESSAGE = "message";
     private static final String TIMESTAMP = "timestamp";
+    @SuppressWarnings("ALL")
+    private static final String PATH = "path";
+    @SuppressWarnings("ALL")
     private static final String REQUEST_ID = "requestId";
 
     /**
@@ -102,7 +99,7 @@ public class CustomErrorWebExceptionHandler
             return ServerResponse
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body(Mono.just(ERROR_RESULT_CONTENT), String.class);
+                    .body(Mono.just(JsonUtil.toJson(errorMap)), String.class);
         });
     }
 

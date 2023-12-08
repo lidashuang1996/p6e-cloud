@@ -17,17 +17,31 @@ import java.util.List;
 @Component
 public class CustomRouteLocator implements RouteLocator {
 
+    /**
+     * 路由对象
+     */
     private Flux<Route> routes;
+
+    /**
+     * 事件创建对象
+     */
     private final ApplicationEventPublisher publisher;
 
     public CustomRouteLocator(ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
 
+    /**
+     * 刷新路由
+     *
+     * @param routeDefinitions 路由定义对象
+     */
     public void refresh(List<RouteDefinition> routeDefinitions) {
+        // 创建路由对象
         routes = Flux
                 .fromIterable(routeDefinitions)
                 .map(rd -> Route.builder(rd).build());
+        // 触发刷新路由事件
         publisher.publishEvent(new RefreshRoutesEvent(this));
     }
 
@@ -35,4 +49,5 @@ public class CustomRouteLocator implements RouteLocator {
     public Flux<Route> getRoutes() {
         return routes == null ? Flux.empty() : routes;
     }
+
 }

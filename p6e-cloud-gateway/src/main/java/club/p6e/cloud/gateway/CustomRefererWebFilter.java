@@ -42,7 +42,7 @@ public class CustomRefererWebFilter implements WebFilter, Ordered {
      * 错误结果内容
      */
     private static final String ERROR_RESULT_CONTENT =
-            "{\"code\":403,\"message\":\"Forbidden\",\"data\":\"Forbidden\"}";
+            "{\"code\":403,\"message\":\"Forbidden\",\"data\":\"Referer Exception\"}";
 
     /**
      * 配置文件对象

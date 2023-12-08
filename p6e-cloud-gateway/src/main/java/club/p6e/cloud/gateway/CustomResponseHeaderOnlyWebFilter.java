@@ -17,13 +17,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 自定义返回头清除过滤器
+ * 自定义返回头唯一过滤器
  *
  * @author lidashuang
  * @version 1.0
  */
 @Component
-public class CustomResponseHeaderClearWebFilter implements WebFilter, Ordered {
+public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
 
     /**
      * 执行顺序
@@ -31,7 +31,7 @@ public class CustomResponseHeaderClearWebFilter implements WebFilter, Ordered {
     private static final int ORDER = -2900;
 
     /**
-     * 需要唯一的数据头
+     * 需要唯一的返回数据头
      */
     private static final String[] HEADER_FILTERED = new String[]{
             "Content-Type",
@@ -48,7 +48,7 @@ public class CustomResponseHeaderClearWebFilter implements WebFilter, Ordered {
      *
      * @param properties 配置文件对象
      */
-    public CustomResponseHeaderClearWebFilter(Properties properties) {
+    public CustomResponseHeaderOnlyWebFilter(Properties properties) {
         this.properties = properties;
     }
 

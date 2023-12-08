@@ -1,5 +1,6 @@
 package club.p6e.cloud.gateway;
 
+import club.p6e.coat.common.utils.JsonUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.reactivestreams.Publisher;
@@ -134,6 +135,7 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
          * 模型对象
          */
         private final Model model;
+
         /**
          * 返回的 Request 对象
          */
@@ -334,64 +336,68 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
         @Override
         public @NonNull
         Mono<Void> writeWith(@NonNull Publisher<? extends DataBuffer> body) {
-            return super.writeWith(DataBufferUtils.join(body)
-                    .map(dataBuffer -> {
-                        // 读取数据
-                        final byte[] bytes = new byte[dataBuffer.readableByteCount()];
-                        dataBuffer.read(bytes);
-                        // 释放掉内存
-                        DataBufferUtils.release(dataBuffer);
-                        return bytes;
-                    })
-                    .defaultIfEmpty(new byte[0])
-                    .flatMap(bytes -> {
-                        // 重新写入到返回
-                        // 写入指定的请求数据类型
-                        final Map<String, String> rBodyMap = new HashMap<>(3);
-                        final List<String> types = response.getHeaders().get(HttpHeaders.CONTENT_TYPE);
-                        if (types == null || types.isEmpty()) {
-                            rBodyMap.put("type", "unknown");
-                            rBodyMap.put("size", String.valueOf(bytes.length));
-                        } else {
-                            final String type = types.get(0);
-                            rBodyMap.put("type", type);
-                            rBodyMap.put("size", String.valueOf(bytes.length));
-                            // 如果请求的类型为 JSON / FORM 那么就打印全部的信息
-                            if (type.startsWith(MediaType.APPLICATION_JSON_VALUE)) {
-                                rBodyMap.put("content", new String(bytes, StandardCharsets.UTF_8)
-                                        .replaceAll("\r", "").replaceAll("\n", ""));
+            if (properties.getLog().isEnabled()) {
+                return super.writeWith(DataBufferUtils.join(body)
+                        .map(dataBuffer -> {
+                            // 读取数据
+                            final byte[] bytes = new byte[dataBuffer.readableByteCount()];
+                            dataBuffer.read(bytes);
+                            // 释放掉内存
+                            DataBufferUtils.release(dataBuffer);
+                            return bytes;
+                        })
+                        .defaultIfEmpty(new byte[0])
+                        .flatMap(bytes -> {
+                            // 重新写入到返回
+                            // 写入指定的请求数据类型
+                            final Map<String, String> rBodyMap = new HashMap<>(3);
+                            final List<String> types = response.getHeaders().get(HttpHeaders.CONTENT_TYPE);
+                            if (types == null || types.isEmpty()) {
+                                rBodyMap.put("type", "unknown");
+                                rBodyMap.put("size", String.valueOf(bytes.length));
                             } else {
-                                final int length = Math.min(1024, bytes.length);
-                                final byte[] cBytes = new byte[length];
-                                System.arraycopy(bytes, 0, cBytes, 0, length);
-                                rBodyMap.put("content", new String(cBytes, StandardCharsets.UTF_8));
+                                final String type = types.get(0);
+                                rBodyMap.put("type", type);
+                                rBodyMap.put("size", String.valueOf(bytes.length));
+                                // 如果请求的类型为 JSON / FORM 那么就打印全部的信息
+                                if (type.startsWith(MediaType.APPLICATION_JSON_VALUE)) {
+                                    rBodyMap.put("content", new String(bytes, StandardCharsets.UTF_8)
+                                            .replaceAll("\r", "").replaceAll("\n", ""));
+                                } else {
+                                    final int length = Math.min(1024, bytes.length);
+                                    final byte[] cBytes = new byte[length];
+                                    System.arraycopy(bytes, 0, cBytes, 0, length);
+                                    rBodyMap.put("content", new String(cBytes, StandardCharsets.UTF_8));
+                                }
                             }
-                        }
-                        model.setResponseDateTime(LocalDateTime.now());
-                        model.setResponseBody(JsonUtil.toJson(rBodyMap));
-                        model.setResponseHeaders(JsonUtil.toJson(response.getHeaders()));
-                        model.setResponseCookies(JsonUtil.toJson(response.getCookies()));
-                        // 从请求头中获取最新请求头数据里面的用户信息
-                        // ===== USER INFO ========================================
-                        final List<String> userInfoData = request.getHeaders().get(USER_INFO_HEADER);
-                        if (userInfoData != null) {
-                            model.setUser(JsonUtil.toJson(userInfoData));
-                        }
-                        // ===== USER INFO ========================================
-                        if (model.getRequestDateTime() != null && model.getResponseDateTime() != null) {
-                            final long s = model.getRequestDateTime().toInstant(ZoneOffset.of("+8")).toEpochMilli();
-                            final long e = model.getResponseDateTime().toInstant(ZoneOffset.of("+8")).toEpochMilli();
-                            // 写入请求间隔的时间
-                            model.setIntervalDateTime(e - s);
-                        }
-                        if (properties.getLog().isDetails()) {
-                            LOGGER.info(model.toString());
-                        } else {
-                            LOGGER.info("[" + model.getRequestMethod() + "] "
-                                    + model.getPath() + " \r\n ::: " + model.getUser());
-                        }
-                        return Mono.just(DATA_BUFFER_FACTORY.wrap(bytes));
-                    }));
+                            model.setResponseDateTime(LocalDateTime.now());
+                            model.setResponseBody(JsonUtil.toJson(rBodyMap));
+                            model.setResponseHeaders(JsonUtil.toJson(response.getHeaders()));
+                            model.setResponseCookies(JsonUtil.toJson(response.getCookies()));
+                            // 从请求头中获取最新请求头数据里面的用户信息
+                            // ===== USER INFO ========================================
+                            final List<String> userInfoData = request.getHeaders().get(USER_INFO_HEADER);
+                            if (userInfoData != null) {
+                                model.setUser(JsonUtil.toJson(userInfoData));
+                            }
+                            // ===== USER INFO ========================================
+                            if (model.getRequestDateTime() != null && model.getResponseDateTime() != null) {
+                                final long s = model.getRequestDateTime().toInstant(ZoneOffset.of("+8")).toEpochMilli();
+                                final long e = model.getResponseDateTime().toInstant(ZoneOffset.of("+8")).toEpochMilli();
+                                // 写入请求间隔的时间
+                                model.setIntervalDateTime(e - s);
+                            }
+                            if (properties.getLog().isDetails()) {
+                                LOGGER.info(model.toString());
+                            } else {
+                                LOGGER.info("[" + model.getRequestMethod() + "] "
+                                        + model.getPath() + " \r\n ::: " + model.getUser());
+                            }
+                            return Mono.just(DATA_BUFFER_FACTORY.wrap(bytes));
+                        }));
+            } else {
+                return super.writeWith(body);
+            }
         }
     }
 

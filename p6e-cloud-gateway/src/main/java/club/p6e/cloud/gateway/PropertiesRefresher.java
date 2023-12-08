@@ -1,24 +1,13 @@
 package club.p6e.cloud.gateway;
 
-import io.r2dbc.spi.Connection;
-import io.r2dbc.spi.ConnectionFactory;
-import jakarta.annotation.Nonnull;
+import club.p6e.coat.common.utils.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
 import org.springframework.cloud.gateway.handler.predicate.PredicateDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinition;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.event.ContextClosedEvent;
-import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
-import org.springframework.data.redis.listener.ChannelTopic;
-import org.springframework.data.redis.listener.ReactiveRedisMessageListenerContainer;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -34,104 +23,30 @@ import java.util.Map;
 @Configuration
 public class PropertiesRefresher {
 
+    /**
+     * 注入日志对象
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesRefresher.class);
 
-    public static class ReadyEventListener implements ApplicationListener<ApplicationReadyEvent> {
-
-        private final PropertiesRefresher refresher;
-
-        public ReadyEventListener(PropertiesRefresher refresher) {
-            this.refresher = refresher;
-        }
-
-        @Override
-        public void onApplicationEvent(@Nonnull ApplicationReadyEvent event) {
-            refresher.init();
-        }
-    }
-
-    public static class ContextClosedEventListener implements ApplicationListener<ContextClosedEvent> {
-
-        private final PropertiesRefresher refresher;
-
-        public ContextClosedEventListener(PropertiesRefresher refresher) {
-            this.refresher = refresher;
-        }
-
-        @Override
-        public void onApplicationEvent(@Nonnull ContextClosedEvent event) {
-            refresher.close();
-        }
-    }
-
-    @Bean
-    public ReadyEventListener injectReadyEventListener(PropertiesRefresher refresher) {
-        return new ReadyEventListener(refresher);
-    }
-
-    @Bean
-    public ContextClosedEventListener injectContextClosedEventListener(PropertiesRefresher refresher) {
-        return new ContextClosedEventListener(refresher);
-    }
-
+    /**
+     * 配置文件对象
+     */
     private final Properties properties;
+
+    /**
+     * 自定义路由定位器
+     */
     private final CustomRouteLocator locator;
-    private final ConnectionFactory databaseFactory;
-    private final ReactiveRedisMessageListenerContainer container;
 
-    public PropertiesRefresher(
-            Properties properties,
-            CustomRouteLocator locator,
-            ConnectionFactory databaseFactory,
-            ReactiveRedisConnectionFactory redisFactory
-    ) {
-        final ReactiveRedisMessageListenerContainer container =
-                new ReactiveRedisMessageListenerContainer(redisFactory);
+    /**
+     * 构造方法初始化
+     *
+     * @param properties 配置文件对象
+     * @param locator    路由初始化定位器
+     */
+    public PropertiesRefresher(Properties properties, CustomRouteLocator locator) {
         this.locator = locator;
-        this.container = container;
         this.properties = properties;
-        this.databaseFactory = databaseFactory;
-    }
-
-    public void init() {
-        container
-                .receive(new ChannelTopic("p6e-cloud-gateway-config-topic"))
-                .doOnNext(message -> execute())
-                .subscribe();
-    }
-
-    public void close() {
-        container.destroy();
-    }
-
-    @SuppressWarnings("ALL")
-    private static final String SELECT_SQL = "" +
-            "  SELECT  " +
-            "  `id`, `type`, `key`, `value`  " +
-            "  FROM `p6e_config`  " +
-            "  WHERE `p6e_config`.`type` = 'club.p6e.cloud.gateway.properties'  " +
-            "  ;  ";
-
-    public void execute() {
-        execute(Mono.usingWhen(
-                databaseFactory.create(),
-                connection -> Flux
-                        .from(connection.createStatement(SELECT_SQL).execute())
-                        .flatMap(r -> Mono.from(r.map((row, metadata) -> new HashMap<String, String>() {{
-                            put("id", String.valueOf(row.get("id", Integer.class)));
-                            put("key", row.get("key", String.class));
-                            put("value", row.get("value", String.class));
-                        }})))
-                        .collectList()
-                        .map(list -> {
-                            final Map<String, String> result = new HashMap<>();
-                            for (final Map<String, String> item : list) {
-                                result.put(item.get("key"), item.get("value"));
-                            }
-                            return result;
-                        }),
-                Connection::close
-        ).block());
     }
 
     public void execute(Map<String, String> data) {
