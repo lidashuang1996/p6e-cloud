@@ -7,6 +7,8 @@ import jakarta.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
+import org.yaml.snakeyaml.Yaml;
 
 import java.io.StringReader;
 import java.util.HashMap;
@@ -16,6 +18,7 @@ import java.util.Map;
  * @author lidashuang
  * @version 1.0
  */
+@Component
 public class NacosPropertiesRefresher implements ApplicationListener<ApplicationReadyEvent> {
 
     @Value(value = "${spring.profiles.active}")
@@ -68,15 +71,35 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
     }
 
     protected void config(String content) {
-        refresher.execute(propertiesToMapData(content));
+        System.out.println(content);
+        switch (fileExtension.toLowerCase()) {
+            case "yaml":
+                refresher.execute(yamlToMapData(content));
+                break;
+            case "properties":
+                refresher.execute(propertiesToMapData(content));
+                break;
+            default:
+                break;
+        }
     }
 
-    protected Map<String, String> propertiesToMapData(String content) {
+    protected Map<String, Object> yamlToMapData(String content) {
+        final Yaml yaml = new Yaml();
+        final Map<String, Object> result = new HashMap<>();
+        final Map<?, ?> map = yaml.loadAs(content, Map.class);
+        if (map != null) {
+            map.forEach((k, v) -> result.put(String.valueOf(k).toLowerCase(), v));
+        }
+        return result;
+    }
+
+    protected Map<String, Object> propertiesToMapData(String content) {
         try (final StringReader reader = new StringReader(content)) {
-            final Map<String, String> result = new HashMap<>();
+            final Map<String, Object> result = new HashMap<>();
             final java.util.Properties properties = new java.util.Properties();
             properties.load(reader);
-            properties.forEach((k, v) -> result.put(String.valueOf(k), String.valueOf(v)));
+            properties.forEach((k, v) -> result.put(String.valueOf(k).toLowerCase(), v));
             return result;
         } catch (Exception e) {
             throw new RuntimeException(e);

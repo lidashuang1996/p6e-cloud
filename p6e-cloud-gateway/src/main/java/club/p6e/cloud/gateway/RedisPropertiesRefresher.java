@@ -147,7 +147,7 @@ public class RedisPropertiesRefresher {
     protected void execute(MessageModel message) {
         if (message != null
                 && "config".equalsIgnoreCase(message.getType())) {
-            this.refresher.execute(JsonUtil.fromJsonToMap(message.getData(), String.class, String.class));
+            // this.refresher.execute();
         }
     }
 

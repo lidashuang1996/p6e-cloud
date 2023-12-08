@@ -8,6 +8,12 @@ spring:
     name: 'p6e-cloud-gateway-service'
   config:
     import: D://env/p6e.yml
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
 logging:
   config: 'classpath:p6e-cloud-logback.xml'

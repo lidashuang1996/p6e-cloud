@@ -272,3 +272,500 @@
 2023-12-08 11:58:03 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
 2023-12-08 11:58:03 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
 2023-12-08 11:58:03 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:26:57 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:26:57 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:26:57 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:26:57 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 12:26:57 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 12:26:57 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 12:26:57 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 12:26:57 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 12:26:57 [nacos-grpc-client-executor-192.168.0.99-360] WARN - [1702007887599_192.168.0.3_52955]Ignore error event,isRunning:false,isAbandon=false
+2023-12-08 12:27:01 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:27:02 [main] WARN - [fixed-127.0.0.1_8848] [get-config] get from server error, dataId=p6e-cloud-gateway-service, group=DEFAULT_GROUP, tenant=, msg=ErrCode:-401, ErrMsg:Client not connected, current status:STARTING
+2023-12-08 12:27:02 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[DEFAULT_GROUP]
+2023-12-08 12:27:02 [main] WARN - [fixed-127.0.0.1_8848] [get-config] get from server error, dataId=p6e-cloud-gateway-service.properties, group=DEFAULT_GROUP, tenant=, msg=ErrCode:-401, ErrMsg:Client not connected, current status:STARTING
+2023-12-08 12:27:02 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.properties] & group[DEFAULT_GROUP]
+2023-12-08 12:27:02 [main] WARN - [fixed-127.0.0.1_8848] [get-config] get from server error, dataId=p6e-cloud-gateway-service-dev.properties, group=DEFAULT_GROUP, tenant=, msg=ErrCode:-401, ErrMsg:Client not connected, current status:STARTING
+2023-12-08 12:27:02 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service-dev.properties] & group[DEFAULT_GROUP]
+2023-12-08 12:27:02 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:27:04 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2023-12-08 12:27:04 [main] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 12:27:04 [main] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 12:27:04 [main] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 12:27:04 [main] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 12:27:08 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:27:08 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:27:08 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:27:08 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 12:29:04 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:29:05 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 12:29:05 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 12:29:05 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:29:06 [boundedElastic-3] WARN - write P6E-CLOUD%40%40p6e-cloud-gateway-service conflict;retry time: 1
+2023-12-08 12:35:07 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:35:07 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:35:07 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:35:07 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 12:35:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 12:35:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 12:35:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 12:35:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 12:35:12 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:35:13 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 12:35:13 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 12:35:13 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:35:14 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertiesRefresher' defined in file [D:\CodeContents\github\p6e-cloud\p6e-cloud-gateway\target\classes\club\p6e\cloud\gateway\PropertiesRefresher.class]: Failed to instantiate [club.p6e.cloud.gateway.PropertiesRefresher$$SpringCGLIB$$0]: Constructor threw exception
+2023-12-08 12:35:14 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:35:14 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:35:14 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:35:50 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:35:50 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 12:35:50 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 12:35:50 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:35:52 [boundedElastic-4] WARN - write P6E-CLOUD%40%40p6e-cloud-gateway-service conflict;retry time: 1
+2023-12-08 12:36:39 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:36:39 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:36:39 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:36:39 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 12:36:39 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 12:36:39 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 12:36:39 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 12:36:39 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 12:36:44 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:36:44 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 12:36:44 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 12:36:44 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:36:45 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertiesRefresher' defined in file [D:\CodeContents\github\p6e-cloud\p6e-cloud-gateway\target\classes\club\p6e\cloud\gateway\PropertiesRefresher.class]: Failed to instantiate [club.p6e.cloud.gateway.PropertiesRefresher$$SpringCGLIB$$0]: Constructor threw exception
+2023-12-08 12:36:46 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:36:46 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:36:46 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:36:46 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 12:38:10 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:38:10 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 12:38:10 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 12:38:10 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:38:11 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertiesRefresher' defined in file [D:\CodeContents\github\p6e-cloud\p6e-cloud-gateway\target\classes\club\p6e\cloud\gateway\PropertiesRefresher.class]: Failed to instantiate [club.p6e.cloud.gateway.PropertiesRefresher$$SpringCGLIB$$0]: Constructor threw exception
+2023-12-08 12:38:12 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:38:12 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:38:12 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:38:12 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 12:41:44 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:41:44 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 12:41:44 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 12:41:44 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:41:45 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertiesRefresher' defined in file [D:\CodeContents\github\p6e-cloud\p6e-cloud-gateway\target\classes\club\p6e\cloud\gateway\PropertiesRefresher.class]: Failed to instantiate [club.p6e.cloud.gateway.PropertiesRefresher$$SpringCGLIB$$0]: Constructor threw exception
+2023-12-08 12:41:46 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:41:46 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:41:46 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:41:46 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 12:42:14 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:42:14 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 12:42:14 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 12:42:14 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:42:15 [main] WARN - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'propertiesRefresher' defined in file [D:\CodeContents\github\p6e-cloud\p6e-cloud-gateway\target\classes\club\p6e\cloud\gateway\PropertiesRefresher.class]: Failed to instantiate [club.p6e.cloud.gateway.PropertiesRefresher$$SpringCGLIB$$0]: Constructor threw exception
+2023-12-08 12:42:16 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 12:42:16 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 12:42:16 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 12:57:21 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 12:57:21 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 12:57:21 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 12:57:21 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 13:04:00 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 13:04:00 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 13:04:00 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 13:04:00 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 13:04:00 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 13:04:00 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 13:04:00 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 13:04:00 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 13:04:05 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 13:04:06 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 13:04:06 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 13:04:06 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 13:04:54 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 13:04:54 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 13:04:54 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 13:04:54 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 13:04:54 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 13:04:54 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:19:55 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:19:55 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:19:55 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:19:55 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 14:19:55 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 14:19:55 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:20:25 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 14:20:25 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 14:20:25 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 14:20:25 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 14:20:25 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:20:25 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:20:25 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:20:25 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:20:30 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:20:31 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 14:20:31 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 14:20:31 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:06 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:06 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:06 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:06 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 14:21:06 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 14:21:06 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:46 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 14:21:46 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 14:21:46 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 14:21:46 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 14:21:46 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:21:46 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:21:46 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:21:46 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:21:52 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:52 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 14:21:52 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 14:21:52 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:58 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:58 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:58 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:21:59 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 14:21:59 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 14:21:59 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:23:06 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 14:23:06 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 14:23:06 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 14:23:06 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 14:23:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:23:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:23:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:23:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:23:11 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:23:12 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 14:23:12 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 14:23:12 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:23:33 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:23:33 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:23:33 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:23:33 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 14:23:33 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 14:23:33 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:30:22 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 14:30:22 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 14:30:22 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 14:30:22 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 14:30:22 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:30:22 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:30:22 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:30:22 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:30:27 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:30:28 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 14:30:28 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 14:30:28 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:31:41 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:31:41 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:31:41 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:31:41 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 14:31:41 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 14:31:41 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:32:09 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 14:32:09 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 14:32:09 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 14:32:09 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 14:32:09 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:32:09 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:32:09 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 14:32:09 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 14:32:14 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:32:15 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 14:32:15 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 14:32:15 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:32:20 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:32:20 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:32:20 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 14:32:20 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 14:32:20 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 14:32:20 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:02:28 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:02:28 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:02:28 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:02:28 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:02:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:02:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:02:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:02:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:02:50 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:02:50 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:02:50 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:02:51 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:03:40 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:03:40 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:03:40 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:03:40 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:03:40 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:03:40 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:05:21 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:05:21 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:05:21 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:05:21 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:05:21 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:05:21 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:05:21 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:05:21 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:05:26 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:05:27 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:05:27 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:05:27 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:06:00 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:06:00 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:06:00 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:06:00 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:06:00 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:06:00 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:07:24 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:07:24 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:07:24 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:07:24 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:07:24 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:07:24 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:09:06 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:09:06 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:09:06 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:09:06 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:09:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:09:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:09:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:09:06 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:09:12 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:09:12 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:09:12 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:09:12 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:09:28 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:09:28 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:09:28 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:09:28 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:09:28 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:09:28 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:13:09 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:13:09 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:13:09 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:13:09 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:13:09 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:13:09 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:13:09 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:13:09 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:13:14 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:13:15 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:13:15 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:13:15 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:13:27 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:13:27 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:13:27 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:13:27 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:13:27 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:13:27 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:14:56 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:14:56 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:14:56 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:14:56 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:14:56 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:14:56 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:14:56 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:14:56 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:15:02 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:15:02 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:15:02 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:15:02 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:15:19 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:15:19 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:15:19 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:15:19 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:15:19 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:15:19 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:20:23 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:20:23 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:20:23 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:20:23 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:20:23 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:20:23 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:20:23 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:20:23 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:20:29 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:20:30 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:20:30 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:20:30 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:20:55 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:20:55 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:20:55 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:20:55 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:20:55 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:20:55 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:22:14 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:22:14 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:22:14 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:22:14 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:22:14 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:22:14 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:22:14 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:22:14 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:22:19 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:22:20 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:22:20 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:22:20 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:24:11 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:24:11 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:24:11 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:24:11 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:24:11 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:24:11 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:30:22 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:30:22 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:30:22 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:30:22 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:30:22 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:30:22 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:30:22 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:30:22 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:30:27 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:30:28 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:30:28 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:30:28 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:30:39 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:30:39 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:30:39 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:30:39 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:30:39 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:30:39 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:31:47 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:31:47 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:31:47 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:31:47 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:31:47 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:31:47 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:31:47 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:31:47 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:31:52 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:31:53 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:31:53 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:31:53 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:32:07 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:32:07 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:32:07 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:32:07 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:32:07 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:32:07 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:33:07 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:33:07 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:33:07 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:33:07 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:33:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:33:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:33:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:33:07 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:33:13 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:33:14 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:33:14 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:33:14 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:33:27 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:33:27 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:33:27 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:33:27 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:33:27 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:33:27 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:37:30 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:37:30 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:37:30 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:37:30 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:37:30 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:37:30 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:43:52 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:43:52 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:43:52 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:43:52 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:43:52 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:43:52 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:43:52 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:43:52 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:43:58 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:43:58 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:43:58 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:43:58 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:44:12 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:44:12 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:44:12 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:44:12 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:44:12 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:44:12 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:48:32 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:48:32 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:48:32 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:48:32 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:48:32 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:48:32 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:49:36 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:49:36 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:49:36 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:49:36 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:49:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:49:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:49:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:49:36 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:49:42 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:49:42 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:49:42 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:49:42 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:50:01 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:50:01 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:50:01 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:50:01 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:50:01 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:50:01 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:54:43 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 15:54:43 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 15:54:43 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 15:54:43 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 15:54:43 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:54:43 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:54:43 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 15:54:43 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 15:54:48 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:54:49 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 15:54:49 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 15:54:49 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:54:57 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:54:57 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:54:57 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 15:54:57 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 15:54:57 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 15:54:57 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:00:32 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:00:32 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:00:32 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:00:32 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 16:00:32 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 16:00:32 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:36:17 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 16:36:17 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 16:36:17 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 16:36:17 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 16:36:17 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 16:36:17 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 16:36:17 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 16:36:17 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 16:36:22 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:36:23 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service] & group[P6E-CLOUD]
+2023-12-08 16:36:23 [main] WARN - Ignore the empty nacos configuration and get it based on dataId[p6e-cloud-gateway-service.yaml] & group[P6E-CLOUD]
+2023-12-08 16:36:23 [main] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:36:47 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:36:47 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:36:47 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 16:36:47 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null.yaml] & group[P6E-CLOUD]
+2023-12-08 16:36:47 [nacos.client.cachedata.internal.notifier] WARN - Ignore the empty nacos configuration and get it based on dataId[null-dev.yaml] & group[P6E-CLOUD]
+2023-12-08 16:36:47 [nacos.client.cachedata.internal.notifier] WARN - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2023-12-08 17:51:30 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-12-08 17:51:30 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
+2023-12-08 17:51:30 [Thread-7] WARN - [NotifyCenter] Destruction of the end
+2023-12-08 17:51:30 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
+2023-12-08 17:51:30 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 17:51:30 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
+2023-12-08 17:51:30 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2023-12-08 17:51:30 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end

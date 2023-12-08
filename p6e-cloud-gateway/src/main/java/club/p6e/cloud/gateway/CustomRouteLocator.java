@@ -1,32 +1,37 @@
 package club.p6e.cloud.gateway;
 
 import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
-import org.springframework.cloud.gateway.route.Route;
-import org.springframework.cloud.gateway.route.RouteDefinition;
-import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.*;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author lidashuang
  * @version 1.0
  */
 @Component
-public class CustomRouteLocator implements RouteLocator {
-
-    /**
-     * 路由对象
-     */
-    private Flux<Route> routes;
+public class CustomRouteLocator implements RouteDefinitionRepository {
 
     /**
      * 事件创建对象
      */
     private final ApplicationEventPublisher publisher;
 
+    /**
+     * 路由对象
+     */
+    private final List<RouteDefinition> routeDefinitions = new CopyOnWriteArrayList<>();
+
+    /**
+     * 构造方法初始化
+     *
+     * @param publisher 事件创建器
+     */
     public CustomRouteLocator(ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
@@ -37,17 +42,31 @@ public class CustomRouteLocator implements RouteLocator {
      * @param routeDefinitions 路由定义对象
      */
     public void refresh(List<RouteDefinition> routeDefinitions) {
-        // 创建路由对象
-        routes = Flux
-                .fromIterable(routeDefinitions)
-                .map(rd -> Route.builder(rd).build());
-        // 触发刷新路由事件
-        publisher.publishEvent(new RefreshRoutesEvent(this));
+        this.routeDefinitions.clear();
+        this.routeDefinitions.addAll(routeDefinitions);
+        this.publisher.publishEvent(new RefreshRoutesEvent(this));
     }
 
     @Override
-    public Flux<Route> getRoutes() {
-        return routes == null ? Flux.empty() : routes;
+    public Flux<RouteDefinition> getRouteDefinitions() {
+        return Flux.fromIterable(routeDefinitions);
     }
 
+    @Override
+    public Mono<Void> save(Mono<RouteDefinition> mr) {
+        return mr.map(routeDefinitions::add).then();
+    }
+
+    @Override
+    public Mono<Void> delete(Mono<String> ms) {
+        return ms.map(r -> {
+            for (final RouteDefinition item : routeDefinitions) {
+                if (item.getId().equals(r)) {
+                    routeDefinitions.remove(item);
+                    break;
+                }
+            }
+            return r;
+        }).then();
+    }
 }

@@ -1,5 +1,6 @@
 package club.p6e.cloud.gateway;
 
+import club.p6e.coat.common.utils.GeneratorUtil;
 import club.p6e.coat.common.utils.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,85 +48,106 @@ public class PropertiesRefresher {
     public PropertiesRefresher(Properties properties, CustomRouteLocator locator) {
         this.locator = locator;
         this.properties = properties;
+        this.locator.refresh(this.properties.getRoutes());
     }
 
-    public void execute(Map<String, String> data) {
+    public void execute(Map<String, Object> data) {
         if (data != null) {
-            if (data.get("p6e.cloud.gateway.version") != null) {
-                this.properties.setVersion(data.get("p6e.cloud.gateway.version"));
+            final String version = get(data, "p6e.cloud.gateway.version");
+            if (version != null) {
+                this.properties.setVersion(version);
             }
-
-            if (data.get("p6e.cloud.gateway.log.details") != null) {
-                this.properties.getLog().setDetails(
-                        "true".equalsIgnoreCase(data.get("p6e.cloud.gateway.log.details")));
+            final Object le = get(data, "p6e.cloud.gateway.log.enabled");
+            if (le != null) {
+                this.properties.getLog().setEnabled("true".equalsIgnoreCase(String.valueOf(le)));
             }
-
-            if (data.get("p6e.cloud.gateway.referer.enabled") != null) {
-                this.properties.getReferer().setEnabled(
-                        "true".equalsIgnoreCase(data.get("p6e.cloud.gateway.referer.enabled")));
+            final Object ld = get(data, "p6e.cloud.gateway.log.details");
+            if (ld != null) {
+                this.properties.getLog().setDetails("true".equalsIgnoreCase(String.valueOf(ld)));
             }
-
-            if (data.get("p6e.cloud.gateway.referer.white-list") != null) {
-                final List<String> list = JsonUtil.fromJsonToList(
-                        data.get("p6e.cloud.gateway.referer.white-list"), String.class);
-                this.properties.getReferer().setWhiteList(list == null ? new String[0] : list.toArray(new String[0]));
+            final Object re = get(data, "p6e.cloud.gateway.referer.enabled");
+            if (re != null) {
+                this.properties.getReferer().setEnabled("true".equalsIgnoreCase(String.valueOf(re)));
             }
-
-            if (data.get("p6e.cloud.gateway.cross-domain.enabled") != null) {
-                this.properties.getCrossDomain().setEnabled(
-                        "true".equalsIgnoreCase(data.get("p6e.cloud.gateway.cross-domain.enabled")));
+            final List<String> rw = get(data, "p6e.cloud.gateway.referer.white-list");
+            if (rw != null) {
+                this.properties.getReferer().setWhiteList(rw.toArray(new String[0]));
             }
-
-            if (data.get("p6e.cloud.gateway.request-header-clear") != null) {
-                final List<String> list = JsonUtil.fromJsonToList(
-                        data.get("p6e.cloud.gateway.request-header-clear"), String.class);
-                this.properties.setRequestHeaderClear(list == null ? new ArrayList<>() : list);
+            final Object ce = get(data, "p6e.cloud.gateway.cross-domain.enabled");
+            if (ce != null) {
+                this.properties.getCrossDomain().setEnabled("true".equalsIgnoreCase(String.valueOf(ce)));
             }
-
-            if (data.get("p6e.cloud.gateway.response-header-only") != null) {
-                final List<String> list = JsonUtil.fromJsonToList(
-                        data.get("p6e.cloud.gateway.response-header-only"), String.class);
-                this.properties.setResponseHeaderOnly(list == null ? new ArrayList<>() : list);
+            final List<String> rc = get(data, "p6e.cloud.gateway.request-header-clear");
+            if (rc != null) {
+                this.properties.setRequestHeaderClear(rc);
             }
-
-            if (data.get("p6e.cloud.gateway.routes") != null) {
-                locator.refresh(getRouteDefinition(data.get("p6e.cloud.gateway.routes")));
+            final List<String> ro = get(data, "p6e.cloud.gateway.response-header-only");
+            if (ro != null) {
+                this.properties.setResponseHeaderOnly(ro);
+            }
+            final Object routes = get(data, "p6e.cloud.gateway.routes");
+            if (routes != null) {
+                this.locator.refresh(getRouteDefinition((List<?>) routes));
             }
         }
     }
 
     @SuppressWarnings("ALL")
-    private List<RouteDefinition> getRouteDefinition(String content) {
+    private <T> T get(Map<String, Object> data, String name) {
+        if (data != null && name != null) {
+            name = name.toLowerCase().replaceAll("-", "");
+            if (mate(data, name) == null) {
+                final String[] ns = name.split("\\.");
+                for (int i = 0; i < ns.length; i++) {
+                    final Object o = mate(data, ns[i]);
+                    if (i + 1 == ns.length && o != null) {
+                        return (T) o;
+                    } else if (o instanceof final Map<?, ?> m) {
+                        data = (Map<String, Object>) m;
+                    } else {
+                        return null;
+                    }
+                }
+            } else {
+                return (T) mate(data, name);
+            }
+        }
+        return null;
+    }
+
+    private Object mate(Map<String, Object> data, String name) {
+        if (data != null && name != null) {
+            for (final String key : data.keySet()) {
+                if (key.toLowerCase().replaceAll("-", "")
+                        .equalsIgnoreCase(name.toLowerCase().replaceAll("-", ""))) {
+                    return data.get(key);
+                }
+            }
+        }
+        return null;
+    }
+
+    @SuppressWarnings("ALL")
+    private List<RouteDefinition> getRouteDefinition(List<?> routes) {
         final List<RouteDefinition> list = new ArrayList<>();
-        final Map<String, Object> routes = JsonUtil.fromJsonToMap(content, String.class, Object.class);
         if (routes != null) {
-            for (final String key : routes.keySet()) {
+            for (final Object route : routes) {
                 try {
-                    final Object o = routes.get(key);
-                    if (o instanceof Map) {
-                        final Map<String, Object> map = (Map<String, Object>) o;
+                    if (route instanceof Map) {
+                        final Map<String, Object> map = (Map<String, Object>) route;
                         final RouteDefinition definition = new RouteDefinition();
-                        definition.setId(key);
+                        definition.setId(map.get("id") == null
+                                ? GeneratorUtil.uuid() : String.valueOf(map.get("id")));
                         definition.setOrder(map.get("order") == null
                                 ? 0 : Integer.parseInt(String.valueOf(map.get("order"))));
                         definition.setUri(new URI(String.valueOf(map.get("uri"))));
                         definition.setMetadata(map.get("metadata") == null
                                 ? new HashMap<>() : (Map<String, Object>) map.get("metadata"));
                         if (map.get("filters") instanceof String) {
-                            final List<String> filters = JsonUtil.fromJsonToList(
-                                    String.valueOf(map.get("filters")), String.class);
-                            if (filters != null) {
-                                definition.setFilters(filters.stream().map(
-                                        item -> new FilterDefinition(item)).toList());
-                            }
+                            definition.setFilters();
                         }
                         if (map.get("predicates") instanceof String) {
-                            final List<String> predicates = JsonUtil.fromJsonToList(
-                                    String.valueOf(map.get("predicates")), String.class);
-                            if (predicates != null) {
-                                definition.setPredicates(predicates.stream().map(
-                                        item -> new PredicateDefinition(item)).toList());
-                            }
+
                         }
                         list.add(definition);
                     }
