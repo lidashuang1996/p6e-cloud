@@ -11,8 +11,6 @@ import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.StringReader;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author lidashuang
@@ -71,38 +69,25 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
     }
 
     protected void config(String content) {
-        System.out.println(content);
         switch (fileExtension.toLowerCase()) {
             case "yaml":
-                refresher.execute(yamlToMapData(content));
+                try {
+                    refresher.execute(Properties.initYaml(new Yaml().load(content)));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "properties":
-                refresher.execute(propertiesToMapData(content));
+                final java.util.Properties properties = new java.util.Properties();
+                try {
+                    properties.load(new StringReader(content));
+                    refresher.execute(Properties.initProperties(properties));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             default:
                 break;
-        }
-    }
-
-    protected Map<String, Object> yamlToMapData(String content) {
-        final Yaml yaml = new Yaml();
-        final Map<String, Object> result = new HashMap<>();
-        final Map<?, ?> map = yaml.loadAs(content, Map.class);
-        if (map != null) {
-            map.forEach((k, v) -> result.put(String.valueOf(k).toLowerCase(), v));
-        }
-        return result;
-    }
-
-    protected Map<String, Object> propertiesToMapData(String content) {
-        try (final StringReader reader = new StringReader(content)) {
-            final Map<String, Object> result = new HashMap<>();
-            final java.util.Properties properties = new java.util.Properties();
-            properties.load(reader);
-            properties.forEach((k, v) -> result.put(String.valueOf(k).toLowerCase(), v));
-            return result;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
     }
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -25,7 +26,7 @@ public class CustomRouteLocator implements RouteDefinitionRepository {
     /**
      * 路由对象
      */
-    private final List<RouteDefinition> routeDefinitions = new CopyOnWriteArrayList<>();
+    private final List<RouteDefinition> routeDefinitions = new ArrayList<>();
 
     /**
      * 构造方法初始化
