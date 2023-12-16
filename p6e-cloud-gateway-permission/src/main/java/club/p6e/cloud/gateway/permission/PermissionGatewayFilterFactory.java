@@ -1,9 +1,5 @@
 package club.p6e.cloud.gateway.permission;
 
-import club.p6e.coat.common.utils.JsonUtil;
-import club.p6e.coat.permission.PermissionValidator;
-import lombok.Data;
-import lombok.experimental.Accessors;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -15,12 +11,10 @@ import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author lidashuang
@@ -34,36 +28,30 @@ public class PermissionGatewayFilterFactory extends AbstractGatewayFilterFactory
     private static final int ORDER = -900;
 
     /**
-     * 权限验证器
+     * 权限服务对象
      */
-    private final PermissionValidator validator;
+    private final PermissionGatewayService service;
 
     /**
      * 构造方法初始化
      *
-     * @param validator 权限验证器
+     * @param service 权限服务对象
      */
-    public PermissionGatewayFilterFactory(PermissionValidator validator) {
-        this.validator = validator;
+    public PermissionGatewayFilterFactory(PermissionGatewayService service) {
+        this.service = service;
     }
 
     @Override
     public GatewayFilter apply(Object config) {
-        return new CustomGatewayFilter(validator);
+        return new CustomGatewayFilter(service);
     }
 
     /**
      * 自定义网关过滤器
      *
-     * @param validator 权限服务
+     * @param service 权限服务
      */
-    private record CustomGatewayFilter(PermissionValidator validator) implements GatewayFilter, Ordered {
-
-        @Data
-        @Accessors(chain = true)
-        private static class UserInfo implements Serializable {
-            private List<String> group = new ArrayList<>();
-        }
+    private record CustomGatewayFilter(PermissionGatewayService service) implements GatewayFilter, Ordered {
 
         /**
          * 格式化时间对象
@@ -80,33 +68,23 @@ public class PermissionGatewayFilterFactory extends AbstractGatewayFilterFactory
             final ServerHttpRequest request = exchange.getRequest();
             final ServerHttpResponse response = exchange.getResponse();
             final String result = "{\"timestamp\":\"" + DATE_TIME_FORMATTER.format(LocalDateTime.now()) + "\",\"path\":\""
-                    + request.getPath() + "\",\"message\":\"No Permission\",\"requestId\":\"" + request.getId() + "\",\"code\":403}";
+                    + request.getPath() + "\",\"message\":\"NO_PERMISSION\",\"requestId\":\"" + request.getId() + "\",\"code\":403}";
             response.setStatusCode(HttpStatus.FORBIDDEN);
             response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
             return response.writeWith(Mono.just(response.bufferFactory().wrap(result.getBytes(StandardCharsets.UTF_8))));
         }
 
-        @SuppressWarnings("ALL")
         @Override
         public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-            final ServerHttpRequest request = exchange.getRequest();
-            final String path = request.getPath().value();
-            final String method = request.getMethod().name().toUpperCase();
-            final String uic = request.getHeaders().getFirst("P6e-User-Info");
-            final UserInfo userInfo = uic == null ? null : JsonUtil.fromJson(uic, UserInfo.class);
-            return Mono.defer(() -> userInfo == null ? Mono.empty()
-                            : validator.execute(path, method, null))
-                    .flatMap(details -> {
-                        return Mono.just(exchange
-                                .mutate()
-                                .request(request
-                                        .mutate()
-                                        .header("P6e-User-Permission", JsonUtil.toJson(details))
-                                        .build()
-                                ).build());
+            final AtomicReference<ServerWebExchange> atomicReference = new AtomicReference<>(exchange);
+            return service
+                    .execute(exchange)
+                    .map(e -> {
+                        atomicReference.set(e);
+                        return true;
                     })
-                    .flatMap(chain::filter)
-                    .switchIfEmpty(exceptionErrorResult(exchange));
+                    .switchIfEmpty(Mono.just(false))
+                    .flatMap(r -> r ? chain.filter(atomicReference.get()) : exceptionErrorResult(exchange));
         }
 
         @Override

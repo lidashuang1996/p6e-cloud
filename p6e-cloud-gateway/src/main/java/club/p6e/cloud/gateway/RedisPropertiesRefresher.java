@@ -11,10 +11,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
+import org.yaml.snakeyaml.Yaml;
 import reactor.core.Disposable;
 import reactor.core.scheduler.Schedulers;
 
 import java.io.Serializable;
+import java.io.StringReader;
+import java.util.Map;
 
 /**
  * @author lidashuang
@@ -146,8 +149,37 @@ public class RedisPropertiesRefresher {
      */
     protected void execute(MessageModel message) {
         if (message != null
+                && message.getData() != null
                 && "config".equalsIgnoreCase(message.getType())) {
-            // this.refresher.execute();
+            final String content = message.getData();
+            try {
+                final Map<String, String> config = JsonUtil.fromJsonToMap(content, String.class, String.class);
+                if (config != null
+                        && config.get("format") != null
+                        && config.get("content") != null) {
+                    execute(config.get("format"), config.get("content"));
+                }
+            } catch (Exception e) {
+                // ignore
+            }
+        }
+    }
+
+    /**
+     * 执行
+     */
+    protected void execute(String format, String content) throws Exception {
+        switch (format) {
+            case "yaml":
+                refresher.execute(Properties.initYaml(new Yaml().load(content)));
+                break;
+            case "properties":
+                final java.util.Properties properties = new java.util.Properties();
+                properties.load(new StringReader(content));
+                refresher.execute(Properties.initProperties(properties));
+                break;
+            default:
+                break;
         }
     }
 

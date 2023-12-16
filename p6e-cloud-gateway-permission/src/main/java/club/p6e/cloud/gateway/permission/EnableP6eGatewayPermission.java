@@ -13,6 +13,9 @@ import java.lang.annotation.*;
 @EnableP6ePermission
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Import(PermissionGatewayFilterFactory.class)
+@Import({
+        PermissionGatewayService.class,
+        PermissionGatewayFilterFactory.class
+})
 public @interface EnableP6eGatewayPermission {
 }

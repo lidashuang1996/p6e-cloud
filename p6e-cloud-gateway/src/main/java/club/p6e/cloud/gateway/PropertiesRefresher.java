@@ -33,6 +33,11 @@ public class PropertiesRefresher {
         this.locator.refresh(this.properties.getRoutes());
     }
 
+    /**
+     * 执行刷新操作
+     *
+     * @param properties 配置文件对象
+     */
     public void execute(Properties properties) {
         this.properties.setLog(properties.getLog());
         this.properties.setReferer(properties.getReferer());

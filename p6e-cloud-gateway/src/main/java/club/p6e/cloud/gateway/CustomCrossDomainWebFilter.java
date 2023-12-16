@@ -30,6 +30,11 @@ public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
     private static final int ORDER = -2700;
 
     /**
+     * 通用内容
+     */
+    private static final String CROSS_DOMAIN_HEADER_GENERAL_CONTENT = "*";
+
+    /**
      * 跨域配置 ACCESS_CONTROL_MAX_AGE
      */
     private static final long ACCESS_CONTROL_MAX_AGE = 3600L;
@@ -103,20 +108,33 @@ public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
             response.setStatusCode(HttpStatus.FORBIDDEN);
             return response.writeWith(Mono.just(response.bufferFactory()
                     .wrap(ERROR_RESULT_CONTENT.getBytes(StandardCharsets.UTF_8))));
-        } else {
-            response.getHeaders().setAccessControlAllowOrigin(origin);
         }
 
-        response.getHeaders().setAccessControlMaxAge(ACCESS_CONTROL_MAX_AGE);
-        response.getHeaders().setAccessControlAllowCredentials(ACCESS_CONTROL_ALLOW_CREDENTIALS);
-        response.getHeaders().setAccessControlAllowHeaders(Arrays.asList(ACCESS_CONTROL_ALLOW_HEADERS));
-        response.getHeaders().setAccessControlAllowMethods(Arrays.asList(ACCESS_CONTROL_ALLOW_METHODS));
+        boolean status = false;
+        for (final String item : properties.getCrossDomain().getWhiteList()) {
+            if (CROSS_DOMAIN_HEADER_GENERAL_CONTENT.equals(item) || origin.startsWith(item)) {
+                status = true;
+                break;
+            }
+        }
 
-        if (HttpMethod.OPTIONS.matches(request.getMethod().name().toUpperCase())) {
-            response.setStatusCode(HttpStatus.NO_CONTENT);
-            return Mono.empty();
+        if (status) {
+            response.getHeaders().setAccessControlAllowOrigin(origin);
+            response.getHeaders().setAccessControlMaxAge(ACCESS_CONTROL_MAX_AGE);
+            response.getHeaders().setAccessControlAllowCredentials(ACCESS_CONTROL_ALLOW_CREDENTIALS);
+            response.getHeaders().setAccessControlAllowHeaders(Arrays.asList(ACCESS_CONTROL_ALLOW_HEADERS));
+            response.getHeaders().setAccessControlAllowMethods(Arrays.asList(ACCESS_CONTROL_ALLOW_METHODS));
+
+            if (HttpMethod.OPTIONS.matches(request.getMethod().name().toUpperCase())) {
+                response.setStatusCode(HttpStatus.NO_CONTENT);
+                return Mono.empty();
+            } else {
+                return chain.filter(exchange);
+            }
         } else {
-            return chain.filter(exchange);
+            response.setStatusCode(HttpStatus.FORBIDDEN);
+            return response.writeWith(Mono.just(response.bufferFactory()
+                    .wrap(ERROR_RESULT_CONTENT.getBytes(StandardCharsets.UTF_8))));
         }
     }
 }

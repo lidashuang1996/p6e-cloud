@@ -63,6 +63,69 @@ public class Properties implements Serializable {
      */
     private List<RouteDefinition> routes = new ArrayList<>();
 
+    private static void initBase(
+            Properties properties,
+            String version,
+            Boolean logEnabled,
+            Boolean logDetails,
+            Boolean refererEnabled,
+            List<Object> refererWhiteList,
+            Boolean crossDomainEnabled,
+            List<Object> crossDomainWhiteList,
+            List<Object> requestHeaderClear,
+            List<Object> responseHeaderOnly
+    ) {
+        if (version != null) {
+            properties.setVersion(version);
+        }
+        if (logEnabled != null) {
+            properties.getLog().setEnabled(logEnabled);
+        }
+        if (logDetails != null) {
+            properties.getLog().setDetails(logDetails);
+        }
+        if (refererEnabled != null) {
+            properties.getReferer().setEnabled(refererEnabled);
+        }
+        if (refererWhiteList != null) {
+            final List<String> tmpList = new ArrayList<>();
+            for (Object item : refererWhiteList) {
+                tmpList.add(TransformationUtil.objectToString(item));
+            }
+            properties.getReferer().setWhiteList(tmpList);
+        }
+        if (crossDomainEnabled != null) {
+            properties.getCrossDomain().setEnabled(crossDomainEnabled);
+        }
+        if (crossDomainWhiteList != null) {
+            final List<String> tmpList = new ArrayList<>();
+            for (Object item : crossDomainWhiteList) {
+                tmpList.add(TransformationUtil.objectToString(item));
+            }
+            properties.getCrossDomain().setWhiteList(tmpList);
+        }
+        if (requestHeaderClear != null) {
+            final List<String> tmpList = new ArrayList<>();
+            for (Object item : requestHeaderClear) {
+                tmpList.add(TransformationUtil.objectToString(item));
+            }
+            properties.getRequestHeaderClear().addAll(tmpList);
+        }
+        if (responseHeaderOnly != null) {
+            final List<String> tmpList = new ArrayList<>();
+            for (Object item : responseHeaderOnly) {
+                tmpList.add(TransformationUtil.objectToString(item));
+            }
+            properties.getResponseHeaderOnly().addAll(tmpList);
+        }
+    }
+
+    /**
+     * 初始化配置文件对象
+     *
+     * @param data Yaml 对象
+     * @return 配置文件对象
+     */
     public static Properties initYaml(Object data) {
         final Properties result = new Properties();
         final Object config = YamlUtil.paths(data, "p6e.cloud.gateway");
@@ -73,45 +136,15 @@ public class Properties implements Serializable {
         final Boolean refererEnabled = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "referer.enabled"));
         final List<Object> refererWhiteList = TransformationUtil.objectToList(YamlUtil.paths(cmap, "referer.whiteList"));
         final Boolean crossDomainEnabled = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "crossDomain.enabled"));
+        final List<Object> crossDomainWhiteList = TransformationUtil.objectToList(YamlUtil.paths(cmap, "crossDomain.whiteList"));
         final List<Object> requestHeaderClear = TransformationUtil.objectToList(YamlUtil.paths(cmap, "requestHeaderClear"));
         final List<Object> responseHeaderOnly = TransformationUtil.objectToList(YamlUtil.paths(cmap, "responseHeaderOnly"));
-        if (version != null) {
-            result.setVersion(version);
-        }
-        if (logEnabled != null) {
-            result.getLog().setEnabled(logEnabled);
-        }
-        if (logDetails != null) {
-            result.getLog().setDetails(logDetails);
-        }
-        if (refererEnabled != null) {
-            result.getReferer().setEnabled(refererEnabled);
-        }
-        if (refererWhiteList != null) {
-            final List<String> tmpList = new ArrayList<>();
-            for (Object item : refererWhiteList) {
-                tmpList.add(TransformationUtil.objectToString(item));
-            }
-            result.getReferer().setWhiteList(tmpList.toArray(new String[0]));
-        }
-        if (crossDomainEnabled != null) {
-            result.getCrossDomain().setEnabled(crossDomainEnabled);
-        }
-        if (requestHeaderClear != null) {
-            final List<String> tmpList = new ArrayList<>();
-            for (Object item : requestHeaderClear) {
-                tmpList.add(TransformationUtil.objectToString(item));
-            }
-            result.getRequestHeaderClear().addAll(tmpList);
-        }
-        if (responseHeaderOnly != null) {
-            final List<String> tmpList = new ArrayList<>();
-            for (Object item : responseHeaderOnly) {
-                tmpList.add(TransformationUtil.objectToString(item));
-            }
-            result.getResponseHeaderOnly().addAll(tmpList);
-        }
-        final List<Object> routes = TransformationUtil.objectToList(YamlUtil.paths(cmap, "routes"));
+        initBase(result, version, logEnabled, logDetails, refererEnabled, refererWhiteList,
+                crossDomainEnabled, crossDomainWhiteList, requestHeaderClear, responseHeaderOnly);
+        return initYamlRoutes(TransformationUtil.objectToList(YamlUtil.paths(cmap, "routes")), result);
+    }
+
+    private static Properties initYamlRoutes(List<Object> routes, Properties properties) {
         for (final Object route : routes) {
             try {
                 final RouteDefinition routeDefinition = new RouteDefinition();
@@ -161,37 +194,47 @@ public class Properties implements Serializable {
                         routeDefinition.getPredicates().add(predicateDefinition);
                     }
                 }
-                result.getRoutes().add(routeDefinition);
+                properties.getRoutes().add(routeDefinition);
             } catch (Exception e) {
                 // ignore
             }
         }
-        return result;
+        return properties;
     }
 
+    /**
+     * 初始化配置文件对象
+     *
+     * @param properties Properties 对象
+     * @return 配置文件对象
+     */
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
         properties = PropertiesUtil.matchProperties("p6e.cloud.gateway", properties);
-        result.setVersion(PropertiesUtil.getStringProperty(properties, "version", "unknown"));
+        final String version = PropertiesUtil.getStringProperty(properties, "version");
         final java.util.Properties logProperties = PropertiesUtil.matchProperties("log", properties);
-        result.getLog().setEnabled(PropertiesUtil.getBooleanProperty(logProperties, "enabled", false));
-        result.getLog().setDetails(PropertiesUtil.getBooleanProperty(logProperties, "details", false));
+        final Boolean logEnabled = PropertiesUtil.getBooleanProperty(logProperties, "enabled");
+        final Boolean logDetails = PropertiesUtil.getBooleanProperty(logProperties, "details");
         final java.util.Properties refererProperties = PropertiesUtil.matchProperties("referer", properties);
-        result.getReferer().setEnabled(PropertiesUtil.getBooleanProperty(refererProperties, "enabled", false));
-        result.getReferer().setWhiteList(PropertiesUtil.getListStringProperty(
-                refererProperties, "whiteList", List.of("*")).toArray(new String[0]));
+        final Boolean refererEnabled = PropertiesUtil.getBooleanProperty(refererProperties, "enabled");
+        final List<Object> refererWhiteList = PropertiesUtil.getListObjectProperty(refererProperties, "whiteList");
         final java.util.Properties crossDomainProperties = PropertiesUtil.matchProperties("crossDomain", properties);
-        result.getCrossDomain().setEnabled(PropertiesUtil.getBooleanProperty(crossDomainProperties, "enabled", false));
-        result.getRequestHeaderClear().addAll(PropertiesUtil.getListStringProperty(properties, "requestHeaderClear", new ArrayList<>()));
-        result.getResponseHeaderOnly().addAll(PropertiesUtil.getListStringProperty(properties, "responseHeaderOnly", new ArrayList<>()));
-        final List<java.util.Properties> routes = PropertiesUtil.getListPropertiesProperty(properties, "routes");
+        final Boolean crossDomainEnabled = PropertiesUtil.getBooleanProperty(crossDomainProperties, "enabled");
+        final List<Object> crossDomainWhiteList = PropertiesUtil.getListObjectProperty(crossDomainProperties, "whiteList");
+        final List<Object> requestHeaderClear = PropertiesUtil.getListObjectProperty(properties, "requestHeaderClear");
+        final List<Object> responseHeaderOnly = PropertiesUtil.getListObjectProperty(properties, "responseHeaderOnly");
+        initBase(result, version, logEnabled, logDetails, refererEnabled, refererWhiteList,
+                crossDomainEnabled, crossDomainWhiteList, requestHeaderClear, responseHeaderOnly);
+        return initPropertiesRoutes(PropertiesUtil.getListPropertiesProperty(properties, "routes"), result);
+    }
+
+    private static Properties initPropertiesRoutes(List<java.util.Properties> routes, Properties properties) {
         for (final java.util.Properties route : routes) {
             try {
                 final RouteDefinition routeDefinition = new RouteDefinition();
                 routeDefinition.setId(PropertiesUtil.getStringProperty(route, "id", GeneratorUtil.uuid()));
                 routeDefinition.setOrder(PropertiesUtil.getIntegerProperty(route, "order", 0));
                 routeDefinition.setUri(new URI(PropertiesUtil.getStringProperty(route, "uri")));
-                System.out.println(PropertiesUtil.getMapProperty(route, "metadata", new HashMap<>()));
                 routeDefinition.getMetadata().putAll(PropertiesUtil.getMapProperty(route, "metadata", new HashMap<>()));
                 final List<java.util.Properties> filters = PropertiesUtil.getListPropertiesProperty(route, "filters");
                 final List<java.util.Properties> predicates = PropertiesUtil.getListPropertiesProperty(route, "predicates");
@@ -209,16 +252,33 @@ public class Properties implements Serializable {
                     predicateDefinition.setName(PropertiesUtil.getStringProperty(predicate, "name"));
                     final Map<String, Object> omap = PropertiesUtil.getMapProperty(predicate, "args");
                     for (final String key : omap.keySet()) {
-                        predicateDefinition.getArgs().put(key, String.valueOf(omap.get(key)));
+                        predicateDefinition.getArgs().put(initPropertiesRouteArgsKey(key), String.valueOf(omap.get(key)));
                     }
                     routeDefinition.getPredicates().add(predicateDefinition);
                 }
-                result.getRoutes().add(routeDefinition);
+                properties.getRoutes().add(routeDefinition);
             } catch (Exception e) {
                 // ignore
             }
         }
-        return result;
+        return properties;
+    }
+
+    private static String initPropertiesRouteArgsKey(String content) {
+        StringBuilder num = null;
+        int mark = content.length();
+        for (int i = content.length() - 1; i >= 0; i--) {
+            final String ch = String.valueOf(content.charAt(i));
+            if (i + 1 == content.length() && "]".equals(ch)) {
+                num = new StringBuilder();
+            } else if ("[".equals(ch)) {
+                mark = i;
+                break;
+            } else if (num != null) {
+                num.insert(0, ch);
+            }
+        }
+        return content.substring(0, mark) + (num == null ? "" : "." + num);
     }
 
     /**
@@ -252,7 +312,7 @@ public class Properties implements Serializable {
         /**
          * 白名单
          */
-        private String[] whiteList = new String[]{"*"};
+        private List<String> whiteList = List.of("*");
     }
 
     /**
@@ -265,6 +325,11 @@ public class Properties implements Serializable {
          * 是否启动
          */
         private boolean enabled = false;
+
+        /**
+         * 白名单
+         */
+        private List<String> whiteList = List.of("*");
     }
 
 }

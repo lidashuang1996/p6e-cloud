@@ -11,6 +11,10 @@ import java.lang.annotation.*;
 @Documented
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Import(AuthGatewayFilterFactory.class)
-public @interface EnableP6eAuthPermission {
+@Import({
+        AuthGatewayService.class,
+        AuthGatewayRedisCache.class,
+        AuthGatewayFilterFactory.class
+})
+public @interface EnableP6eCloudGatewayAuth {
 }

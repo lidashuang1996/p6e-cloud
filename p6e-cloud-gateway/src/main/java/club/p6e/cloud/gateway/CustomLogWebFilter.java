@@ -55,6 +55,7 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
     /**
      * 用户的信息头
      */
+    @SuppressWarnings("ALL")
     private static final String USER_INFO_HEADER = "P6e-User-Info";
 
     /**
@@ -89,14 +90,18 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
     @NonNull
     @Override
     public Mono<Void> filter(@NonNull ServerWebExchange exchange, @NonNull WebFilterChain chain) {
-        // 创建日志模型
-        final Model model = new Model();
-        // 请求日志处理
-        final ServerHttpRequest request = new LogServerHttpRequestDecorator(exchange, model);
-        // 结果日志处理
-        final ServerHttpResponse response = new LogServerHttpResponseDecorator(exchange, model, properties);
-        // 继续执行
-        return chain.filter(exchange.mutate().request(request).response(response).build());
+        if (properties.getLog().isEnabled()) {
+            // 创建日志模型
+            final Model model = new Model();
+            // 请求日志处理
+            final ServerHttpRequest request = new LogServerHttpRequestDecorator(exchange, model);
+            // 结果日志处理
+            final ServerHttpResponse response = new LogServerHttpResponseDecorator(exchange, model, properties);
+            // 继续执行
+            return chain.filter(exchange.mutate().request(request).response(response).build());
+        } else {
+            return chain.filter(exchange);
+        }
     }
 
     /**

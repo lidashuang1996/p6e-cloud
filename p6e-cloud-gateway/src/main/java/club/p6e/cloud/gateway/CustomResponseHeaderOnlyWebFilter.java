@@ -71,12 +71,12 @@ public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
                     final List<String> httpHeaderValue = httpHeaders.get(httpHeaderName);
                     if (httpHeaderValue != null && !httpHeaderValue.isEmpty()) {
                         for (final String header : HEADER_FILTERED) {
-                            if (httpHeaderName.startsWith(header)) {
+                            if (httpHeaderName.equalsIgnoreCase(header)) {
                                 httpHeaders.set(httpHeaderName, httpHeaderValue.get(0));
                             }
                         }
                         for (final String header : properties.getResponseHeaderOnly()) {
-                            if (httpHeaderName.startsWith(header)) {
+                            if (httpHeaderName.equalsIgnoreCase(header)) {
                                 httpHeaders.set(httpHeaderName, httpHeaderValue.get(0));
                             }
                         }

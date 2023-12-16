@@ -15,14 +15,24 @@
     <description>p6e-cloud-gateway-permission</description>
 
     <dependencies>
+        <!-- Spring Cloud Gateway [START] -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <!-- Spring Cloud Gateway [END] -->
+
+        <!-- Spring Reactive Redis [START] -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+        <!-- Spring Reactive Redis [END] -->
+
+        <!-- p6e coat permission [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>
             <artifactId>p6e-coat-starter-permission</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>club.p6e.coat</groupId>
-            <artifactId>p6e-coat-starter-common</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
@@ -34,13 +44,28 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- p6e coat permission [END] -->
 
-        <!-- Spring Cloud Gateway [START] -->
+        <!-- p6e coat common [START] -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <groupId>club.p6e.coat</groupId>
+            <artifactId>p6e-coat-starter-common</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-jpa</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web-flux</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!-- Spring Cloud Gateway [END] -->
+        <!-- p6e coat common [END] -->
     </dependencies>
 
     <build>

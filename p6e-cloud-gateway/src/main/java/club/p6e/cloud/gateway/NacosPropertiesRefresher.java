@@ -7,7 +7,6 @@ import jakarta.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.StringReader;
@@ -16,7 +15,6 @@ import java.io.StringReader;
  * @author lidashuang
  * @version 1.0
  */
-@Component
 public class NacosPropertiesRefresher implements ApplicationListener<ApplicationReadyEvent> {
 
     @Value(value = "${spring.profiles.active}")

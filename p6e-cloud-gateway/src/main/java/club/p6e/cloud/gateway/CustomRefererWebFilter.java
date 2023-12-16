@@ -77,14 +77,8 @@ public class CustomRefererWebFilter implements WebFilter, Ordered {
         if (refererList != null && !refererList.isEmpty()) {
             final String r = refererList.get(0);
             final String referer = r == null ? "" : r;
-            for (final String w : properties.getReferer().getWhiteList()) {
-                if (REFERER_HEADER_GENERAL_CONTENT.equalsIgnoreCase(w) || referer.startsWith(w)) {
-                    return chain.filter(exchange);
-                }
-            }
-        } else {
-            for (final String w : properties.getReferer().getWhiteList()) {
-                if (REFERER_HEADER_GENERAL_CONTENT.equalsIgnoreCase(w)) {
+            for (final String item : properties.getReferer().getWhiteList()) {
+                if (REFERER_HEADER_GENERAL_CONTENT.equals(item) || referer.startsWith(item)) {
                     return chain.filter(exchange);
                 }
             }
