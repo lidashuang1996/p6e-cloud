@@ -1,0 +1,3 @@
+club.p6e.cloud.gateway.auth.AuthGatewayService
+club.p6e.cloud.gateway.auth.AuthGatewayRedisCache
+club.p6e.cloud.gateway.auth.AuthGatewayFilterFactory

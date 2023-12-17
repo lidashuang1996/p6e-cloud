@@ -1,0 +1,4 @@
+club.p6e.cloud.gateway.permission.PermissionGatewayInit
+club.p6e.cloud.gateway.permission.PermissionGatewayService
+club.p6e.cloud.gateway.permission.PermissionGatewayRefresher
+club.p6e.cloud.gateway.permission.PermissionGatewayFilterFactory
