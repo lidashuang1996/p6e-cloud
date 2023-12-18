@@ -11,6 +11,6 @@
 
     <artifactId>p6e-cloud-starter-websocket-api</artifactId>
     <version>3.1.0</version>
-    <name>p6e-cloud-websocket-api</name>
-    <description>p6e-cloud-websocket-api</description>
+    <name>p6e-cloud-starter-websocket-api</name>
+    <description>p6e-cloud-starter-websocket-api</description>
 </project>

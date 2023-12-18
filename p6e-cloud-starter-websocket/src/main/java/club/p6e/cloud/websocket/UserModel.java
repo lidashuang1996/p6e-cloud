@@ -6,6 +6,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author lidashuang
@@ -35,6 +36,5 @@ public class UserModel implements User, Serializable {
     public String id() {
         return String.valueOf(id);
     }
-
 
 }
