@@ -9,12 +9,19 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>p6e-cloud-console</artifactId>
+    <artifactId>p6e-cloud-starter-file</artifactId>
     <version>3.1.0</version>
-    <name>p6e-cloud-console</name>
-    <description>p6e-cloud-console</description>
+    <name>p6e-cloud-starter-file</name>
+    <description>p6e-cloud-starter-file</description>
 
     <dependencies>
+        <!-- Spring Reactive Redis [START] -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+        <!-- Spring Reactive Redis [END] -->
+
         <!-- Spring Cloud Alibaba Nacos [START] -->
         <!-- Spring Cloud Alibaba BootStrap [ START ] -->
         <dependency>
@@ -35,6 +42,13 @@
         </dependency>
         <!-- Spring Cloud Alibaba Nacos Discovery [END] -->
         <!-- Spring Cloud Alibaba Nacos [END] -->
+
+        <!-- p6e coat file [START] -->
+        <dependency>
+            <groupId>club.p6e.coat</groupId>
+            <artifactId>p6e-coat-starter-file</artifactId>
+        </dependency>
+        <!-- p6e coat file [END] -->
 
         <!-- p6e coat common [START] -->
         <dependency>

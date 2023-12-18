@@ -45,7 +45,32 @@
             </dependency>
             <dependency>
                 <groupId>club.p6e.cloud</groupId>
-                <artifactId>p6e-cloud-websocket-api</artifactId>
+                <artifactId>p6e-cloud-starter-websocket</artifactId>
+                <version>${p6e-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.cloud</groupId>
+                <artifactId>p6e-cloud-starter-websocket-api</artifactId>
+                <version>${p6e-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.cloud</groupId>
+                <artifactId>p6e-cloud-starter-file</artifactId>
+                <version>${p6e-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.cloud</groupId>
+                <artifactId>p6e-cloud-starter-gateway</artifactId>
+                <version>${p6e-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.cloud</groupId>
+                <artifactId>p6e-cloud-starter-gateway-auth</artifactId>
+                <version>${p6e-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.cloud</groupId>
+                <artifactId>p6e-cloud-starter-gateway-permission</artifactId>
                 <version>${p6e-cloud.version}</version>
             </dependency>
         </dependencies>

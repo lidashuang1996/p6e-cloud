@@ -9,12 +9,27 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>p6e-cloud-console</artifactId>
+    <artifactId>p6e-cloud-starter-websocket</artifactId>
     <version>3.1.0</version>
-    <name>p6e-cloud-console</name>
-    <description>p6e-cloud-console</description>
+    <name>p6e-cloud-starter-websocket</name>
+    <description>p6e-cloud-starter-websocket</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>club.p6e.cloud</groupId>
+            <artifactId>p6e-cloud-starter-websocket-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+
         <!-- Spring Cloud Alibaba Nacos [START] -->
         <!-- Spring Cloud Alibaba BootStrap [ START ] -->
         <dependency>
@@ -35,6 +50,13 @@
         </dependency>
         <!-- Spring Cloud Alibaba Nacos Discovery [END] -->
         <!-- Spring Cloud Alibaba Nacos [END] -->
+
+        <!-- p6e coat common [START] -->
+        <dependency>
+            <groupId>club.p6e.coat</groupId>
+            <artifactId>p6e-coat-starter-websocket</artifactId>
+        </dependency>
+        <!-- p6e coat common [START] -->
 
         <!-- p6e coat common [START] -->
         <dependency>
