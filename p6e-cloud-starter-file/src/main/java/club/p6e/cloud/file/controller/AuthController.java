@@ -47,6 +47,7 @@ public class AuthController {
         this.voucherCache = voucherCache;
     }
 
+    @RequestMapping("")
     public Mono<ResultContext> def(ServerWebExchange exchange) {
         final String token = BaseWebFluxController.getAccessToken(exchange.getRequest());
         if (token == null) {
