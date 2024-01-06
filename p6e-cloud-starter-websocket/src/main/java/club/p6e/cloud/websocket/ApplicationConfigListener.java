@@ -2,6 +2,7 @@ package club.p6e.cloud.websocket;
 
 import club.p6e.coat.websocket.WebSocketMain;
 import jakarta.annotation.Nonnull;
+import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,23 +10,22 @@ import org.springframework.stereotype.Component;
  * @version 1.0
  */
 @Component
-public class ApplicationListener implements
-        org.springframework.context.ApplicationListener<WebSocketMain.ApplicationConfigEvent> {
+public class ApplicationConfigListener implements ApplicationListener<WebSocketMain.ApplicationConfigEvent> {
 
     private final Properties properties;
 
-    public ApplicationListener(Properties properties) {
+    public ApplicationConfigListener(Properties properties) {
         this.properties = properties;
     }
 
     @Override
     public void onApplicationEvent(@Nonnull WebSocketMain.ApplicationConfigEvent event) {
-        if (properties.getConfigs() != null
-                && !properties.getConfigs().isEmpty()) {
+        if (properties.getChannels() != null
+                && !properties.getChannels().isEmpty()) {
             WebSocketMain.THREAD_POOL_LENGTH = properties.getThreadPoolLength();
-            for (final Properties.Config config : properties.getConfigs()) {
+            for (final Properties.Channel channel : properties.getChannels()) {
                 WebSocketMain.CONFIGS.add(new WebSocketMain.Config()
-                        .setName(config.getName()).setType(config.getType()).setPort(config.getPort()));
+                        .setName(channel.getName()).setType(channel.getType()).setPort(channel.getPort()));
             }
         }
     }

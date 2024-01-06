@@ -21,18 +21,29 @@ public class Properties implements Serializable {
     /**
      * 默认的线程池大小
      */
-    private int threadPoolLength = 10;
+    private int threadPoolLength = 15;
 
     /**
-     * 通道配置信息
+     * 频道配置信息
      */
-    private List<Config> configs = new ArrayList<>();
+    private List<Channel> channels = new ArrayList<>();
 
     @Data
     @Accessors(chain = true)
-    public static class Config implements Serializable {
+    public static class Channel implements Serializable {
+        /**
+         * 频道名称
+         */
         private String name;
+
+        /**
+         * 频道数据类型
+         */
         private String type;
+
+        /**
+         * 频道启动端口
+         */
         private Integer port;
     }
 

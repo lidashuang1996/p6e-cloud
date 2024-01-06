@@ -5,7 +5,7 @@
     <parent>
         <groupId>club.p6e.cloud</groupId>
         <artifactId>p6e-cloud-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -57,26 +57,5 @@
             <artifactId>p6e-coat-starter-websocket</artifactId>
         </dependency>
         <!-- p6e coat common [START] -->
-
-        <!-- p6e coat common [START] -->
-        <dependency>
-            <groupId>club.p6e.coat</groupId>
-            <artifactId>p6e-coat-starter-common</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-data-jpa</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web-flux</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!-- p6e coat common [END] -->
     </dependencies>
 </project>

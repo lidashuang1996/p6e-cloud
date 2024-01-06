@@ -18,7 +18,7 @@ public interface PushService extends Serializable {
      * @param name       通道名称
      * @param bytes      字节数据
      */
-    public void push(List<String> recipients, String name, byte[] bytes);
+    void push(List<String> recipients, String name, byte[] bytes);
 
     /**
      * 发送消息
@@ -29,6 +29,6 @@ public interface PushService extends Serializable {
      * @param type       消息类型
      * @param content    消息内容
      */
-    public void push(List<String> recipients, String name, String id, String type, String content);
+    void push(List<String> recipients, String name, String id, String type, String content);
 
 }

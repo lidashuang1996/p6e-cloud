@@ -1,4 +1,4 @@
-package club.p6e.cloud.websocket;
+package club.p6e.cloud.websocket.auth;
 
 import club.p6e.cloud.websocket.cache.AuthCache;
 import club.p6e.cloud.websocket.cache.VoucherCache;
