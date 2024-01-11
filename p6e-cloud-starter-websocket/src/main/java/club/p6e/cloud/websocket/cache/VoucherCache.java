@@ -1,5 +1,7 @@
 package club.p6e.cloud.websocket.cache;
 
+import reactor.core.publisher.Mono;
+
 /**
  * @author lidashuang
  * @version 1.0
@@ -21,7 +23,7 @@ public interface VoucherCache {
      *
      * @param voucher 凭证
      */
-    void del(String voucher);
+    Mono<String> del(String voucher);
 
     /**
      * 读取凭证
@@ -29,7 +31,7 @@ public interface VoucherCache {
      * @param voucher 凭证
      * @return 凭证内容
      */
-    String get(String voucher);
+    Mono<String> get(String voucher);
 
     /**
      * 写入凭证内容
@@ -37,6 +39,6 @@ public interface VoucherCache {
      * @param voucher 凭证
      * @param content 内容
      */
-    void set(String voucher, String content);
+    Mono<String> set(String voucher, String content);
 
 }

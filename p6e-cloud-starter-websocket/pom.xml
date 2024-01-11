@@ -5,7 +5,7 @@
     <parent>
         <groupId>club.p6e.cloud</groupId>
         <artifactId>p6e-cloud-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -15,20 +15,31 @@
     <description>p6e-cloud-starter-websocket</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>club.p6e.cloud</groupId>
-            <artifactId>p6e-cloud-starter-websocket-api</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
+
+        <!-- p6e coat common [START] -->
+        <dependency>
+            <groupId>club.p6e.coat</groupId>
+            <artifactId>p6e-coat-starter-websocket</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- p6e coat common [START] -->
+
+        <!-- Spring Cloud Redis Reactive [START] -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+        <!-- Spring Cloud Redis Reactive [END] -->
 
         <!-- Spring Cloud Alibaba Nacos [START] -->
         <!-- Spring Cloud Alibaba BootStrap [ START ] -->
@@ -50,12 +61,5 @@
         </dependency>
         <!-- Spring Cloud Alibaba Nacos Discovery [END] -->
         <!-- Spring Cloud Alibaba Nacos [END] -->
-
-        <!-- p6e coat common [START] -->
-        <dependency>
-            <groupId>club.p6e.coat</groupId>
-            <artifactId>p6e-coat-starter-websocket</artifactId>
-        </dependency>
-        <!-- p6e coat common [START] -->
     </dependencies>
 </project>

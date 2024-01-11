@@ -5,14 +5,14 @@
     <parent>
         <groupId>club.p6e.coat</groupId>
         <artifactId>p6e-coat-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <packaging>pom</packaging>
     <groupId>club.p6e.cloud</groupId>
     <artifactId>p6e-cloud-starter-parent</artifactId>
-    <version>3.2.0</version>
+    <version>3.1.0</version>
     <name>p6e-cloud-starter-parent</name>
     <description>p6e-cloud-starter-parent</description>
 
