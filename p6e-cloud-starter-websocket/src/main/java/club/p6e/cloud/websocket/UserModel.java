@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @author lidashuang
@@ -16,25 +14,11 @@ import java.util.Map;
 @Accessors(chain = true)
 public class UserModel implements User, Serializable {
 
-    private Integer id;
-    private Integer status;
-    private Integer enabled;
-    private String account;
-    private String phone;
-    private String mailbox;
-    private String name;
-    private String nickname;
-    private String avatar;
-    private String description;
-
-    /**
-     * 用户所在的项目/组/群/房间/频道
-     */
-    private final List<String> extend;
+    private String id;
 
     @Override
     public String id() {
-        return String.valueOf(id);
+        return null;
     }
 
 }

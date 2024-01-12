@@ -2,6 +2,7 @@ package club.p6e.cloud.websocket.cache;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import reactor.core.publisher.Mono;
 
 import java.io.Serializable;
 
@@ -48,7 +49,7 @@ public interface AuthCache {
      * @param uid 用户
      * @return 读取用户内容
      */
-    String getUser(String uid);
+    Mono<String> getUser(String uid);
 
     /**
      * 读取 ACCESS TOKEN 令牌内容
@@ -56,6 +57,6 @@ public interface AuthCache {
      * @param token 令牌
      * @return ACCESS TOKEN 令牌内容
      */
-    Token getAccessToken(String token);
+    Mono<Token> getAccessToken(String token);
 
 }
