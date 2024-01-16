@@ -5,7 +5,6 @@ import com.alibaba.nacos.api.config.ConfigChangeEvent;
 import com.alibaba.nacos.client.config.listener.impl.AbstractConfigChangeListener;
 import jakarta.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.yaml.snakeyaml.Yaml;
@@ -77,8 +76,8 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
                 }
                 break;
             case "properties":
-                final java.util.Properties properties = new java.util.Properties();
                 try {
+                    final java.util.Properties properties = new java.util.Properties();
                     properties.load(new StringReader(content));
                     refresher.execute(Properties.initProperties(properties));
                 } catch (Exception e) {

@@ -18,7 +18,7 @@ import java.util.Map;
  * @version 1.0
  */
 @Data
-@Component
+@Component(value = "club.p6e.cloud.websocket.Properties")
 @ConfigurationProperties(prefix = "p6e.cloud.websocket")
 public class Properties implements Serializable {
 

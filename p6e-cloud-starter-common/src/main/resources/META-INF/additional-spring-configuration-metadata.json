@@ -1,0 +1,44 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "p6e.cloud.common.version",
+      "type": "java.lang.String",
+      "description": "Current program version number.",
+      "defaultValue": "unknown"
+    },
+    {
+      "name": "p6e.cloud.common.security.enable",
+      "type": "java.lang.Boolean",
+      "description": "Whether request security verification is enabled.",
+      "defaultValue": false
+    },
+    {
+      "name": "p6e.cloud.common.security.vouchers",
+      "type": "java.util.List<java.lang.String>",
+      "description": "Request security verification vouchers.",
+      "defaultValue": []
+    },
+    {
+      "name": "p6e.cloud.common.cross-domain.enable",
+      "type": "java.lang.String",
+      "description": "Whether request cross domain support is enabled.",
+      "defaultValue": false
+    },
+    {
+      "name": "p6e.cloud.common.cross-domain.white-list",
+      "type": "java.util.List<java.lang.String>",
+      "description": "Request cross domain validation white list.",
+      "defaultValue": []
+    },
+    {
+      "name": "p6e.cloud.common.snowflake",
+      "type": "java.util.Map<java.lang.String, club.p6e.coat.common.Properties.Snowflake>",
+      "deprecations": {
+        "d-worker-id": "Work machine ID",
+        "d-data-center-id": "Data center machine room ID"
+      },
+      "defaultValue": {}
+    }
+  ]
+}

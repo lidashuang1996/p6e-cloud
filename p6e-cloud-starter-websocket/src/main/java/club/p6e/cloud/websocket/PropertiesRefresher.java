@@ -1,6 +1,8 @@
 package club.p6e.cloud.websocket;
 
 import club.p6e.coat.websocket.WebSocketMain;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,8 +12,13 @@ import java.util.List;
  * @author lidashuang
  * @version 1.0
  */
-@Component
+@Component(value = "club.p6e.cloud.websocket.PropertiesRefresher")
 public class PropertiesRefresher {
+
+    /**
+     * 注入日志对象
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesRefresher.class);
 
     /**
      * 配置文件对象
@@ -54,6 +61,7 @@ public class PropertiesRefresher {
      * @param properties 配置文件对象
      */
     public void execute(Properties properties) {
+        LOGGER.info("[NEW PROPERTIES] (" + properties.getClass() + ") >>>> " + properties);
         this.properties.setChannels(properties.getChannels());
         this.properties.setThreadPoolLength(properties.getThreadPoolLength());
         final List<WebSocketMain.Config> configs = new ArrayList<>();
