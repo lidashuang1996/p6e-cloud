@@ -1,5 +1,6 @@
 package club.p6e.cloud.gateway;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.core.Ordered;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,10 @@ import java.util.Arrays;
  * @version 1.0
  */
 @Component
+@ConditionalOnMissingBean(
+        value = CustomCrossDomainWebFilter.class,
+        ignored = CustomCrossDomainWebFilter.class
+)
 public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
 
     /**
@@ -120,10 +125,10 @@ public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
 
         if (status) {
             response.getHeaders().setAccessControlAllowOrigin(origin);
-            response.getHeaders().setAccessControlMaxAge(ACCESS_CONTROL_MAX_AGE);
-            response.getHeaders().setAccessControlAllowCredentials(ACCESS_CONTROL_ALLOW_CREDENTIALS);
-            response.getHeaders().setAccessControlAllowHeaders(Arrays.asList(ACCESS_CONTROL_ALLOW_HEADERS));
-            response.getHeaders().setAccessControlAllowMethods(Arrays.asList(ACCESS_CONTROL_ALLOW_METHODS));
+            response.getHeaders().setAccessControlMaxAge(getAccessControlMaxAge());
+            response.getHeaders().setAccessControlAllowCredentials(getAccessControlAllowCredentials());
+            response.getHeaders().setAccessControlAllowHeaders(Arrays.asList(getAccessControlAllowHeaders()));
+            response.getHeaders().setAccessControlAllowMethods(Arrays.asList(getAccessControlAllowMethods()));
 
             if (HttpMethod.OPTIONS.matches(request.getMethod().name().toUpperCase())) {
                 response.setStatusCode(HttpStatus.NO_CONTENT);
@@ -136,6 +141,22 @@ public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
             return response.writeWith(Mono.just(response.bufferFactory()
                     .wrap(ERROR_RESULT_CONTENT.getBytes(StandardCharsets.UTF_8))));
         }
+    }
+
+    public long getAccessControlMaxAge() {
+        return ACCESS_CONTROL_MAX_AGE;
+    }
+
+    public HttpMethod[] getAccessControlAllowMethods() {
+        return ACCESS_CONTROL_ALLOW_METHODS;
+    }
+
+    public String[] getAccessControlAllowHeaders() {
+        return ACCESS_CONTROL_ALLOW_HEADERS;
+    }
+
+    public boolean getAccessControlAllowCredentials() {
+        return ACCESS_CONTROL_ALLOW_CREDENTIALS;
     }
 }
 

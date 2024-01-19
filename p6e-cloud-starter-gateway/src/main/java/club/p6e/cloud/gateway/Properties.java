@@ -28,41 +28,6 @@ import java.util.*;
 @ConfigurationProperties(prefix = "p6e.cloud.gateway")
 public class Properties implements Serializable {
 
-    /**
-     * 版本号
-     */
-    private String version = "unknown";
-
-    /**
-     * Log
-     */
-    private Log log = new Log();
-
-    /**
-     * Referer
-     */
-    private Referer referer = new Referer();
-
-    /**
-     * Cross Domain
-     */
-    private CrossDomain crossDomain = new CrossDomain();
-
-    /**
-     * 请求头清除
-     */
-    private List<String> requestHeaderClear = new ArrayList<>();
-
-    /**
-     * 返回头唯一
-     */
-    private List<String> responseHeaderOnly = new ArrayList<>();
-
-    /**
-     * 路由
-     */
-    private List<RouteDefinition> routes = new ArrayList<>();
-
     private static void initBase(
             Properties properties,
             String version,
@@ -282,11 +247,47 @@ public class Properties implements Serializable {
     }
 
     /**
+     * 版本号
+     */
+    private String version = "unknown";
+
+    /**
+     * Log
+     */
+    private Log log = new Log();
+
+    /**
+     * Referer
+     */
+    private Referer referer = new Referer();
+
+    /**
+     * Cross Domain
+     */
+    private CrossDomain crossDomain = new CrossDomain();
+
+    /**
+     * 请求头清除
+     */
+    private List<String> requestHeaderClear = new ArrayList<>();
+
+    /**
+     * 返回头唯一
+     */
+    private List<String> responseHeaderOnly = new ArrayList<>();
+
+    /**
+     * 路由
+     */
+    private List<RouteDefinition> routes = new ArrayList<>();
+
+    /**
      * Log
      */
     @Data
     @Accessors(chain = true)
     public static class Log implements Serializable {
+
         /**
          * 是否启动
          */
@@ -296,6 +297,7 @@ public class Properties implements Serializable {
          * 是否启动打印
          */
         private boolean details = false;
+
     }
 
     /**
@@ -304,6 +306,7 @@ public class Properties implements Serializable {
     @Data
     @Accessors(chain = true)
     public static class Referer implements Serializable {
+
         /**
          * 是否启动
          */
@@ -312,7 +315,10 @@ public class Properties implements Serializable {
         /**
          * 白名单
          */
-        private List<String> whiteList = List.of("*");
+        private List<String> whiteList = new ArrayList<>() {{
+            add("*");
+        }};
+
     }
 
     /**
@@ -321,6 +327,7 @@ public class Properties implements Serializable {
     @Data
     @Accessors(chain = true)
     public static class CrossDomain implements Serializable {
+
         /**
          * 是否启动
          */
@@ -329,7 +336,10 @@ public class Properties implements Serializable {
         /**
          * 白名单
          */
-        private List<String> whiteList = List.of("*");
+        private List<String> whiteList = new ArrayList<>() {{
+            add("*");
+        }};
+        
     }
 
 }

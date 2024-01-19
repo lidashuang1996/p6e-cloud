@@ -6,6 +6,7 @@ import lombok.experimental.Accessors;
 import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferFactory;
@@ -45,6 +46,10 @@ import java.util.Map;
  * @version 1.0
  */
 @Component
+@ConditionalOnMissingBean(
+        value = CustomLogWebFilter.class,
+        ignored = CustomLogWebFilter.class
+)
 public class CustomLogWebFilter implements WebFilter, Ordered {
 
     /**

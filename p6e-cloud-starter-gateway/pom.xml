@@ -50,7 +50,7 @@
         <!-- Spring Cloud Alibaba Nacos Discovery [END] -->
         <!-- Spring Cloud Alibaba Nacos [END] -->
 
-        <!-- p6e coat common [START] -->
+        <!-- P6e Coat Common [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>
             <artifactId>p6e-coat-starter-common</artifactId>
@@ -69,6 +69,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- p6e coat common [END] -->
+        <!-- P6e Coat Common [END] -->
     </dependencies>
 </project>

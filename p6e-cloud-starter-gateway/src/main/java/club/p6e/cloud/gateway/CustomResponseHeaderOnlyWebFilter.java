@@ -1,6 +1,7 @@
 package club.p6e.cloud.gateway;
 
 import org.reactivestreams.Publisher;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.core.Ordered;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
@@ -23,6 +24,10 @@ import java.util.Set;
  * @version 1.0
  */
 @Component
+@ConditionalOnMissingBean(
+        value = CustomResponseHeaderOnlyWebFilter.class,
+        ignored = CustomResponseHeaderOnlyWebFilter.class
+)
 public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
 
     /**

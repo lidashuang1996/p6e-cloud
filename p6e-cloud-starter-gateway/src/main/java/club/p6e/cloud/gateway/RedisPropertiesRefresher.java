@@ -166,7 +166,7 @@ public class RedisPropertiesRefresher {
                 if (config != null
                         && config.get("format") != null
                         && config.get("content") != null) {
-                    execute(config.get("format"), config.get("content"));
+                    config(config.get("format"), config.get("content"));
                 }
             } catch (Exception e) {
                 // ignore
@@ -175,9 +175,9 @@ public class RedisPropertiesRefresher {
     }
 
     /**
-     * 执行
+     * 配置
      */
-    protected void execute(String format, String content) throws Exception {
+    protected void config(String format, String content) throws Exception {
         switch (format) {
             case "yaml":
                 refresher.execute(Properties.initYaml(new Yaml().load(content)));

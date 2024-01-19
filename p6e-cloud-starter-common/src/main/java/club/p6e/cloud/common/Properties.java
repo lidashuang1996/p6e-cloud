@@ -26,11 +26,6 @@ import java.util.Map;
 @Component(value = "club.p6e.cloud.common.Properties")
 public class Properties implements Serializable {
 
-    private String version = "unknown";
-    private Security security = new club.p6e.coat.common.Properties.Security();
-    private club.p6e.coat.common.Properties.CrossDomain crossDomain = new club.p6e.coat.common.Properties.CrossDomain();
-    private Map<String, club.p6e.coat.common.Properties.Snowflake> snowflake = new HashMap<>();
-
     private static void init(
             Properties properties,
             String version,
@@ -103,4 +98,8 @@ public class Properties implements Serializable {
         return result;
     }
 
+    private String version = "unknown";
+    private Security security = new club.p6e.coat.common.Properties.Security();
+    private club.p6e.coat.common.Properties.CrossDomain crossDomain = new club.p6e.coat.common.Properties.CrossDomain();
+    private Map<String, club.p6e.coat.common.Properties.Snowflake> snowflake = new HashMap<>();
 }

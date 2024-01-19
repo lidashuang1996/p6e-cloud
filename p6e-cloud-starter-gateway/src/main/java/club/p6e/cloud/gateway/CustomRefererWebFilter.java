@@ -1,5 +1,6 @@
 package club.p6e.cloud.gateway;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -21,6 +22,10 @@ import java.util.List;
  * @version 1.0
  */
 @Component
+@ConditionalOnMissingBean(
+        value = CustomRefererWebFilter.class,
+        ignored = CustomRefererWebFilter.class
+)
 public class CustomRefererWebFilter implements WebFilter, Ordered {
 
     /**
@@ -69,10 +74,8 @@ public class CustomRefererWebFilter implements WebFilter, Ordered {
         if (!properties.getReferer().isEnable()) {
             return chain.filter(exchange);
         }
-
         final ServerHttpRequest request = exchange.getRequest();
         final ServerHttpResponse response = exchange.getResponse();
-
         final List<String> refererList = request.getHeaders().get(REFERER_HEADER);
         if (refererList != null && !refererList.isEmpty()) {
             final String r = refererList.get(0);
@@ -83,7 +86,6 @@ public class CustomRefererWebFilter implements WebFilter, Ordered {
                 }
             }
         }
-
         response.setStatusCode(HttpStatus.FORBIDDEN);
         return response.writeWith(Mono.just(response.bufferFactory()
                 .wrap(ERROR_RESULT_CONTENT.getBytes(StandardCharsets.UTF_8))));

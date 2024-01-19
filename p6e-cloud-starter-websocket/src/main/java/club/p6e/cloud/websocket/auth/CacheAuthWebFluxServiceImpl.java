@@ -10,6 +10,7 @@ import club.p6e.coat.common.utils.JsonUtil;
 import club.p6e.coat.websocket.User;
 import club.p6e.coat.websocket.auth.AuthWebFluxService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;

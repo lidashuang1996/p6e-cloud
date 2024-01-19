@@ -29,43 +29,12 @@
         </dependency>
         <!-- Spring Reactive Redis [END] -->
 
-        <!-- p6e coat permission [START] -->
+        <!-- P6e Coat Permission [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>
             <artifactId>p6e-coat-starter-permission</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web-flux</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-        <!-- p6e coat permission [END] -->
-
-        <!-- p6e coat common [START] -->
-        <dependency>
-            <groupId>club.p6e.coat</groupId>
-            <artifactId>p6e-coat-starter-common</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-data-jpa</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web-flux</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!-- p6e coat common [END] -->
+        <!-- P6e Coat Permission [END] -->
     </dependencies>
 
 </project>

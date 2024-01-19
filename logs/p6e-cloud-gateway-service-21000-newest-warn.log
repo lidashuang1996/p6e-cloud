@@ -1,9 +1,0 @@
-2023-12-13 15:18:28 [Thread-7] WARN - [NotifyCenter] Start destroying Publisher
-2023-12-13 15:18:28 [Thread-1] WARN - [HttpClientBeanHolder] Start destroying common HttpClient
-2023-12-13 15:18:28 [Thread-7] WARN - [NotifyCenter] Destruction of the end
-2023-12-13 15:18:28 [Thread-1] WARN - [HttpClientBeanHolder] Destruction of the end
-2023-12-13 15:18:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
-2023-12-13 15:18:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
-2023-12-13 15:18:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Start destroying NacosRestTemplate
-2023-12-13 15:18:28 [SpringApplicationShutdownHook] WARN - [NamingHttpClientManager] Destruction of the end
-2023-12-13 15:18:28 [nacos-grpc-client-executor-192.168.0.99-14245] WARN - [1702380557200_192.168.0.3_55662]Ignore error event,isRunning:false,isAbandon=false

@@ -1,5 +1,6 @@
 package club.p6e.cloud.gateway;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.core.Ordered;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.lang.NonNull;
@@ -16,6 +17,10 @@ import reactor.core.publisher.Mono;
  * @version 1.0
  */
 @Component
+@ConditionalOnMissingBean(
+        value = CustomRequestHeaderClearWebFilter.class,
+        ignored = CustomRequestHeaderClearWebFilter.class
+)
 public class CustomRequestHeaderClearWebFilter implements WebFilter, Ordered {
     /**
      * 执行顺序

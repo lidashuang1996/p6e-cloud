@@ -47,7 +47,7 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
                         @Override
                         public void receiveConfigChange(ConfigChangeEvent configChangeEvent) {
                             try {
-                                config(manager.getConfigService().getConfig(dataId, groupId, 5000L));
+                                config(fileExtension.toLowerCase(), manager.getConfigService().getConfig(dataId, groupId, 5000L));
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }
@@ -66,8 +66,8 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
         return group;
     }
 
-    protected void config(String content) {
-        switch (fileExtension.toLowerCase()) {
+    protected void config(String format, String content) {
+        switch (format) {
             case "yaml":
                 try {
                     refresher.execute(Properties.initYaml(new Yaml().load(content)));

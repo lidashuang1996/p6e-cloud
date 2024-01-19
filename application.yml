@@ -1,8 +1,0 @@
-server:
-  port: 40000
-
-spring:
-  application:
-    name: 'smart-site-cloud-websocket'
-  profiles:
-    active: 'nacos-dev'

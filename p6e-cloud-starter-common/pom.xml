@@ -15,11 +15,11 @@
     <description>p6e-cloud-starter-common</description>
 
     <dependencies>
-        <!-- p6e coat common [START] -->
+        <!-- P6e Coat Common [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>
             <artifactId>p6e-coat-starter-common</artifactId>
         </dependency>
-        <!-- p6e coat common [START] -->
+        <!-- P6e Coat Common [END] -->
     </dependencies>
 </project>

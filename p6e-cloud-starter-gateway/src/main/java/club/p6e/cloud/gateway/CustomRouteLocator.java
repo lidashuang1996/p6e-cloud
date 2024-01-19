@@ -1,5 +1,6 @@
 package club.p6e.cloud.gateway;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
 import org.springframework.cloud.gateway.route.*;
 import org.springframework.context.ApplicationEventPublisher;
@@ -15,6 +16,10 @@ import java.util.List;
  * @version 1.0
  */
 @Component
+@ConditionalOnMissingBean(
+        value = CustomRouteLocator.class,
+        ignored = CustomRouteLocator.class
+)
 public class CustomRouteLocator implements RouteDefinitionRepository {
 
     /**
