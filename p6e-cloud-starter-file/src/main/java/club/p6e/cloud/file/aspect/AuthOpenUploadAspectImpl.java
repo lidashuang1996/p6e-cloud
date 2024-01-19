@@ -1,7 +1,7 @@
 package club.p6e.cloud.file.aspect;
 
-import club.p6e.coat.common.error.AuthException;
 import club.p6e.coat.file.aspect.OpenUploadAspect;
+import club.p6e.coat.file.error.AuthException;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 

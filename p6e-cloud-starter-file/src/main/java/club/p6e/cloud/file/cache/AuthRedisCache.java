@@ -1,6 +1,6 @@
 package club.p6e.cloud.file.cache;
 
-import club.p6e.coat.common.utils.JsonUtil;
+import club.p6e.coat.file.utils.JsonUtil;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
 package club.p6e.cloud.file;
 
-import club.p6e.coat.common.utils.JsonUtil;
+import club.p6e.coat.file.utils.JsonUtil;
 import jakarta.annotation.Nonnull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -166,7 +166,7 @@ public class RedisPropertiesRefresher {
                 if (config != null
                         && config.get("format") != null
                         && config.get("content") != null) {
-                    execute(config.get("format"), config.get("content"));
+                    config(config.get("format"), config.get("content"));
                 }
             } catch (Exception e) {
                 // ignore
@@ -177,7 +177,7 @@ public class RedisPropertiesRefresher {
     /**
      * 执行
      */
-    protected void execute(String format, String content) throws Exception {
+    protected void config(String format, String content) throws Exception {
         switch (format) {
             case "yaml":
                 refresher.execute(Properties.initYaml(new Yaml().load(content)));
