@@ -49,5 +49,26 @@
             <artifactId>p6e-coat-starter-file</artifactId>
         </dependency>
         <!-- P6e Coat File [END] -->
+
+        <!-- P6e Coat Common [START] -->
+        <dependency>
+            <groupId>club.p6e.cloud</groupId>
+            <artifactId>p6e-cloud-starter-common</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-jpa</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web-flux</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- P6e Coat Common [END] -->
     </dependencies>
 </project>

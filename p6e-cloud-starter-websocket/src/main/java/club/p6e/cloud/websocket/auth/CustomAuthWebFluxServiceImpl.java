@@ -9,6 +9,7 @@ import club.p6e.coat.common.utils.GeneratorUtil;
 import club.p6e.coat.common.utils.JsonUtil;
 import club.p6e.coat.websocket.User;
 import club.p6e.coat.websocket.auth.AuthWebFluxService;
+import club.p6e.coat.websocket.auth.SimpleAuthWebFluxServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
@@ -22,8 +23,15 @@ import reactor.core.publisher.Mono;
  * @version 1.0
  */
 @Component
+@ConditionalOnMissingBean(
+        value = AuthWebFluxService.class,
+        ignored = {
+                SimpleAuthWebFluxServiceImpl.class,
+                CustomAuthWebFluxServiceImpl.class,
+        }
+)
 @ConditionalOnClass(name = "org.springframework.web.reactive.package-info")
-public class CacheAuthWebFluxServiceImpl implements AuthWebFluxService {
+public class CustomAuthWebFluxServiceImpl implements AuthWebFluxService {
 
     /**
      * 认证缓存对象
@@ -41,7 +49,7 @@ public class CacheAuthWebFluxServiceImpl implements AuthWebFluxService {
      * @param authCache    认证缓存对象
      * @param voucherCache 凭证缓存对象
      */
-    public CacheAuthWebFluxServiceImpl(AuthCache authCache, VoucherCache voucherCache) {
+    public CustomAuthWebFluxServiceImpl(AuthCache authCache, VoucherCache voucherCache) {
         this.authCache = authCache;
         this.voucherCache = voucherCache;
     }

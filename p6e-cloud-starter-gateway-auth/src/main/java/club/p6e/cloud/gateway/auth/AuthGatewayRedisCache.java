@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 /**
+ * 网关认证缓存实现类
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -17,8 +19,16 @@ import reactor.core.publisher.Mono;
 )
 public class AuthGatewayRedisCache implements AuthGatewayCache {
 
+    /**
+     * ReactiveStringRedisTemplate 对象
+     */
     private final ReactiveStringRedisTemplate template;
 
+    /**
+     * 构造方法初始化
+     *
+     * @param template ReactiveStringRedisTemplate 对象
+     */
     public AuthGatewayRedisCache(ReactiveStringRedisTemplate template) {
         this.template = template;
     }

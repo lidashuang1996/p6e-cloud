@@ -7,11 +7,12 @@ import reactor.core.publisher.Mono;
 import java.io.Serializable;
 
 /**
+ * 网关认证缓存接口
+ *
  * @author lidashuang
  * @version 1.0
  */
 public interface AuthGatewayCache {
-
 
     /**
      * 令牌模型

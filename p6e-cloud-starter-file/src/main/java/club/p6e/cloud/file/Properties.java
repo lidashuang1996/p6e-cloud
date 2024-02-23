@@ -1,8 +1,8 @@
 package club.p6e.cloud.file;
 
-import club.p6e.cloud.file.utils.PropertiesUtil;
-import club.p6e.cloud.file.utils.TransformationUtil;
-import club.p6e.cloud.file.utils.YamlUtil;
+import club.p6e.coat.common.utils.PropertiesUtil;
+import club.p6e.coat.common.utils.TransformationUtil;
+import club.p6e.coat.common.utils.YamlUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -10,9 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,35 +28,11 @@ public class Properties implements Serializable {
     private static void initBase(
             Properties properties,
             String version,
-            Boolean refererEnable,
-            List<Object> refererWhiteList,
-            Boolean crossDomainEnable,
-            List<Object> crossDomainWhiteList,
             String sliceUploadPath,
             Long sliceUploadMaxSize
     ) {
         if (version != null) {
             properties.setVersion(version);
-        }
-        if (refererEnable != null) {
-            properties.getReferer().setEnable(refererEnable);
-        }
-        if (refererWhiteList != null) {
-            final List<String> tmpList = new ArrayList<>();
-            for (Object item : refererWhiteList) {
-                tmpList.add(TransformationUtil.objectToString(item));
-            }
-            properties.getReferer().setWhiteList(tmpList);
-        }
-        if (crossDomainEnable != null) {
-            properties.getCrossDomain().setEnable(crossDomainEnable);
-        }
-        if (crossDomainWhiteList != null) {
-            final List<String> tmpList = new ArrayList<>();
-            for (Object item : crossDomainWhiteList) {
-                tmpList.add(TransformationUtil.objectToString(item));
-            }
-            properties.getCrossDomain().setWhiteList(tmpList);
         }
         if (sliceUploadPath != null) {
             properties.getSliceUpload().setPath(sliceUploadPath);
@@ -163,14 +137,9 @@ public class Properties implements Serializable {
         final Object config = YamlUtil.paths(data, "p6e.cloud.file");
         final Map<String, Object> cmap = TransformationUtil.objectToMap(config);
         final String version = TransformationUtil.objectToString(YamlUtil.paths(cmap, "version"));
-        final Boolean refererEnable = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "referer.enable"));
-        final List<Object> refererWhiteList = TransformationUtil.objectToList(YamlUtil.paths(cmap, "referer.whiteList"));
-        final Boolean crossDomainEnable = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "crossDomain.enable"));
-        final List<Object> crossDomainWhiteList = TransformationUtil.objectToList(YamlUtil.paths(cmap, "crossDomain.whiteList"));
         final String sliceUploadPath = TransformationUtil.objectToString(YamlUtil.paths(cmap, "sliceUpload.path"));
         final Long sliceUploadMaxSize = TransformationUtil.objectToLong(YamlUtil.paths(cmap, "sliceUpload.maxSize"));
-        initBase(result, version, refererEnable, refererWhiteList,
-                crossDomainEnable, crossDomainWhiteList, sliceUploadPath, sliceUploadMaxSize);
+        initBase(result, version, sliceUploadPath, sliceUploadMaxSize);
         final Map<String, Object> uploads = TransformationUtil.objectToMap(YamlUtil.paths(cmap, "uploads"));
         if (uploads != null) {
             result.setUploads(initUploads(uploads));
@@ -190,17 +159,10 @@ public class Properties implements Serializable {
         final Properties result = new Properties();
         properties = PropertiesUtil.matchProperties("p6e.cloud.file", properties);
         final String version = PropertiesUtil.getStringProperty(properties, "version");
-        final java.util.Properties refererProperties = PropertiesUtil.matchProperties("referer", properties);
-        final Boolean refererEnable = PropertiesUtil.getBooleanProperty(refererProperties, "enable");
-        final List<Object> refererWhiteList = PropertiesUtil.getListObjectProperty(refererProperties, "whiteList");
-        final java.util.Properties crossDomainProperties = PropertiesUtil.matchProperties("crossDomain", properties);
-        final Boolean crossDomainEnable = PropertiesUtil.getBooleanProperty(crossDomainProperties, "enable");
-        final List<Object> crossDomainWhiteList = PropertiesUtil.getListObjectProperty(crossDomainProperties, "whiteList");
         final java.util.Properties sliceUploadProperties = PropertiesUtil.matchProperties("sliceUpload", properties);
         final String sliceUploadPath = PropertiesUtil.getStringProperty(sliceUploadProperties, "path");
         final Long sliceUploadMaxSize = PropertiesUtil.getLongProperty(sliceUploadProperties, "maxSize");
-        initBase(result, version, refererEnable, refererWhiteList,
-                crossDomainEnable, crossDomainWhiteList, sliceUploadPath, sliceUploadMaxSize);
+        initBase(result, version, sliceUploadPath, sliceUploadMaxSize);
         final Map<String, Object> uploads = PropertiesUtil.getMapProperty(properties, "uploads");
         result.setUploads(initUploads(uploads));
         final Map<String, Object> resources = PropertiesUtil.getMapProperty(properties, "resources");
@@ -211,8 +173,6 @@ public class Properties implements Serializable {
     }
 
     private String version = "unknown";
-    private club.p6e.coat.file.Properties.Referer referer = new club.p6e.coat.file.Properties.Referer();
-    private club.p6e.coat.file.Properties.CrossDomain crossDomain = new club.p6e.coat.file.Properties.CrossDomain();
     private club.p6e.coat.file.Properties.SliceUpload sliceUpload = new club.p6e.coat.file.Properties.SliceUpload();
     private Map<String, club.p6e.coat.file.Properties.Upload> uploads = new HashMap<>();
     private Map<String, club.p6e.coat.file.Properties.Resource> resources = new HashMap<>();

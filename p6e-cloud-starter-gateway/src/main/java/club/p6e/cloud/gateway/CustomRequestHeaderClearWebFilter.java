@@ -11,7 +11,7 @@ import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
 /**
- * 自定义请求头清除过滤器
+ * 自定义全局请求头清除过滤器
  *
  * @author lidashuang
  * @version 1.0
@@ -25,17 +25,17 @@ public class CustomRequestHeaderClearWebFilter implements WebFilter, Ordered {
     /**
      * 执行顺序
      */
-    private static final int ORDER = -2800;
+    protected static final int ORDER = -2800;
 
     /**
      * 重置默认的数据内容
      */
-    private static final String HEADER_CONTENT_NULL = "";
+    protected static final String HEADER_CONTENT_NULL = "";
 
     /**
      * 需要重置的请求数据头
      */
-    private static final String[] HEADER_FILTERED = new String[]{
+    protected static final String[] HEADER_FILTERED = new String[]{
             "P6e-Voucher",
             "P6e-User-Info",
             "P6e-User-Permission",
@@ -44,7 +44,7 @@ public class CustomRequestHeaderClearWebFilter implements WebFilter, Ordered {
     /**
      * 配置文件对象
      */
-    private final Properties properties;
+    protected final Properties properties;
 
     /**
      * 构造方法初始化

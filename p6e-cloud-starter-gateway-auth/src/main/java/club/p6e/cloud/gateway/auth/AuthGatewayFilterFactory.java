@@ -18,6 +18,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
+ * 网关认证过滤器工厂类
+ *
  * @author lidashuang
  * @version 1.0
  */

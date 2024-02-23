@@ -65,6 +65,10 @@ public class CustomErrorWebExceptionHandler
 
     /**
      * 构造方法初始化
+     * 重写默认的异常处理方法是为了使放回的数据格式更加符合规范（全部都为 JSON 格式数据）
+     *
+     * @param codecConfigurer    编解码器配置对象
+     * @param applicationContext 应用上下文对象
      */
     public CustomErrorWebExceptionHandler(
             CodecConfigurer codecConfigurer,

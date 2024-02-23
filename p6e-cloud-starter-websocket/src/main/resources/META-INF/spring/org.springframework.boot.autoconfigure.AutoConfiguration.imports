@@ -1,4 +1,4 @@
-club.p6e.cloud.websocket.auth.CacheAuthWebFluxServiceImpl
+club.p6e.cloud.websocket.auth.CustomAuthWebFluxServiceImpl
 club.p6e.cloud.websocket.cache.AuthRedisCache
 club.p6e.cloud.websocket.cache.VoucherRedisCache
 club.p6e.cloud.websocket.Properties

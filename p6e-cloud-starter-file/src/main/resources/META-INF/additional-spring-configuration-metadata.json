@@ -2,30 +2,6 @@
   "groups": [],
   "properties": [
     {
-      "name": "p6e.cloud.file.referer.enabled",
-      "type": "java.lang.Boolean",
-      "description": "Whether request referer validation is enabled.",
-      "defaultValue": false
-    },
-    {
-      "name": "p6e.cloud.file.referer.white-list",
-      "type": "java.util.List<java.lang.String>",
-      "description": "Request referer validation white list.",
-      "defaultValue": []
-    },
-    {
-      "name": "p6e.cloud.file.cross-domain.enable",
-      "type": "java.lang.Boolean",
-      "description": "Whether request cross domain support is enabled.",
-      "defaultValue": false
-    },
-    {
-      "name": "p6e.cloud.file.cross-domain.white-list",
-      "type": "java.util.List<java.lang.String>",
-      "description": "Whether request cross domain validation white list.",
-      "defaultValue": []
-    },
-    {
       "name": "p6e.cloud.file.slice-upload.path",
       "type": "java.lang.String",
       "description": "File storage path for chunked upload.",

@@ -12,6 +12,8 @@ import org.yaml.snakeyaml.Yaml;
 import java.io.StringReader;
 
 /**
+ * Nacos 配置文件属性刷新器
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -20,7 +22,7 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
     @Value(value = "${spring.profiles.active}")
     protected String active;
 
-    @Value(value = "${spring.application.name:DEFAULT_GROUP}")
+    @Value(value = "${spring.application.name:DEFAULT_NAME}")
     protected String name;
 
     @Value(value = "${spring.cloud.nacos.discovery.group:DEFAULT_GROUP}")

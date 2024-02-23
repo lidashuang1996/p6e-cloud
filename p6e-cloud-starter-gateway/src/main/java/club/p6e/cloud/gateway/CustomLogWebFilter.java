@@ -40,7 +40,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 自定义日志过滤器
+ * 自定义全局日志过滤器
  *
  * @author lidashuang
  * @version 1.0
@@ -69,7 +69,7 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomLogWebFilter.class);
 
     /**
-     * DATA BUFFER 工厂
+     * DATA_BUFFER_FACTORY
      */
     private static final DataBufferFactory DATA_BUFFER_FACTORY = new DefaultDataBufferFactory();
 
@@ -141,6 +141,7 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
      * 日志 Request 解码器
      */
     private static class LogServerHttpRequestDecorator extends ServerHttpRequestDecorator {
+
         /**
          * 模型对象
          */

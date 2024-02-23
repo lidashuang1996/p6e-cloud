@@ -20,6 +20,8 @@ import java.io.StringReader;
 import java.util.Map;
 
 /**
+ * Redis 配置文件属性刷新器
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -115,10 +117,10 @@ public class RedisPropertiesRefresher {
     /**
      * 构造方法初始化
      *
-     * @param refresher Properties Refresher 对象
      * @param template  Redis String Template 模板对象
+     * @param refresher Properties Refresher 对象
      */
-    public RedisPropertiesRefresher(PropertiesRefresher refresher, ReactiveStringRedisTemplate template) {
+    public RedisPropertiesRefresher(ReactiveStringRedisTemplate template, PropertiesRefresher refresher) {
         this.template = template;
         this.refresher = refresher;
     }
@@ -133,13 +135,13 @@ public class RedisPropertiesRefresher {
                     try {
                         return JsonUtil.fromJson(message.getMessage(), MessageModel.class);
                     } catch (Exception e) {
-                        return new MessageModel("error", "");
+                        return new MessageModel("error", null);
                     }
                 })
                 .publishOn(Schedulers.single())
                 .subscribe(this::execute);
         this.template
-                .convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new MessageModel("init", "")))
+                .convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new MessageModel("init", null)))
                 .publishOn(Schedulers.single())
                 .subscribe();
     }
@@ -150,6 +152,7 @@ public class RedisPropertiesRefresher {
     protected void close() {
         if (subscription != null && subscription.isDisposed()) {
             subscription.dispose();
+            subscription = null;
         }
     }
 

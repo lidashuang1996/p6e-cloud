@@ -3,6 +3,8 @@ package club.p6e.cloud.gateway;
 import org.springframework.stereotype.Component;
 
 /**
+ * 配置文件属性刷新器
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -23,7 +25,7 @@ public class PropertiesRefresher {
      * 构造方法初始化
      *
      * @param properties 配置文件对象
-     * @param locator    路由初始化定位器
+     * @param locator    网关路由定位器
      */
     public PropertiesRefresher(Properties properties, CustomRouteLocator locator) {
         this.locator = locator;
@@ -44,6 +46,7 @@ public class PropertiesRefresher {
         this.properties.setRequestHeaderClear(properties.getRequestHeaderClear());
         this.properties.setResponseHeaderOnly(properties.getResponseHeaderOnly());
         this.properties.setRoutes(properties.getRoutes());
+        // 使用自定义的网关路由定位器执行新的路由配置
         this.locator.refresh(this.properties.getRoutes());
     }
 

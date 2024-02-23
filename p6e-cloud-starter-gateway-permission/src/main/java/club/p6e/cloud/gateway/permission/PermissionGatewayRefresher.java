@@ -1,17 +1,19 @@
 package club.p6e.cloud.gateway.permission;
 
+import club.p6e.coat.permission.PermissionTask;
 import club.p6e.coat.permission.PermissionTaskActuator;
 import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.stereotype.Component;
-import reactor.core.scheduler.Schedulers;
 
 /**
+ * 权限网关配置刷新器
+ *
  * @author lidashuang
  * @version 1.0
  */
 @Component
-public class PermissionGatewayRefresher {
+public class PermissionGatewayRefresher implements PermissionTask {
 
     /**
      * 配置主题
@@ -43,7 +45,6 @@ public class PermissionGatewayRefresher {
         template
                 .listenTo(ChannelTopic.of(CONFIG_TOPIC))
                 .map(m -> execute())
-                .publishOn(Schedulers.single())
                 .subscribe();
     }
 
@@ -51,8 +52,17 @@ public class PermissionGatewayRefresher {
      * 执行
      */
     protected long execute() {
-        actuator.execute();
+        this.actuator.execute();
         return System.currentTimeMillis();
     }
 
+    @Override
+    public long version() {
+        return 3600L;
+    }
+
+    @Override
+    public long interval() {
+        return (long) Math.floor(System.currentTimeMillis() / 1000D);
+    }
 }

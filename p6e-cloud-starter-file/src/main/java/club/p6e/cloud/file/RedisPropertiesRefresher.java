@@ -115,10 +115,10 @@ public class RedisPropertiesRefresher {
     /**
      * 构造方法初始化
      *
-     * @param refresher Properties Refresher 对象
      * @param template  Redis String Template 模板对象
+     * @param refresher Properties Refresher 对象
      */
-    public RedisPropertiesRefresher(PropertiesRefresher refresher, ReactiveStringRedisTemplate template) {
+    public RedisPropertiesRefresher(ReactiveStringRedisTemplate template, PropertiesRefresher refresher) {
         this.template = template;
         this.refresher = refresher;
     }

@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 /**
- * 自定义 REFERER 滤器服务
+ * 自定义全局 REFERER 过滤器
  *
  * @author lidashuang
  * @version 1.0
@@ -31,28 +31,28 @@ public class CustomRefererWebFilter implements WebFilter, Ordered {
     /**
      * 执行顺序
      */
-    private static final int ORDER = -2600;
+    protected static final int ORDER = -2600;
 
     /**
      * REFERER
      */
-    private static final String REFERER_HEADER = "Referer";
+    protected static final String REFERER_HEADER = "Referer";
 
     /**
      * REFERER 通用内容
      */
-    private static final String REFERER_HEADER_GENERAL_CONTENT = "*";
+    protected static final String REFERER_HEADER_GENERAL_CONTENT = "*";
 
     /**
      * 错误结果内容
      */
-    private static final String ERROR_RESULT_CONTENT =
+    protected static final String ERROR_RESULT_CONTENT =
             "{\"code\":403,\"message\":\"Forbidden\",\"data\":\"Referer Exception\"}";
 
     /**
      * 配置文件对象
      */
-    private final Properties properties;
+    protected final Properties properties;
 
     /**
      * 构造方法初始化
@@ -74,9 +74,11 @@ public class CustomRefererWebFilter implements WebFilter, Ordered {
         if (!properties.getReferer().isEnable()) {
             return chain.filter(exchange);
         }
+
         final ServerHttpRequest request = exchange.getRequest();
         final ServerHttpResponse response = exchange.getResponse();
         final List<String> refererList = request.getHeaders().get(REFERER_HEADER);
+
         if (refererList != null && !refererList.isEmpty()) {
             final String r = refererList.get(0);
             final String referer = r == null ? "" : r;
@@ -86,6 +88,7 @@ public class CustomRefererWebFilter implements WebFilter, Ordered {
                 }
             }
         }
+
         response.setStatusCode(HttpStatus.FORBIDDEN);
         return response.writeWith(Mono.just(response.bufferFactory()
                 .wrap(ERROR_RESULT_CONTENT.getBytes(StandardCharsets.UTF_8))));

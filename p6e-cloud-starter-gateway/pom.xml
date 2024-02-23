@@ -15,19 +15,19 @@
     <description>p6e-cloud-starter-gateway</description>
 
     <dependencies>
-        <!-- Spring Cloud Gateway [START] -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-        <!-- Spring Cloud Gateway [END] -->
-
         <!-- Spring Reactive Redis [START] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
         </dependency>
         <!-- Spring Reactive Redis [END] -->
+
+        <!-- Spring Cloud Gateway [START] -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+        <!-- Spring Cloud Gateway [END] -->
 
         <!-- Spring Cloud Alibaba Nacos [START] -->
         <!-- Spring Cloud Alibaba BootStrap [ START ] -->
@@ -52,8 +52,8 @@
 
         <!-- P6e Coat Common [START] -->
         <dependency>
-            <groupId>club.p6e.coat</groupId>
-            <artifactId>p6e-coat-starter-common</artifactId>
+            <groupId>club.p6e.cloud</groupId>
+            <artifactId>p6e-cloud-starter-common</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>

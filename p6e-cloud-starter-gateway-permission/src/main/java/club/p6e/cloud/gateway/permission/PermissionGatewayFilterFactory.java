@@ -17,6 +17,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
+ * 权限网关过滤器工厂
+ *
  * @author lidashuang
  * @version 1.0
  */

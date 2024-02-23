@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 自定义返回头唯一过滤器
+ * 自定义全局返回头唯一过滤器
  *
  * @author lidashuang
  * @version 1.0

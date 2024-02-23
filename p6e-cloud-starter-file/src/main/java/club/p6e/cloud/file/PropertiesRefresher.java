@@ -34,8 +34,6 @@ public class PropertiesRefresher {
      */
     public void execute(Properties properties) {
         this.properties.setVersion(properties.getVersion());
-        this.properties.setReferer(properties.getReferer());
-        this.properties.setCrossDomain(properties.getCrossDomain());
         this.properties.setSliceUpload(properties.getSliceUpload());
         this.properties.setUploads(properties.getUploads());
         this.properties.setResources(properties.getResources());
@@ -45,8 +43,6 @@ public class PropertiesRefresher {
 
     private void copy(club.p6e.cloud.file.Properties properties, club.p6e.coat.file.Properties fileProperties) {
         fileProperties.setVersion(properties.getVersion());
-        fileProperties.setReferer(properties.getReferer());
-        fileProperties.setCrossDomain(properties.getCrossDomain());
         fileProperties.setSliceUpload(properties.getSliceUpload());
         fileProperties.setUploads(properties.getUploads());
         fileProperties.setResources(properties.getResources());

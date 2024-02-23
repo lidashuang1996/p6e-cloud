@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
- * 自定义跨域过滤器
+ * 自定义全局跨域过滤器
  *
  * @author lidashuang
  * @version 1.0
@@ -32,27 +32,27 @@ public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
     /**
      * 执行顺序
      */
-    private static final int ORDER = -2700;
+    protected static final int ORDER = -2700;
 
     /**
      * 通用内容
      */
-    private static final String CROSS_DOMAIN_HEADER_GENERAL_CONTENT = "*";
+    protected static final String CROSS_DOMAIN_HEADER_GENERAL_CONTENT = "*";
 
     /**
      * 跨域配置 ACCESS_CONTROL_MAX_AGE
      */
-    private static final long ACCESS_CONTROL_MAX_AGE = 3600L;
+    protected static final long ACCESS_CONTROL_MAX_AGE = 3600L;
 
     /**
      * 跨域配置 ACCESS_CONTROL_ALLOW_ORIGIN
      */
-    private static final boolean ACCESS_CONTROL_ALLOW_CREDENTIALS = true;
+    protected static final boolean ACCESS_CONTROL_ALLOW_CREDENTIALS = true;
 
     /**
      * 跨域配置 ACCESS_CONTROL_ALLOW_HEADERS
      */
-    private static final String[] ACCESS_CONTROL_ALLOW_HEADERS = new String[]{
+    protected static final String[] ACCESS_CONTROL_ALLOW_HEADERS = new String[]{
             "Accept",
             "Host",
             "Origin",
@@ -65,7 +65,7 @@ public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
     /**
      * 跨域配置 ACCESS_CONTROL_ALLOW_METHODS
      */
-    private static final HttpMethod[] ACCESS_CONTROL_ALLOW_METHODS = new HttpMethod[]{
+    protected static final HttpMethod[] ACCESS_CONTROL_ALLOW_METHODS = new HttpMethod[]{
             HttpMethod.GET,
             HttpMethod.POST,
             HttpMethod.PUT,
@@ -76,13 +76,13 @@ public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
     /**
      * 错误结果内容
      */
-    private static final String ERROR_RESULT_CONTENT =
+    protected static final String ERROR_RESULT_CONTENT =
             "{\"code\":403,\"message\":\"Forbidden\",\"data\":\"Cross Domain Exception\"}";
 
     /**
      * 配置文件对象
      */
-    private final Properties properties;
+    protected final Properties properties;
 
     /**
      * 构造方法初始化
@@ -143,20 +143,41 @@ public class CustomCrossDomainWebFilter implements WebFilter, Ordered {
         }
     }
 
+    /**
+     * ACCESS_CONTROL_MAX_AGE
+     *
+     * @return ACCESS_CONTROL_MAX_AGE
+     */
     public long getAccessControlMaxAge() {
         return ACCESS_CONTROL_MAX_AGE;
     }
 
+    /**
+     * ACCESS_CONTROL_ALLOW_METHODS
+     *
+     * @return ACCESS_CONTROL_ALLOW_METHODS
+     */
     public HttpMethod[] getAccessControlAllowMethods() {
         return ACCESS_CONTROL_ALLOW_METHODS;
     }
 
+    /**
+     * ACCESS_CONTROL_ALLOW_HEADERS
+     *
+     * @return ACCESS_CONTROL_ALLOW_HEADERS
+     */
     public String[] getAccessControlAllowHeaders() {
         return ACCESS_CONTROL_ALLOW_HEADERS;
     }
 
+    /**
+     * ACCESS_CONTROL_ALLOW_CREDENTIALS
+     *
+     * @return ACCESS_CONTROL_ALLOW_CREDENTIALS
+     */
     public boolean getAccessControlAllowCredentials() {
         return ACCESS_CONTROL_ALLOW_CREDENTIALS;
     }
+
 }
 

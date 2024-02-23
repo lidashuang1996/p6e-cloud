@@ -294,7 +294,7 @@ public class Properties implements Serializable {
         private boolean enable = false;
 
         /**
-         * 是否启动打印
+         * 是否启动详细信息打印
          */
         private boolean details = false;
 
@@ -339,7 +339,7 @@ public class Properties implements Serializable {
         private List<String> whiteList = new ArrayList<>() {{
             add("*");
         }};
-        
+
     }
 
 }

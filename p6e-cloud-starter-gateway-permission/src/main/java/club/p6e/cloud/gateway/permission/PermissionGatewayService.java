@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 权限网关服务
+ *
  * @author lidashuang
  * @version 1.0
  */
