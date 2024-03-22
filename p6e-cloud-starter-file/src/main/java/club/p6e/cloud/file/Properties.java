@@ -6,6 +6,7 @@ import club.p6e.coat.common.utils.YamlUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 
@@ -20,8 +21,9 @@ import java.util.Map;
  * @version 1.0
  */
 @Data
-@Component
+@Primary
 @Accessors(chain = true)
+@Component("club.p6e.cloud.file.Properties")
 @ConfigurationProperties(prefix = "p6e.cloud.file")
 public class Properties implements Serializable {
 

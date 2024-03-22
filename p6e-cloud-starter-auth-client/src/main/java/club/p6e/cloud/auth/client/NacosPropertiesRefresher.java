@@ -1,4 +1,4 @@
-package club.p6e.cloud.file;
+package club.p6e.cloud.auth.client;
 
 import com.alibaba.cloud.nacos.NacosConfigManager;
 import com.alibaba.nacos.api.config.ConfigChangeEvent;
@@ -20,7 +20,7 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
     @Value(value = "${spring.profiles.active}")
     protected String active;
 
-    @Value(value = "${spring.application.name:DEFAULT_NAME}")
+    @Value(value = "${spring.application.name:DEFAULT_GROUP}")
     protected String name;
 
     @Value(value = "${spring.cloud.nacos.discovery.group:DEFAULT_GROUP}")
@@ -76,8 +76,8 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
                 }
                 break;
             case "properties":
-                final java.util.Properties properties = new java.util.Properties();
                 try {
+                    final java.util.Properties properties = new java.util.Properties();
                     properties.load(new StringReader(content));
                     refresher.execute(Properties.initProperties(properties));
                 } catch (Exception e) {
@@ -88,5 +88,6 @@ public class NacosPropertiesRefresher implements ApplicationListener<Application
                 break;
         }
     }
+
 
 }

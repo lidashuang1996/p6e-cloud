@@ -1,6 +1,6 @@
-package club.p6e.cloud.file;
+package club.p6e.cloud.auth.client;
 
-import club.p6e.coat.file.utils.JsonUtil;
+import club.p6e.coat.common.utils.JsonUtil;
 import jakarta.annotation.Nonnull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -86,7 +86,7 @@ public class RedisPropertiesRefresher {
     /**
      * 配置主题
      */
-    private static String CONFIG_TOPIC = "p6e-cloud-file-config-topic";
+    private static String CONFIG_TOPIC = "p6e-cloud-auth-client-config-topic";
 
     /**
      * Disposable 对象

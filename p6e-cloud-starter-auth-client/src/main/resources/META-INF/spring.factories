@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+club.p6e.cloud.auth.client.Properties,\
+club.p6e.cloud.auth.client.PropertiesRefresher

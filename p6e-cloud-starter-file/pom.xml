@@ -15,33 +15,7 @@
     <description>p6e-cloud-starter-file</description>
 
     <dependencies>
-        <!-- Spring Reactive Redis [START] -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>
-        <!-- Spring Reactive Redis [END] -->
 
-        <!-- Spring Cloud Alibaba Nacos [START] -->
-        <!-- Spring Cloud Alibaba BootStrap [ START ] -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
-        <!-- Spring Cloud Alibaba BootStrap [ END ] -->
-        <!-- Spring Cloud Alibaba Nacos Config [START] -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-        <!-- Spring Cloud Alibaba Nacos Config [END] -->
-        <!-- Spring Cloud Alibaba Nacos Discovery [START] -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <!-- Spring Cloud Alibaba Nacos Discovery [END] -->
-        <!-- Spring Cloud Alibaba Nacos [END] -->
 
         <!-- P6e Coat File [START] -->
         <dependency>
