@@ -23,8 +23,8 @@ import java.util.*;
  * @version 1.0
  */
 @Data
-@Component
 @Accessors(chain = true)
+@Component("club.p6e.cloud.gateway.Properties")
 @ConfigurationProperties(prefix = "p6e.cloud.gateway")
 public class Properties implements Serializable {
 
@@ -40,9 +40,6 @@ public class Properties implements Serializable {
             List<Object> requestHeaderClear,
             List<Object> responseHeaderOnly
     ) {
-        if (version != null) {
-            properties.setVersion(version);
-        }
         if (logEnable != null) {
             properties.getLog().setEnable(logEnable);
         }
@@ -245,11 +242,6 @@ public class Properties implements Serializable {
         }
         return content.substring(0, mark) + (num == null ? "" : "." + num);
     }
-
-    /**
-     * 版本号
-     */
-    private String version = "unknown";
 
     /**
      * Log

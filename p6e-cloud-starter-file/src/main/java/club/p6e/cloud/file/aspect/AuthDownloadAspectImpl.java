@@ -1,7 +1,7 @@
 package club.p6e.cloud.file.aspect;
 
+import club.p6e.coat.common.error.AuthException;
 import club.p6e.coat.file.aspect.DownloadAspect;
-import club.p6e.coat.file.error.AuthException;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -41,7 +41,7 @@ public class AuthDownloadAspectImpl implements DownloadAspect {
                 .switchIfEmpty(Mono.error(new AuthException(
                         this.getClass(),
                         "fun before(Map<String, Object> data).",
-                        "Request authentication information has expired"
+                        "Request authentication information has expired."
                 )));
     }
 

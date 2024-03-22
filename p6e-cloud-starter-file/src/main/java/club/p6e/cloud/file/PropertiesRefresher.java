@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
  * @author lidashuang
  * @version 1.0
  */
-@Component
+@Component("club.p6e.cloud.file.PropertiesRefresher")
 public class PropertiesRefresher {
 
     /**
@@ -33,7 +33,6 @@ public class PropertiesRefresher {
      * @param properties 配置文件对象
      */
     public void execute(Properties properties) {
-        this.properties.setVersion(properties.getVersion());
         this.properties.setSliceUpload(properties.getSliceUpload());
         this.properties.setUploads(properties.getUploads());
         this.properties.setResources(properties.getResources());
@@ -42,7 +41,6 @@ public class PropertiesRefresher {
     }
 
     private void copy(club.p6e.cloud.file.Properties properties, club.p6e.coat.file.Properties fileProperties) {
-        fileProperties.setVersion(properties.getVersion());
         fileProperties.setSliceUpload(properties.getSliceUpload());
         fileProperties.setUploads(properties.getUploads());
         fileProperties.setResources(properties.getResources());

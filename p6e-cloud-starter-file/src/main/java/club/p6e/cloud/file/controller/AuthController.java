@@ -3,9 +3,9 @@ package club.p6e.cloud.file.controller;
 import club.p6e.cloud.file.cache.AuthCache;
 import club.p6e.cloud.file.cache.VoucherCache;
 import club.p6e.coat.common.controller.BaseWebFluxController;
-import club.p6e.coat.file.error.AuthException;
+import club.p6e.coat.common.error.AuthException;
+import club.p6e.coat.common.utils.GeneratorUtil;
 import club.p6e.coat.file.handler.AspectHandlerFunction;
-import club.p6e.coat.file.utils.GeneratorUtil;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,7 +55,7 @@ public class AuthController {
             return Mono.error(new AuthException(
                     this.getClass(),
                     "fun def(ServerWebExchange exchange).",
-                    "Request missing authentication information"
+                    "Request missing authentication information."
             ));
         } else {
             return authCache
@@ -67,7 +67,7 @@ public class AuthController {
                     .switchIfEmpty(Mono.error(new AuthException(
                             this.getClass(),
                             "fun def(ServerWebExchange exchange).",
-                            "Request authentication information has expired"
+                            "Request authentication information has expired."
                     )))
                     .map(AspectHandlerFunction.ResultContext::build);
         }
