@@ -66,23 +66,4 @@ public class Properties extends club.p6e.coat.auth.Properties implements Seriali
         return result;
     }
 
-    @Data
-    @Accessors(chain = true)
-    public static class Channel implements Serializable {
-        /**
-         * 频道名称
-         */
-        private String name;
-
-        /**
-         * 频道数据类型
-         */
-        private String type;
-
-        /**
-         * 频道启动端口
-         */
-        private Integer port;
-    }
-
 }

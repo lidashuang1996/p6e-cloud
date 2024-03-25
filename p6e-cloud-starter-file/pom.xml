@@ -16,7 +16,6 @@
 
     <dependencies>
 
-
         <!-- P6e Coat File [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>

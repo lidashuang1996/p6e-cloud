@@ -31,7 +31,6 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
 
     private static void initBase(
             Properties properties,
-            String version,
             String sliceUploadPath,
             Long sliceUploadMaxSize
     ) {
@@ -137,10 +136,9 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         final Properties result = new Properties();
         final Object config = YamlUtil.paths(data, "p6e.cloud.file");
         final Map<String, Object> cmap = TransformationUtil.objectToMap(config);
-        final String version = TransformationUtil.objectToString(YamlUtil.paths(cmap, "version"));
         final String sliceUploadPath = TransformationUtil.objectToString(YamlUtil.paths(cmap, "sliceUpload.path"));
         final Long sliceUploadMaxSize = TransformationUtil.objectToLong(YamlUtil.paths(cmap, "sliceUpload.maxSize"));
-        initBase(result, version, sliceUploadPath, sliceUploadMaxSize);
+        initBase(result, sliceUploadPath, sliceUploadMaxSize);
         final Map<String, Object> uploads = TransformationUtil.objectToMap(YamlUtil.paths(cmap, "uploads"));
         if (uploads != null) {
             result.setUploads(initUploads(uploads));
@@ -159,11 +157,10 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
         properties = PropertiesUtil.matchProperties("p6e.cloud.file", properties);
-        final String version = PropertiesUtil.getStringProperty(properties, "version");
         final java.util.Properties sliceUploadProperties = PropertiesUtil.matchProperties("sliceUpload", properties);
         final String sliceUploadPath = PropertiesUtil.getStringProperty(sliceUploadProperties, "path");
         final Long sliceUploadMaxSize = PropertiesUtil.getLongProperty(sliceUploadProperties, "maxSize");
-        initBase(result, version, sliceUploadPath, sliceUploadMaxSize);
+        initBase(result, sliceUploadPath, sliceUploadMaxSize);
         final Map<String, Object> uploads = PropertiesUtil.getMapProperty(properties, "uploads");
         result.setUploads(initUploads(uploads));
         final Map<String, Object> resources = PropertiesUtil.getMapProperty(properties, "resources");

@@ -1,17 +1,18 @@
 package club.p6e.cloud.auth.expansion;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 import org.springframework.data.relational.core.query.Criteria;
 import org.springframework.data.relational.core.query.Query;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 /**
  * @author lidashuang
  * @version 1.0
  */
 @Component
+@ConditionalOnProperty(name = "p6e.cloud.auth.permission.enabled", havingValue = "true")
 public class PermissionUrlGroupRelationUrlRepositoryExpansion {
 
     /**

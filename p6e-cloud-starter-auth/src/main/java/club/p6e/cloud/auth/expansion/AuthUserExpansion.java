@@ -6,6 +6,7 @@ import club.p6e.coat.auth.model.UserModel;
 import club.p6e.coat.common.utils.JsonUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -20,6 +21,7 @@ import java.util.Map;
  * @version 1.0
  */
 @Component
+@ConditionalOnProperty(name = "p6e.cloud.auth.permission.enabled", havingValue = "true")
 public class AuthUserExpansion implements AuthUser<AuthUserExpansion.Model> {
 
     private final PermissionUrlGroupRepositoryExpansion permissionUrlGroupRepositoryExpansion;

@@ -84,6 +84,11 @@
                 <artifactId>p6e-cloud-starter-message-center</artifactId>
                 <version>${p6e-cloud.version}</version>
             </dependency>
+            <dependency>
+                <groupId>club.p6e.cloud</groupId>
+                <artifactId>p6e-cloud-starter-auth-client</artifactId>
+                <version>${p6e-cloud.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
