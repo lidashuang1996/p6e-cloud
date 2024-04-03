@@ -65,4 +65,5 @@ public class PermissionGatewayRefresher implements PermissionTask {
     public long interval() {
         return (long) Math.floor(System.currentTimeMillis() / 1000D);
     }
+
 }

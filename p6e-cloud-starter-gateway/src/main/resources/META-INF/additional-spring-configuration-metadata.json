@@ -2,12 +2,6 @@
   "groups": [],
   "properties": [
     {
-      "name": "p6e.cloud.gateway.version",
-      "type": "java.lang.Integer",
-      "description": "Gateway version.",
-      "defaultValue": "unknown"
-    },
-    {
       "name": "p6e.cloud.gateway.log.enable",
       "type": "java.lang.Boolean",
       "description": "Gateway enabled for logging.",
@@ -18,34 +12,6 @@
       "type": "java.lang.Boolean",
       "description": "Gateway enabled for logging details.",
       "defaultValue": false
-    },
-    {
-      "name": "p6e.cloud.gateway.referer.enable",
-      "type": "java.lang.Boolean",
-      "description": "Gateway enabled for referer.",
-      "defaultValue": false
-    },
-    {
-      "name": "p6e.cloud.gateway.referer.white-list",
-      "type": "java.util.List<java.lang.String>",
-      "description": "Gateway referer white list.",
-      "defaultValue": [
-        "*"
-      ]
-    },
-    {
-      "name": "p6e.cloud.gateway.cross-domain.enable",
-      "type": "java.lang.Boolean",
-      "description": "Gateway enabled for cross domain.",
-      "defaultValue": false
-    },
-    {
-      "name": "p6e.cloud.gateway.cross-domain.white-list",
-      "type": "java.util.List<java.lang.String>",
-      "description": "Gateway cross domain white list.",
-      "defaultValue": [
-        "*"
-      ]
     },
     {
       "name": "p6e.cloud.gateway.request-header-clear",

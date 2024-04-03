@@ -3,6 +3,7 @@ package club.p6e.cloud.gateway.permission;
 import club.p6e.coat.common.utils.JsonUtil;
 import club.p6e.coat.permission.PermissionValidator;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
@@ -71,6 +72,7 @@ public class PermissionGatewayService {
 
 
     @Data
+    @Accessors(chain = true)
     private static class UserModel implements Serializable {
         private List<String> permissions = new ArrayList<>();
     }

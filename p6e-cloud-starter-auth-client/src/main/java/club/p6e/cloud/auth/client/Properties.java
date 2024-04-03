@@ -18,7 +18,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)
 @Component(value = "club.p6e.cloud.auth.client.Properties")
-@ConfigurationProperties(prefix = "p6e.cloud.cloud.auth.client")
+@ConfigurationProperties(prefix = "p6e.cloud.auth.client")
 public class Properties extends club.p6e.coat.auth.client.Properties implements Serializable {
 
     /**
@@ -42,5 +42,4 @@ public class Properties extends club.p6e.coat.auth.client.Properties implements 
         final Properties result = new Properties();
         return result;
     }
-
 }

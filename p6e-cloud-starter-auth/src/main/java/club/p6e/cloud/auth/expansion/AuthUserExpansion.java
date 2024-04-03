@@ -7,44 +7,47 @@ import club.p6e.coat.common.utils.JsonUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author lidashuang
  * @version 1.0
  */
+@Primary
 @Component
 @ConditionalOnProperty(name = "p6e.cloud.auth.permission.enabled", havingValue = "true")
 public class AuthUserExpansion implements AuthUser<AuthUserExpansion.Model> {
 
     private final PermissionUrlGroupRepositoryExpansion permissionUrlGroupRepositoryExpansion;
     private final PermissionUrlGroupRelationUrlRepositoryExpansion permissionUrlGroupRelationUrlRepositoryExpansion;
+    private final PermissionUrlGroupRelationUserRepositoryExpansion permissionUrlGroupRelationUserRepositoryExpansion;
 
     public AuthUserExpansion(PermissionUrlGroupRepositoryExpansion permissionUrlGroupRepositoryExpansion,
-                             PermissionUrlGroupRelationUrlRepositoryExpansion permissionUrlGroupRelationUrlRepositoryExpansion) {
+                             PermissionUrlGroupRelationUrlRepositoryExpansion permissionUrlGroupRelationUrlRepositoryExpansion,
+                             PermissionUrlGroupRelationUserRepositoryExpansion permissionUrlGroupRelationUserRepositoryExpansion) {
         this.permissionUrlGroupRepositoryExpansion = permissionUrlGroupRepositoryExpansion;
         this.permissionUrlGroupRelationUrlRepositoryExpansion = permissionUrlGroupRelationUrlRepositoryExpansion;
+        this.permissionUrlGroupRelationUserRepositoryExpansion = permissionUrlGroupRelationUserRepositoryExpansion;
     }
 
     @Override
-    public Model create(String content) {
+    public Mono<Model> create(String content) {
         final Model model = JsonUtil.fromJson(content, Model.class);
         if (model == null) {
             throw new RuntimeException("[ " + this.getClass() + " ] create ==> deserialization failure !!");
         } else {
-            return model;
+            return Mono.just(model);
         }
     }
 
     @Override
-    public Model create(UserModel um, UserAuthModel uam) {
+    public Mono<Model> create(UserModel um, UserAuthModel uam) {
         final Model model = new Model()
                 .setId(um.getId())
                 .setStatus(um.getStatus())
@@ -61,33 +64,45 @@ public class AuthUserExpansion implements AuthUser<AuthUserExpansion.Model> {
         if (uam != null) {
             model.setPassword(uam.getPassword());
         }
-        return permissionUrlGroupRelationUrlRepositoryExpansion
+
+        return permissionUrlGroupRelationUserRepositoryExpansion
                 .findByUidList(um.getId())
-                .flatMap(r -> permissionUrlGroupRepositoryExpansion
-                        .findById(r.getGid())
-                        .flatMap(g -> {
-                            if (g.getParent() != null && g.getParent() != 0) {
-                                return permissionUrlGroupRepositoryExpansion
-                                        .findByPid(g.getParent())
-                                        .collectList()
-                                        .map(l -> {
-                                            l.add(g);
-                                            return l;
-                                        });
-                            } else {
-                                return Mono.just(new ArrayList<>(List.of(g)));
-                            }
-                        }))
-                .collectList()
-                .map(l -> {
-                    final List<PermissionUrlGroupModelExpansion> expansions = new ArrayList<>();
-                    l.forEach(expansions::addAll);
-                    return expansions;
+                .flatMap(m -> permissionUrlGroupRepositoryExpansion
+                        .findById(m.getGid())
+                        .flatMap(gm -> permissionUrlGroupRepositoryExpansion
+                                .findByPid(gm.getId())
+                                .collectList()
+                                .map(l -> {
+                                    l.add(gm);
+                                    return l;
+                                })))
+                .flatMap(list -> {
+                    final List<PermissionModelExpansion> result = new ArrayList<>();
+                    for (PermissionUrlGroupModelExpansion item : list) {
+                        result.add(new PermissionModelExpansion()
+                                .setGid(item.getId())
+                                .setMark(item.getMark())
+                                .setName(item.getName())
+                                .setWeight(item.getWeight())
+                                .setParent(item.getParent())
+                        );
+                    }
+                    return Flux.fromStream(result.stream());
                 })
-                .map(l -> model
-                        .setPermissionGroup(l.stream().map(i -> String.valueOf(i.getId())).toList())
-                        .setPermissionMark(l.stream().map(PermissionUrlGroupModelExpansion::getMark).toList())
-                ).block();
+                .flatMap(m -> permissionUrlGroupRelationUrlRepositoryExpansion
+                        .findByGidList(m.getGid())
+                        .map(rm -> m.setUid(rm.getUid()).setAttribute(rm.getAttribute()).setConfig(rm.getConfig())))
+                .collectList()
+                .flatMap(list -> {
+                    if (list != null && !list.isEmpty()) {
+                        list.forEach(item -> {
+                            model.getPermissionMark().add(item.getMark());
+                            model.getPermissionGroup().add(item.getGid() + ":" + item.getUid()
+                                    + ":" + (item.getAttribute() == null ? "" : item.getAttribute()));
+                        });
+                    }
+                    return Mono.just(model);
+                });
     }
 
     @Data
@@ -106,7 +121,7 @@ public class AuthUserExpansion implements AuthUser<AuthUserExpansion.Model> {
         private String avatar;
         private String description;
         private String password;
-        private List<String> permissionMark = new ArrayList<>();
+        private Set<String> permissionMark = new HashSet<>();
         private List<String> permissionGroup = new ArrayList<>();
 
         @Override
@@ -121,22 +136,7 @@ public class AuthUserExpansion implements AuthUser<AuthUserExpansion.Model> {
 
         @Override
         public String serialize() {
-            return JsonUtil.toJson(new Model()
-                    .setId(this.getId())
-                    .setStatus(this.getStatus())
-                    .setEnabled(this.getEnabled())
-                    .setInternal(this.getInternal())
-                    .setAdministrator(this.getAdministrator())
-                    .setAccount(this.getAccount())
-                    .setPhone(this.getPhone())
-                    .setMailbox(this.getMailbox())
-                    .setName(this.getName())
-                    .setNickname(this.getNickname())
-                    .setAvatar(this.getAvatar())
-                    .setDescription(this.getDescription())
-                    .setPermissionMark(this.getPermissionMark())
-                    .setPermissionGroup(this.getPermissionGroup())
-            );
+            return JsonUtil.toJson(toMap());
         }
 
         @Override

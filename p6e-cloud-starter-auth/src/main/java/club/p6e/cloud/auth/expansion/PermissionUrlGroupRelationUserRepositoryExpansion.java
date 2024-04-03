@@ -7,7 +7,6 @@ import org.springframework.data.relational.core.query.Criteria;
 import org.springframework.data.relational.core.query.Query;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 /**
  * @author lidashuang
@@ -16,7 +15,7 @@ import reactor.core.publisher.Mono;
 @Primary
 @Component
 @ConditionalOnProperty(name = "p6e.cloud.auth.permission.enabled", havingValue = "true")
-public class PermissionUrlGroupRepositoryExpansion {
+public class PermissionUrlGroupRelationUserRepositoryExpansion {
 
     /**
      * 模板对象
@@ -28,7 +27,7 @@ public class PermissionUrlGroupRepositoryExpansion {
      *
      * @param template 模板对象
      */
-    public PermissionUrlGroupRepositoryExpansion(R2dbcEntityTemplate template) {
+    public PermissionUrlGroupRelationUserRepositoryExpansion(R2dbcEntityTemplate template) {
         this.template = template;
     }
 
@@ -36,25 +35,12 @@ public class PermissionUrlGroupRepositoryExpansion {
      * 根据 ID 查询数据
      *
      * @param id ID
-     * @return Mono/PermissionUrlGroupModelExpansion 用户模型对象
+     * @return Mono/PermissionUrlGroupRelationUserModelExpansion
      */
-    public Mono<PermissionUrlGroupModelExpansion> findById(Integer id) {
-        return template.selectOne(
-                Query.query(Criteria.where(PermissionUrlGroupModelExpansion.ID).is(id)),
-                PermissionUrlGroupModelExpansion.class
-        );
-    }
-
-    /**
-     * 根据 PID 查询数据
-     *
-     * @param pid PID
-     * @return Flux/PermissionUrlGroupModelExpansion 用户模型对象
-     */
-    public Flux<PermissionUrlGroupModelExpansion> findByPid(Integer pid) {
+    public Flux<PermissionUrlGroupRelationUserModelExpansion> findByUidList(Integer id) {
         return template.select(
-                Query.query(Criteria.where(PermissionUrlGroupModelExpansion.PARENT).is(pid)),
-                PermissionUrlGroupModelExpansion.class
+                Query.query(Criteria.where(PermissionUrlGroupRelationUserModelExpansion.UID).is(id)),
+                PermissionUrlGroupRelationUserModelExpansion.class
         );
     }
 

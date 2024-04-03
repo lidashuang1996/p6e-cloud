@@ -1,8 +1,6 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-club.p6e.cloud.gateway.CustomCrossDomainWebFilter,\
 club.p6e.cloud.gateway.CustomLogWebFilter,\
-club.p6e.cloud.gateway.CustomRefererWebFilter,\
 club.p6e.cloud.gateway.CustomRequestHeaderClearWebFilter,\
 club.p6e.cloud.gateway.CustomResponseHeaderOnlyWebFilter,\
 club.p6e.cloud.gateway.CustomRouteLocator,\

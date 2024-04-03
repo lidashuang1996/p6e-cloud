@@ -2,7 +2,6 @@ package club.p6e.cloud.auth.expansion;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.io.Serializable;
@@ -25,9 +24,7 @@ public class PermissionUrlGroupRelationUrlModelExpansion implements Serializable
     public static final String CONFIG = "config";
     public static final String ATTRIBUTE = "attribute";
 
-    @Id
     private Integer gid;
-    @Id
     private Integer uid;
     private String config;
     private String attribute;
