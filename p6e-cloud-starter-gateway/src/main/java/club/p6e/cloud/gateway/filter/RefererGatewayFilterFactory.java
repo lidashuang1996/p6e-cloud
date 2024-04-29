@@ -9,7 +9,6 @@ import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
-import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -78,8 +77,8 @@ public class RefererGatewayFilterFactory
             final List<String> refererList = request.getHeaders().get(REFERER_HEADER);
 
             if (refererList != null && !refererList.isEmpty()) {
-                final String r = refererList.get(0);
-                final String referer = r == null ? "" : r;
+                final String data = refererList.get(0);
+                final String referer = data == null ? "" : data;
                 for (final String item : config.getWhiteList()) {
                     if (REFERER_HEADER_GENERAL_CONTENT.equals(item) || referer.startsWith(item)) {
                         return chain.filter(exchange);

@@ -9,7 +9,10 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.ContextClosedEvent;
+import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
+import org.springframework.data.redis.listener.ChannelTopic;
 import reactor.core.Disposable;
+import reactor.core.scheduler.Schedulers;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -81,12 +84,26 @@ public class RedisPropertiesRefresher {
     /**
      * 配置主题
      */
-    private static String CONFIG_TOPIC = "p6e-cloud-file-config-topic";
+    private static String CONFIG_TOPIC = "p6e-cloud-config-topic";
 
     /**
      * Disposable 对象
      */
     private Disposable subscription;
+
+    /**
+     * 模板对象
+     */
+    private final ReactiveStringRedisTemplate template;
+
+    /**
+     * 构造方法初始化
+     *
+     * @param template 模板对象
+     */
+    public RedisPropertiesRefresher(ReactiveStringRedisTemplate template) {
+        this.template = template;
+    }
 
     /**
      * 设置配置主题
@@ -101,21 +118,21 @@ public class RedisPropertiesRefresher {
      * 初始化
      */
     protected void init() {
-//        this.subscription = this.template
-//                .listenTo(ChannelTopic.of(CONFIG_TOPIC))
-//                .map(message -> {
-//                    try {
-//                        return JsonUtil.fromJson(message.getMessage(), MessageModel.class);
-//                    } catch (Exception e) {
-//                        return new MessageModel("error", "");
-//                    }
-//                })
-//                .publishOn(Schedulers.single())
-//                .subscribe(this::execute);
-//        this.template
-//                .convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new MessageModel("init", "")))
-//                .publishOn(Schedulers.single())
-//                .subscribe();
+        this.subscription = this.template
+                .listenTo(ChannelTopic.of(CONFIG_TOPIC))
+                .map(message -> {
+                    try {
+                        return JsonUtil.fromJson(message.getMessage(), MessageModel.class);
+                    } catch (Exception e) {
+                        return new MessageModel("error", "");
+                    }
+                })
+                .publishOn(Schedulers.single())
+                .subscribe(this::execute);
+        this.template
+                .convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new MessageModel("init", "")))
+                .publishOn(Schedulers.single())
+                .subscribe();
     }
 
     /**

@@ -47,7 +47,7 @@ public class VoucherGatewayFilterFactory
     /**
      * 网关过滤器
      */
-    @SuppressWarnings("all")
+    @SuppressWarnings("ALL")
     public static class CustomGatewayFilter implements GatewayFilter, Ordered {
 
         /**

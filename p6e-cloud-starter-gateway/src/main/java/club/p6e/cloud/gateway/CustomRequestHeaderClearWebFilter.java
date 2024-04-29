@@ -39,6 +39,8 @@ public class CustomRequestHeaderClearWebFilter implements WebFilter, Ordered {
             "P6e-Voucher",
             "P6e-User-Info",
             "P6e-User-Permission",
+            "P6e-Project",
+            "P6e-Organization"
     };
 
     /**
