@@ -19,6 +19,7 @@ import java.io.Serializable;
  * @author lidashuang
  * @version 1.0
  */
+@Component
 public class VoucherGatewayFilterFactory
         extends AbstractGatewayFilterFactory<VoucherGatewayFilterFactory.Config> {
 

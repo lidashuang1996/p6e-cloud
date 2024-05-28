@@ -9,10 +9,8 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.ContextClosedEvent;
-import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
-import reactor.core.Disposable;
-import reactor.core.scheduler.Schedulers;
+import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -89,20 +87,30 @@ public class RedisPropertiesRefresher {
     /**
      * Disposable 对象
      */
-    private Disposable subscription;
+    private reactor.core.Disposable subscription;
 
+    private org.springframework.data.redis.core.StringRedisTemplate stringRedisTemplate;
     /**
      * 模板对象
      */
-    private final ReactiveStringRedisTemplate template;
+    private org.springframework.data.redis.core.ReactiveStringRedisTemplate reactiveStringRedisTemplate;
 
     /**
      * 构造方法初始化
      *
      * @param template 模板对象
      */
-    public RedisPropertiesRefresher(ReactiveStringRedisTemplate template) {
-        this.template = template;
+    public RedisPropertiesRefresher(org.springframework.data.redis.core.StringRedisTemplate template) {
+        this.stringRedisTemplate = template;
+    }
+
+    /**
+     * 构造方法初始化
+     *
+     * @param template 模板对象
+     */
+    public RedisPropertiesRefresher(org.springframework.data.redis.core.ReactiveStringRedisTemplate template) {
+        this.reactiveStringRedisTemplate = template;
     }
 
     /**
@@ -118,29 +126,50 @@ public class RedisPropertiesRefresher {
      * 初始化
      */
     protected void init() {
-        this.subscription = this.template
-                .listenTo(ChannelTopic.of(CONFIG_TOPIC))
-                .map(message -> {
-                    try {
-                        return JsonUtil.fromJson(message.getMessage(), MessageModel.class);
-                    } catch (Exception e) {
-                        return new MessageModel("error", "");
-                    }
-                })
-                .publishOn(Schedulers.single())
-                .subscribe(this::execute);
-        this.template
-                .convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new MessageModel("init", "")))
-                .publishOn(Schedulers.single())
-                .subscribe();
+        if (stringRedisTemplate != null
+                && stringRedisTemplate.getConnectionFactory() != null) {
+            final RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+            container.setConnectionFactory(stringRedisTemplate.getConnectionFactory());
+            container.addMessageListener((message, pattern) -> {
+                try {
+                    execute(JsonUtil.fromJson(new String(message.getBody()), MessageModel.class));
+                } catch (Exception e) {
+                    execute(new MessageModel("error", ""));
+                }
+            }, new ChannelTopic(CONFIG_TOPIC));
+            stringRedisTemplate.convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new MessageModel("init", "")));
+        }
+        if (reactiveStringRedisTemplate != null) {
+            subscription = reactiveStringRedisTemplate
+                    .listenTo(ChannelTopic.of(CONFIG_TOPIC))
+                    .map(message -> {
+                        try {
+                            return JsonUtil.fromJson(message.getMessage(), MessageModel.class);
+                        } catch (Exception e) {
+                            return new MessageModel("error", "");
+                        }
+                    })
+                    .publishOn(reactor.core.scheduler.Schedulers.single())
+                    .subscribe(this::execute);
+            reactiveStringRedisTemplate
+                    .convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new MessageModel("init", "")))
+                    .publishOn(reactor.core.scheduler.Schedulers.single())
+                    .subscribe();
+        }
     }
 
     /**
      * 关闭
      */
     protected void close() {
-        if (subscription != null && subscription.isDisposed()) {
-            subscription.dispose();
+        if (stringRedisTemplate != null) {
+            stringRedisTemplate = null;
+        }
+        if (reactiveStringRedisTemplate != null) {
+            if (subscription != null && subscription.isDisposed()) {
+                subscription.dispose();
+            }
+            reactiveStringRedisTemplate = null;
         }
     }
 

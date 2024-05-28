@@ -60,7 +60,7 @@ public class CustomAuthWebFluxServiceImpl implements AuthWebFluxService {
         if (token == null) {
             throw new AuthException(this.getClass(),
                     "fun award(HttpServletRequest request).",
-                    "request does not authentication information."
+                    "Request does not authentication information."
             );
         }
         return authCache
@@ -69,7 +69,7 @@ public class CustomAuthWebFluxServiceImpl implements AuthWebFluxService {
                 .switchIfEmpty(Mono.error(new AuthException(
                         this.getClass(),
                         "fun award(HttpServletRequest request).",
-                        "request for expired authentication information."
+                        "Request for expired authentication information."
                 )))
                 .flatMap(content -> voucherCache.set(GeneratorUtil.uuid() + GeneratorUtil.random(), content));
     }

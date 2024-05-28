@@ -10,7 +10,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.gateway.filter.FilterDefinition;
 import org.springframework.cloud.gateway.handler.predicate.PredicateDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinition;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -24,7 +23,6 @@ import java.util.*;
  * @version 1.0
  */
 @Data
-@Primary
 @Accessors(chain = true)
 @Component("club.p6e.cloud.gateway.Properties")
 @ConfigurationProperties(prefix = "p6e.cloud.gateway")
@@ -44,18 +42,18 @@ public class Properties implements Serializable {
             properties.getLog().setDetails(logDetails);
         }
         if (requestHeaderClear != null) {
-            final List<String> tmpList = new ArrayList<>();
+            final List<String> list = new ArrayList<>();
             for (Object item : requestHeaderClear) {
-                tmpList.add(TransformationUtil.objectToString(item));
+                list.add(TransformationUtil.objectToString(item));
             }
-            properties.getRequestHeaderClear().addAll(tmpList);
+            properties.setRequestHeaderClear(list.toArray(new String[0]));
         }
         if (responseHeaderOnly != null) {
-            final List<String> tmpList = new ArrayList<>();
+            final List<String> list = new ArrayList<>();
             for (Object item : responseHeaderOnly) {
-                tmpList.add(TransformationUtil.objectToString(item));
+                list.add(TransformationUtil.objectToString(item));
             }
-            properties.getResponseHeaderOnly().addAll(tmpList);
+            properties.setResponseHeaderOnly(list.toArray(new String[0]));
         }
     }
 
@@ -214,12 +212,12 @@ public class Properties implements Serializable {
     /**
      * 请求头清除
      */
-    private List<String> requestHeaderClear = new ArrayList<>();
+    private String[] requestHeaderClear = new String[]{};
 
     /**
      * 返回头唯一
      */
-    private List<String> responseHeaderOnly = new ArrayList<>();
+    private String[] responseHeaderOnly = new String[]{};
 
     /**
      * 路由
