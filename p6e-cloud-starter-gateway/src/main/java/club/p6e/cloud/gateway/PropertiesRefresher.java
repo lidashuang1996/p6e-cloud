@@ -40,8 +40,6 @@ public class PropertiesRefresher {
      */
     public void execute(Properties properties) {
         this.properties.setLog(properties.getLog());
-        this.properties.setReferer(properties.getReferer());
-        this.properties.setCrossDomain(properties.getCrossDomain());
         this.properties.setRequestHeaderClear(properties.getRequestHeaderClear());
         this.properties.setResponseHeaderOnly(properties.getResponseHeaderOnly());
         this.properties.setRoutes(properties.getRoutes());

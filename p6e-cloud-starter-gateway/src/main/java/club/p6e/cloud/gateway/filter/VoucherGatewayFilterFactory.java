@@ -19,6 +19,7 @@ import java.io.Serializable;
  * @author lidashuang
  * @version 1.0
  */
+@Component
 public class VoucherGatewayFilterFactory
         extends AbstractGatewayFilterFactory<VoucherGatewayFilterFactory.Config> {
 
@@ -47,7 +48,7 @@ public class VoucherGatewayFilterFactory
     /**
      * 网关过滤器
      */
-    @SuppressWarnings("all")
+    @SuppressWarnings("ALL")
     public static class CustomGatewayFilter implements GatewayFilter, Ordered {
 
         /**

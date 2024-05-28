@@ -84,11 +84,15 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<Objec
             return service
                     .execute(exchange)
                     .map(e -> {
+                        System.out.println("eeeeeeeeeeeee >> " + e );
                         atomicReference.set(e);
                         return true;
                     })
                     .switchIfEmpty(Mono.just(false))
-                    .flatMap(r -> r ? chain.filter(atomicReference.get()) : exceptionErrorResult(exchange));
+                    .flatMap(r -> {
+                        System.out.println("rr >> " + r );
+                        return r ? chain.filter(atomicReference.get()) : exceptionErrorResult(exchange);
+                    });
         }
 
         @Override

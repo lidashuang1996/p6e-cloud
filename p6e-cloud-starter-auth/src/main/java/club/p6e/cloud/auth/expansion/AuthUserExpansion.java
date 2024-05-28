@@ -65,6 +65,7 @@ public class AuthUserExpansion implements AuthUser<AuthUserExpansion.Model> {
             model.setPassword(uam.getPassword());
         }
 
+        System.out.println("2222222222222222222222222222");
         return permissionUrlGroupRelationUserRepositoryExpansion
                 .findByUidList(um.getId())
                 .flatMap(m -> permissionUrlGroupRepositoryExpansion
@@ -87,6 +88,7 @@ public class AuthUserExpansion implements AuthUser<AuthUserExpansion.Model> {
                                 .setParent(item.getParent())
                         );
                     }
+                    System.out.println("result  >>> " + result);
                     return Flux.fromStream(result.stream());
                 })
                 .flatMap(m -> permissionUrlGroupRelationUrlRepositoryExpansion
@@ -94,6 +96,7 @@ public class AuthUserExpansion implements AuthUser<AuthUserExpansion.Model> {
                         .map(rm -> m.setUid(rm.getUid()).setAttribute(rm.getAttribute()).setConfig(rm.getConfig())))
                 .collectList()
                 .flatMap(list -> {
+                    System.out.println("list  >>> " + list);
                     if (list != null && !list.isEmpty()) {
                         list.forEach(item -> {
                             model.getPermissionMark().add(item.getMark());

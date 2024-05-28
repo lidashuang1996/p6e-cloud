@@ -61,7 +61,7 @@ public class PropertiesRefresher {
      * @param properties 配置文件对象
      */
     public void execute(Properties properties) {
-        LOGGER.info("[NEW PROPERTIES] (" + properties.getClass() + ") >>>> " + properties);
+        LOGGER.info("[NEW PROPERTIES] ({}) >>>> {}", properties.getClass(), properties);
         this.properties.setChannels(properties.getChannels());
         this.properties.setThreadPoolLength(properties.getThreadPoolLength());
         final List<WebSocketMain.Config> configs = new ArrayList<>();

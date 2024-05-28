@@ -18,7 +18,7 @@ public class UserModel implements User, Serializable {
 
     @Override
     public String id() {
-        return null;
+        return id;
     }
 
 }

@@ -1,6 +1,4 @@
-club.p6e.cloud.gateway.CustomLogWebFilter
-club.p6e.cloud.gateway.CustomRequestHeaderClearWebFilter
-club.p6e.cloud.gateway.CustomResponseHeaderOnlyWebFilter
+club.p6e.cloud.gateway.filter.VoucherGatewayFilterFactory
 club.p6e.cloud.gateway.CustomRouteLocator
 club.p6e.cloud.gateway.Properties
 club.p6e.cloud.gateway.PropertiesRefresher

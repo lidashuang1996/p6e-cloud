@@ -49,6 +49,7 @@ public class AuthGatewayService {
         if (token == null) {
             token = BaseWebFluxController.getCookieAccessToken(request);
         }
+        System.out.println("token >>> " + token);
         if (token == null) {
             return Mono.empty();
         } else {

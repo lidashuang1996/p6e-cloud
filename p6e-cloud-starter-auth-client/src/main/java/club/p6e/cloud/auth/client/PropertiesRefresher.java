@@ -36,7 +36,15 @@ public class PropertiesRefresher {
      * @param properties 配置文件对象
      */
     public void execute(Properties properties) {
-        LOGGER.info("[NEW PROPERTIES] (" + properties.getClass() + ") >>>> " + properties);
+        LOGGER.info("[NEW PROPERTIES] ({}) >>>> {}", properties.getClass(), properties);
+        this.properties.setAuthorizeUrl(properties.getAuthorizeUrl());
+        this.properties.setAuthorizeTokenUrl(properties.getAuthorizeTokenUrl());
+        this.properties.setAuthorizeAppId(properties.getAuthorizeAppId());
+        this.properties.setAuthorizeAppSecret(properties.getAuthorizeAppSecret());
+        this.properties.setAuthorizeAppRedirectUri(properties.getAuthorizeAppRedirectUri());
+        this.properties.setAuthorizeAppExtend(properties.getAuthorizeAppExtend());
+        this.properties.setJwtAccessTokenSecret(properties.getJwtAccessTokenSecret());
+        this.properties.setJwtRefreshTokenSecret(properties.getJwtRefreshTokenSecret());
     }
 
 }

@@ -3,15 +3,14 @@ package club.p6e.cloud.common;
 import club.p6e.coat.common.utils.PropertiesUtil;
 import club.p6e.coat.common.utils.TransformationUtil;
 import club.p6e.coat.common.utils.YamlUtil;
-import club.p6e.coat.common.Properties.Security;
-import club.p6e.coat.common.Properties.Snowflake;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,9 +21,11 @@ import java.util.Map;
  * @version 1.0
  */
 @Data
+@Primary
+@EqualsAndHashCode(callSuper = true)
 @ConfigurationProperties(prefix = "p6e.cloud.common")
 @Component(value = "club.p6e.cloud.common.Properties")
-public class Properties implements Serializable {
+public class Properties extends club.p6e.coat.common.Properties implements Serializable {
 
     private static void init(
             Properties properties,
@@ -46,17 +47,17 @@ public class Properties implements Serializable {
             for (final Object item : securityVouchers) {
                 vouchers.add(TransformationUtil.objectToString(item));
             }
-            properties.getSecurity().setVouchers(vouchers);
+            properties.getSecurity().setVouchers(vouchers.toArray(new String[0]));
         }
         if (crossDomainEnable != null) {
             properties.getCrossDomain().setEnable(crossDomainEnable);
         }
         if (crossDomainWhiteList != null) {
-            final List<String> tmpList = new ArrayList<>();
+            final List<String> whiteList = new ArrayList<>();
             for (Object item : crossDomainWhiteList) {
-                tmpList.add(TransformationUtil.objectToString(item));
+                whiteList.add(TransformationUtil.objectToString(item));
             }
-            properties.getCrossDomain().setWhiteList(tmpList);
+            properties.getCrossDomain().setWhiteList(whiteList.toArray(new String[0]));
         }
         if (snowflake != null) {
             for (final Map.Entry<String, Object> entry : snowflake.entrySet()) {
@@ -97,9 +98,4 @@ public class Properties implements Serializable {
         init(result, version, securityEnable, securityVouchers, crossDomainEnable, crossDomainWhiteList, snowflake);
         return result;
     }
-
-    private String version = "unknown";
-    private Security security = new club.p6e.coat.common.Properties.Security();
-    private club.p6e.coat.common.Properties.CrossDomain crossDomain = new club.p6e.coat.common.Properties.CrossDomain();
-    private Map<String, club.p6e.coat.common.Properties.Snowflake> snowflake = new HashMap<>();
 }

@@ -49,15 +49,15 @@ public class PropertiesRefresher {
     }
 
     private void copy(Properties properties, club.p6e.coat.common.Properties commonProperties) {
-        commonProperties.setVersion(properties.getVersion());
-        commonProperties.getSecurity().setEnable(properties.getSecurity().isEnable());
-        commonProperties.getSecurity().getVouchers().clear();
-        commonProperties.getSecurity().getVouchers().addAll(properties.getSecurity().getVouchers());
-        commonProperties.getCrossDomain().setEnable(properties.getCrossDomain().isEnable());
-        commonProperties.getCrossDomain().getWhiteList().clear();
-        commonProperties.getCrossDomain().getWhiteList().addAll(properties.getCrossDomain().getWhiteList());
-        commonProperties.getSnowflake().clear();
-        commonProperties.getSnowflake().putAll(properties.getSnowflake());
+//        commonProperties.setVersion(properties.getVersion());
+//        commonProperties.getSecurity().setEnable(properties.getSecurity().isEnable());
+//        commonProperties.getSecurity().getVouchers().clear();
+//        commonProperties.getSecurity().getVouchers().addAll(properties.getSecurity().getVouchers());
+//        commonProperties.getCrossDomain().setEnable(properties.getCrossDomain().isEnable());
+//        commonProperties.getCrossDomain().getWhiteList().clear();
+//        commonProperties.getCrossDomain().getWhiteList().addAll(properties.getCrossDomain().getWhiteList());
+//        commonProperties.getSnowflake().clear();
+//        commonProperties.getSnowflake().putAll(properties.getSnowflake());
     }
 
 }

@@ -401,8 +401,7 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
                             if (properties.getLog().isDetails()) {
                                 LOGGER.info(model.toString());
                             } else {
-                                LOGGER.info("[" + model.getRequestMethod() + "] "
-                                        + model.getPath() + " \r\n ::: " + model.getUser());
+                                LOGGER.info("[{}] {} \r\n ::: {}", model.getRequestMethod(), model.getPath(), model.getUser());
                             }
                             return Mono.just(DATA_BUFFER_FACTORY.wrap(bytes));
                         }));
