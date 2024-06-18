@@ -84,7 +84,6 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<Objec
             return service
                     .execute(exchange)
                     .map(e -> {
-                        System.out.println("eeeeeeeeeeeee >> " + e );
                         atomicReference.set(e);
                         return true;
                     })

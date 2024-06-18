@@ -15,6 +15,7 @@
     <description>p6e-cloud-starter-auth</description>
 
     <dependencies>
+        
         <!-- P6e Coat Auth [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>
@@ -28,5 +29,6 @@
             <artifactId>p6e-cloud-starter-common</artifactId>
         </dependency>
         <!-- P6e Cloud Common [END] -->
+
     </dependencies>
 </project>
