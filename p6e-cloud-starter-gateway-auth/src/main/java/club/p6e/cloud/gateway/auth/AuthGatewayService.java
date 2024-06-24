@@ -40,6 +40,12 @@ public class AuthGatewayService {
         this.cache = cache;
     }
 
+    /**
+     * 执行认证
+     *
+     * @param exchange ServerWebExchange 对象
+     * @return Mono<ServerWebExchange> ServerWebExchange 对象
+     */
     public Mono<ServerWebExchange> execute(ServerWebExchange exchange) {
         final ServerHttpRequest request = exchange.getRequest();
         String token = BaseWebFluxController.getHeaderToken(request);
@@ -49,12 +55,15 @@ public class AuthGatewayService {
         if (token == null) {
             token = BaseWebFluxController.getCookieAccessToken(request);
         }
-        System.out.println("token >>> " + token);
         if (token == null) {
             return Mono.empty();
         } else {
             return cache
                     .getAccessToken(token)
+                    .flatMap(t -> cache
+                            .getAccessTokenExpire(t.getAccessToken())
+                            .flatMap(l -> l > 1800L ? Mono.just(t) : cache.refresh(t))
+                    )
                     .flatMap(t -> cache.getUser(t.getUid()))
                     .flatMap(u -> Mono.just(exchange.mutate().request(
                             exchange.getRequest().mutate().header(USER_INFO_HEADER, u).build()

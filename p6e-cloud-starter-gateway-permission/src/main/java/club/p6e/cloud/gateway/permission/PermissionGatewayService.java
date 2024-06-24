@@ -53,7 +53,6 @@ public class PermissionGatewayService {
     @SuppressWarnings("ALL")
     private static final String USER_ORGANIZATION_HEADER = "P6e-User-Organization";
 
-
     /**
      * 权限验证器
      */
@@ -75,21 +74,17 @@ public class PermissionGatewayService {
         final String user = BaseWebFluxController.getHeader(request, USER_INFO_HEADER);
         final String project = BaseWebFluxController.getHeader(request, USER_PROJECT_HEADER);
         final String organization = BaseWebFluxController.getHeader(request, USER_ORGANIZATION_HEADER);
-        System.out.println("path >>>> " + path);
-        System.out.println("method >>>> " + method);
-        System.out.println("user >>>> " + user);
-        System.out.println("project >>>> " + project);
-        System.out.println("organization >>>> " + organization);
-        if (user != null && !user.isEmpty()
-                && project != null && !project.isEmpty()
-                && organization != null && !organization.isEmpty()) {
+        if (user != null && !user.isEmpty()) {
             final UserModel um = JsonUtil.fromJson(user, UserModel.class);
-            System.out.println("um >>>> " + um);
-            if (um != null
+            if (project != null
+                    && !project.isEmpty()
+                    && organization != null
+                    && !organization.isEmpty()
+                    && um != null
                     && um.getPermission() != null
                     && um.getPermission().get(project) != null) {
                 return validator
-                        .execute(path, method, um.getPermission().get(project).get("group"))
+                        .execute(path, method, project, um.getPermission().get(project).get("group"))
                         .flatMap(permission -> Mono.just(exchange.mutate().request(
                                 exchange.getRequest().mutate().header(USER_INFO_PERMISSION_HEADER, JsonUtil.toJson(permission)).build()
                         ).build()));

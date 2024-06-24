@@ -22,7 +22,8 @@ import java.util.concurrent.atomic.AtomicReference;
  * @author lidashuang
  * @version 1.0
  */
-public class PermissionGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {
+public class PermissionGatewayFilterFactory
+        extends AbstractGatewayFilterFactory<Object> {
 
     /**
      * 顺序（越小越先被执行）

@@ -2,9 +2,14 @@
   "groups": [],
   "properties": [
     {
+      "name": "p6e.cloud.websocket.secret",
+      "type": "java.lang.String",
+      "description": "WebSocket auth secret."
+    },
+    {
       "name": "p6e.cloud.websocket.thread-pool-length",
       "type": "java.lang.Integer",
-      "description": "Thread pool size for handling websocket messages.",
+      "description": "Thread pool size for handling WebSocket messages.",
       "defaultValue": 15
     },
     {

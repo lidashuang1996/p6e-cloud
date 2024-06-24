@@ -18,6 +18,7 @@ import java.util.Map;
  * @version 1.0
  */
 @Data
+@Accessors(chain = true)
 @Component(value = "club.p6e.cloud.websocket.Properties")
 @ConfigurationProperties(prefix = "p6e.cloud.websocket")
 public class Properties implements Serializable {
@@ -31,6 +32,11 @@ public class Properties implements Serializable {
      * 频道配置信息
      */
     private List<Channel> channels = new ArrayList<>();
+
+    /**
+     * 认证的密钥
+     */
+    private String secret;
 
     /**
      * 初始化配置文件对象
@@ -96,6 +102,7 @@ public class Properties implements Serializable {
     @Data
     @Accessors(chain = true)
     public static class Channel implements Serializable {
+
         /**
          * 频道名称
          */
@@ -110,6 +117,7 @@ public class Properties implements Serializable {
          * 频道启动端口
          */
         private Integer port;
+
     }
 
 }

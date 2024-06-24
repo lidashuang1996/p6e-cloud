@@ -15,19 +15,13 @@
     <description>p6e-cloud-starter-websocket</description>
 
     <dependencies>
+
         <!-- Spring Web Flux [ START ] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         <!-- Spring Web Flux [ END ] -->
-
-        <!-- Spring Cloud Redis Reactive [START] -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>
-        <!-- Spring Cloud Redis Reactive [END] -->
 
         <!-- P6e Coat WebSocket [START] -->
         <dependency>
@@ -42,5 +36,6 @@
             <artifactId>p6e-cloud-starter-common</artifactId>
         </dependency>
         <!-- P6e Cloud Common [END] -->
+
     </dependencies>
 </project>
