@@ -2,9 +2,12 @@ package club.p6e.cloud.gateway.auth;
 
 import club.p6e.coat.common.utils.JsonUtil;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStringCommands;
 import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
 import org.springframework.data.redis.core.types.Expiration;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -35,10 +38,16 @@ public class AuthGatewayRedisCache implements AuthGatewayCache {
     /**
      * 构造方法初始化
      *
-     * @param template ReactiveStringRedisTemplate 对象
+     * @param factory ReactiveRedisConnectionFactory 对象
      */
-    public AuthGatewayRedisCache(ReactiveStringRedisTemplate template) {
-        this.template = template;
+    public AuthGatewayRedisCache(ReactiveRedisConnectionFactory factory) {
+        final RedisSerializationContext<String, String> context =
+                RedisSerializationContext.<String, String>
+                                newSerializationContext(new StringRedisSerializer())
+                        .key(new StringRedisSerializer())
+                        .value(new StringRedisSerializer())
+                        .build();
+        this.template = new ReactiveStringRedisTemplate(factory, context);
     }
 
     @Override

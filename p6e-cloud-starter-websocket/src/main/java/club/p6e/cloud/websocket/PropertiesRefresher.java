@@ -60,6 +60,7 @@ public class PropertiesRefresher {
      *
      * @param properties 配置文件对象
      */
+    @SuppressWarnings("ALL")
     public void execute(Properties properties) {
         LOGGER.info("[NEW PROPERTIES] ({}) >>>> {}", properties.getClass(), properties);
         this.properties.setChannels(properties.getChannels());

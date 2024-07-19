@@ -36,12 +36,12 @@ public class CustomRequestHeaderClearWebFilter implements WebFilter, Ordered {
      * 需要重置的请求数据头
      */
     protected static final String[] HEADER_FILTERED = new String[]{
+            "P6e-Voucher",
+            "P6e-Language",
             "P6e-User-Info",
             "P6e-User-Permission",
-            "P6e-Voucher",
-            "P6e-Project",
-            "P6e-Language",
-            "P6e-Organization"
+            "P6e-User-Project",
+            "P6e-User-Organization"
     };
 
     /**

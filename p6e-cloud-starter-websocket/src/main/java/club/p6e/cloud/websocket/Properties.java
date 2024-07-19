@@ -44,6 +44,7 @@ public class Properties implements Serializable {
      * @param data Yaml 对象
      * @return 配置文件对象
      */
+    @SuppressWarnings("ALL")
     public static Properties initYaml(Object data) {
         final Properties result = new Properties();
         final Object config = YamlUtil.paths(data, "p6e.cloud.websocket");
@@ -75,6 +76,7 @@ public class Properties implements Serializable {
      * @param properties Properties 对象
      * @return 配置文件对象
      */
+    @SuppressWarnings("ALL")
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
         properties = PropertiesUtil.matchProperties("p6e.cloud.websocket", properties);
