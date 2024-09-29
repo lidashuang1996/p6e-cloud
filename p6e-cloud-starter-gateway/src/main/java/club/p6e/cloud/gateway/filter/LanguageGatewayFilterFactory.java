@@ -4,45 +4,33 @@ import club.p6e.coat.common.controller.BaseWebFluxController;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.core.Ordered;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * 凭证过滤器网关
+ * Language Gateway Filter Factory
  *
  * @author lidashuang
  * @version 1.0
  */
 @Component
-public class LanguageGatewayFilterFactory
-        extends AbstractGatewayFilterFactory<Object> {
+public class LanguageGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {
 
     /**
-     * 默认语言
-     */
-    public static String DEFAULT_LANGUAGE = "zh-cn";
-
-    /**
-     * 顺序
-     */
-    private static final int ORDER = -960;
-
-    /**
-     * 用户语言请求参数
+     * Language Param Name
      */
     private static final String LANGUAGE_PARAM = "language";
 
     /**
-     * 用户请求语言信息的头部
+     * Language Header Name
      */
     @SuppressWarnings("ALL")
     private static final String X_LANGUAGE_HEADER = "X-Language";
 
     /**
-     * 用户语言信息的头部
+     * P6e Language Header Name
      */
     @SuppressWarnings("ALL")
     private static final String USER_LANGUAGE_HEADER = "P6e-Language";
@@ -53,32 +41,28 @@ public class LanguageGatewayFilterFactory
     }
 
     /**
-     * 网关过滤器
+     * Custom Gateway Filter
      */
-    public static class CustomGatewayFilter implements GatewayFilter, Ordered {
+    public static class CustomGatewayFilter implements GatewayFilter {
 
         @Override
         public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
             final ServerHttpRequest request = exchange.getRequest();
-            final String language = getLanguage(request);
-            return chain.filter(exchange.mutate().request(
-                    request.mutate().header(USER_LANGUAGE_HEADER,
-                            language == null ? DEFAULT_LANGUAGE : language).build()
-            ).build());
-        }
-
-        @Override
-        public int getOrder() {
-            return ORDER;
+            final String language = obtainLanguage(request);
+            if (language == null) {
+                return chain.filter(exchange);
+            } else {
+                return chain.filter(exchange.mutate().request(request.mutate().header(USER_LANGUAGE_HEADER, language).build()).build());
+            }
         }
 
         /**
-         * 获取请求的语言信息
+         * Obtain language information from request
          *
-         * @param request 请求对象
-         * @return 语言信息
+         * @param request ServerHttpRequest object
+         * @return Language information
          */
-        private String getLanguage(ServerHttpRequest request) {
+        private String obtainLanguage(ServerHttpRequest request) {
             final String language = BaseWebFluxController.getParam(request, LANGUAGE_PARAM);
             if (language == null) {
                 return BaseWebFluxController.getHeader(request, X_LANGUAGE_HEADER);

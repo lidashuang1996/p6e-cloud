@@ -8,7 +8,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * 网关认证服务类
+ * Auth Gateway Service
  *
  * @author lidashuang
  * @version 1.0
@@ -21,30 +21,36 @@ import reactor.core.publisher.Mono;
 public class AuthGatewayService {
 
     /**
-     * 用户的信息头
+     * P6e User Auth Header Name
+     */
+    @SuppressWarnings("ALL")
+    private static final String USER_AUTH_HEADER = "P6e-User-Auth";
+
+    /**
+     * P6e User Info Header Name
      */
     @SuppressWarnings("ALL")
     private static final String USER_INFO_HEADER = "P6e-User-Info";
 
     /**
-     * 认证缓存对象
+     * AuthGatewayCache object
      */
     private final AuthGatewayCache cache;
 
     /**
-     * 构造方法注入
+     * Constructor initializers
      *
-     * @param cache 认证缓存对象
+     * @param cache AuthGatewayCache object
      */
     public AuthGatewayService(AuthGatewayCache cache) {
         this.cache = cache;
     }
 
     /**
-     * 执行认证
+     * authentication
      *
-     * @param exchange ServerWebExchange 对象
-     * @return Mono<ServerWebExchange> ServerWebExchange 对象
+     * @param exchange ServerWebExchange object
+     * @return Mono<ServerWebExchange> ServerWebExchange object
      */
     public Mono<ServerWebExchange> execute(ServerWebExchange exchange) {
         final ServerHttpRequest request = exchange.getRequest();
@@ -60,15 +66,28 @@ public class AuthGatewayService {
         } else {
             return cache
                     .getAccessToken(token)
-                    .flatMap(t -> cache
-                            .getAccessTokenExpire(t.getAccessToken())
-                            .flatMap(l -> l > 1800L ? Mono.just(t) : cache.refresh(t))
-                    )
+                    .flatMap(this::executeTokenAutomaticRenewal)
                     .flatMap(t -> cache.getUser(t.getUid()))
                     .flatMap(u -> Mono.just(exchange.mutate().request(
-                            exchange.getRequest().mutate().header(USER_INFO_HEADER, u).build()
-                    ).build()));
+                            exchange.getRequest().mutate()
+                                    .header(USER_INFO_HEADER, u)
+                                    .header(USER_AUTH_HEADER, "1")
+                                    .build()
+                    ).build()))
+                    .switchIfEmpty(Mono.defer(() -> Mono.just(exchange.mutate().request(
+                            exchange.getRequest().mutate().header(USER_AUTH_HEADER, "1").build()
+                    ).build())));
         }
+    }
+
+    /**
+     * Token Automatic Renewal
+     *
+     * @param token Token object
+     * @return Token object
+     */
+    private Mono<AuthGatewayCache.Token> executeTokenAutomaticRenewal(AuthGatewayCache.Token token) {
+        return cache.getAccessTokenExpire(token.getAccessToken()).flatMap(l -> l > 1800L ? Mono.just(token) : cache.refresh(token));
     }
 
 }

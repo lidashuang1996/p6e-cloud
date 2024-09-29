@@ -16,6 +16,13 @@
 
     <dependencies>
 
+        <!-- P6e Coat Permission [START] -->
+        <dependency>
+            <groupId>club.p6e.coat</groupId>
+            <artifactId>p6e-coat-starter-permission</artifactId>
+        </dependency>
+        <!-- P6e Coat Permission [END] -->
+
         <!-- Spring Cloud Gateway [START] -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -24,15 +31,6 @@
             <scope>provided</scope>
         </dependency>
         <!-- Spring Cloud Gateway [END] -->
-
-        <!-- P6e Coat Permission [START] -->
-        <dependency>
-            <groupId>club.p6e.coat</groupId>
-            <artifactId>p6e-coat-starter-permission</artifactId>
-            <!-- scope provided dependency -->
-            <scope>provided</scope>
-        </dependency>
-        <!-- P6e Coat Permission [END] -->
 
     </dependencies>
 

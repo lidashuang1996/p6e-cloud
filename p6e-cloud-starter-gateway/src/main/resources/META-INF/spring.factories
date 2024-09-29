@@ -1,8 +1,8 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-club.p6e.cloud.gateway.filter.VoucherGatewayFilterFactory,\
-club.p6e.cloud.gateway.filter.LanguageGatewayFilterFactory,\
 club.p6e.cloud.gateway.filter.Base64GatewayFilterFactory,\
+club.p6e.cloud.gateway.filter.LanguageGatewayFilterFactory,\
+club.p6e.cloud.gateway.filter.VoucherGatewayFilterFactory,\
 club.p6e.cloud.gateway.CustomLogWebFilter,\
 club.p6e.cloud.gateway.CustomRequestHeaderClearWebFilter,\
 club.p6e.cloud.gateway.CustomResponseHeaderOnlyWebFilter,\

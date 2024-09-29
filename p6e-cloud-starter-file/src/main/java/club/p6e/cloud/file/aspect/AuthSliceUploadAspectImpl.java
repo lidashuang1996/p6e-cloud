@@ -40,8 +40,9 @@ public class AuthSliceUploadAspectImpl implements SliceUploadAspect {
                 .map(s -> true)
                 .switchIfEmpty(Mono.error(new AuthException(
                         this.getClass(),
-                        "fun before(Map<String, Object> data).",
-                        "Request authentication information has expired."
+                        "fun before(Map<String, Object> data). ==> " +
+                                "before(...) request for authentication information does not exist or has expired.",
+                        "before(...) request for authentication information does not exist or has expired."
                 )));
     }
 

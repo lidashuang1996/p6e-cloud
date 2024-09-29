@@ -3,6 +3,8 @@ package club.p6e.cloud.file;
 import org.springframework.stereotype.Component;
 
 /**
+ * 配置刷新器
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -14,12 +16,16 @@ public class PropertiesRefresher {
      */
     private final Properties properties;
 
+    /**
+     * 文件配置文件对象
+     */
     private final club.p6e.coat.file.Properties fileProperties;
 
     /**
      * 构造方法初始化
      *
-     * @param properties 配置文件对象
+     * @param properties     配置文件对象
+     * @param fileProperties 文件配置文件对象
      */
     public PropertiesRefresher(Properties properties, club.p6e.coat.file.Properties fileProperties) {
         this.properties = properties;
@@ -32,6 +38,7 @@ public class PropertiesRefresher {
      *
      * @param properties 配置文件对象
      */
+    @SuppressWarnings("ALL")
     public void execute(Properties properties) {
         this.properties.setSliceUpload(properties.getSliceUpload());
         this.properties.setUploads(properties.getUploads());
@@ -40,10 +47,17 @@ public class PropertiesRefresher {
         copy(this.properties, this.fileProperties);
     }
 
+    /**
+     * 复制
+     *
+     * @param properties     配置文件对象
+     * @param fileProperties 文件配置文件对象
+     */
     private void copy(club.p6e.cloud.file.Properties properties, club.p6e.coat.file.Properties fileProperties) {
         fileProperties.setSliceUpload(properties.getSliceUpload());
         fileProperties.setUploads(properties.getUploads());
         fileProperties.setResources(properties.getResources());
         fileProperties.setDownloads(properties.getDownloads());
     }
+
 }

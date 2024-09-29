@@ -1,5 +1,6 @@
 package club.p6e.cloud.common;
 
+import club.p6e.coat.common.utils.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -40,12 +41,12 @@ public class PropertiesRefresher {
      * @param properties 配置文件对象
      */
     public void execute(Properties properties) {
-        LOGGER.info("[NEW PROPERTIES] (" + properties.getClass() + ") >>>> " + properties);
+        LOGGER.info("[ NEW PROPERTIES ] ({}) >>> {}", properties.getClass(), JsonUtil.toJson(properties));
         this.properties.setVersion(properties.getVersion());
         this.properties.setSecurity(properties.getSecurity());
         this.properties.setCrossDomain(properties.getCrossDomain());
         this.properties.setSnowflake(properties.getSnowflake());
-        copy(this.properties, this.commonProperties);
+        //copy(this.properties, this.commonProperties);
     }
 
     private void copy(Properties properties, club.p6e.coat.common.Properties commonProperties) {

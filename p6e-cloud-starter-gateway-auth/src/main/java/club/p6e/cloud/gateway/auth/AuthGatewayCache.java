@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 import java.io.Serializable;
 
 /**
- * 网关认证缓存接口
+ * Auth Gateway Cache
  *
  * @author lidashuang
  * @version 1.0
@@ -15,7 +15,7 @@ import java.io.Serializable;
 public interface AuthGatewayCache {
 
     /**
-     * 令牌模型
+     * Token Model
      */
     @Data
     @Accessors(chain = true)
@@ -39,37 +39,37 @@ public interface AuthGatewayCache {
     }
 
     /**
-     * 分割符号
+     * Delimiter
      */
     String DELIMITER = ":";
 
     /**
-     * 过期的时间
+     * Expiration Time
      */
-    long EXPIRATION_TIME = 3600 * 3L;
+    long EXPIRATION_TIME = 3600 * 2L;
 
     /**
-     * 用户缓存前缀
+     * User Cache Prefix
      */
     String USER_PREFIX = "AUTH:USER:";
 
     /**
-     * ACCESS TOKEN 缓存前缀
+     * Access Token Cache Prefix
      */
     String ACCESS_TOKEN_PREFIX = "AUTH:ACCESS_TOKEN:";
 
     /**
-     * REFRESH TOKEN 缓存前缀
+     * Refresh Token Cache Prefix
      */
     String REFRESH_TOKEN_PREFIX = "AUTH:REFRESH_TOKEN:";
 
     /**
-     * ACCESS TOKEN 缓存前缀
+     * User Access Token Cache Prefix
      */
     String USER_ACCESS_TOKEN_PREFIX = "AUTH:USER:ACCESS_TOKEN:";
 
     /**
-     * REFRESH TOKEN 缓存前缀
+     * User Refresh Token Cache Prefix
      */
     String USER_REFRESH_TOKEN_PREFIX = "AUTH:USER:REFRESH_TOKEN:";
 
@@ -82,42 +82,42 @@ public interface AuthGatewayCache {
     Mono<String> getUser(String uid);
 
     /**
-     * 刷新内容
+     * Refresh
      *
-     * @param token 令牌
-     * @return 令牌内容
+     * @param token Token object
+     * @return Token object
      */
     Mono<Token> refresh(Token token);
 
     /**
-     * 刷新用户内容
+     * Refresh
      *
-     * @param uid 用户
-     * @return 用户内容
+     * @param uid User Id
+     * @return User Content
      */
     Mono<String> refreshUser(String uid);
 
     /**
-     * 刷新令牌内容
+     * Get Refresh Token Content
      *
-     * @param token 令牌
-     * @return 令牌内容
+     * @param token Refresh Token
+     * @return Refresh Token Content
      */
     Mono<Token> refreshToken(Token token);
 
     /**
-     * 读取 ACCESS TOKEN 令牌内容
+     * Get Access Token Content
      *
-     * @param token 令牌
-     * @return ACCESS TOKEN 令牌内容
+     * @param token Access Token
+     * @return Access Token Content
      */
     Mono<Token> getAccessToken(String token);
 
     /**
-     * 读取 ACCESS TOKEN 令牌过期时间
+     * Get Access Token Expiration Time
      *
-     * @param token 令牌
-     * @return ACCESS TOKEN 令牌过期时间
+     * @param token Access Token
+     * @return Access Token Expiration Time
      */
     Mono<Long> getAccessTokenExpire(String token);
 

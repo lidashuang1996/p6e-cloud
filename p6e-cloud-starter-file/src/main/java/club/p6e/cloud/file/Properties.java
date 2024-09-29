@@ -29,6 +29,11 @@ import java.util.Map;
 @ConfigurationProperties(prefix = "p6e.cloud.file")
 public class Properties extends club.p6e.coat.file.Properties implements Serializable {
 
+    /**
+     * 密钥
+     */
+    private String secret;
+
     private static void initBase(
             Properties properties,
             String sliceUploadPath,
@@ -132,12 +137,13 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         return result;
     }
 
+    @SuppressWarnings("ALL")
     public static Properties initYaml(Object data) {
         final Properties result = new Properties();
         final Object config = YamlUtil.paths(data, "p6e.cloud.file");
         final Map<String, Object> cmap = TransformationUtil.objectToMap(config);
-        final String sliceUploadPath = TransformationUtil.objectToString(YamlUtil.paths(cmap, "sliceUpload.path"));
-        final Long sliceUploadMaxSize = TransformationUtil.objectToLong(YamlUtil.paths(cmap, "sliceUpload.maxSize"));
+        final String sliceUploadPath = TransformationUtil.objectToString(YamlUtil.paths(cmap, "slice-upload.path"));
+        final Long sliceUploadMaxSize = TransformationUtil.objectToLong(YamlUtil.paths(cmap, "slice-upload.maxSize"));
         initBase(result, sliceUploadPath, sliceUploadMaxSize);
         final Map<String, Object> uploads = TransformationUtil.objectToMap(YamlUtil.paths(cmap, "uploads"));
         if (uploads != null) {
@@ -154,12 +160,13 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         return result;
     }
 
+    @SuppressWarnings("ALL")
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
         properties = PropertiesUtil.matchProperties("p6e.cloud.file", properties);
-        final java.util.Properties sliceUploadProperties = PropertiesUtil.matchProperties("sliceUpload", properties);
+        final java.util.Properties sliceUploadProperties = PropertiesUtil.matchProperties("slice-upload", properties);
         final String sliceUploadPath = PropertiesUtil.getStringProperty(sliceUploadProperties, "path");
-        final Long sliceUploadMaxSize = PropertiesUtil.getLongProperty(sliceUploadProperties, "maxSize");
+        final Long sliceUploadMaxSize = PropertiesUtil.getLongProperty(sliceUploadProperties, "max-size");
         initBase(result, sliceUploadPath, sliceUploadMaxSize);
         final Map<String, Object> uploads = PropertiesUtil.getMapProperty(properties, "uploads");
         result.setUploads(initUploads(uploads));
@@ -169,4 +176,5 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         result.setDownloads(initDownloads(downloads));
         return result;
     }
+
 }

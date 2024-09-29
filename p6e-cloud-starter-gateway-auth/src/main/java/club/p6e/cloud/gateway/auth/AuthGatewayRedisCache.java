@@ -2,12 +2,9 @@ package club.p6e.cloud.gateway.auth;
 
 import club.p6e.coat.common.utils.JsonUtil;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStringCommands;
 import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
 import org.springframework.data.redis.core.types.Expiration;
-import org.springframework.data.redis.serializer.RedisSerializationContext;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -18,7 +15,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 网关认证缓存实现类
+ * Auth Gateway Redis Cache
  *
  * @author lidashuang
  * @version 1.0
@@ -31,23 +28,17 @@ import java.util.concurrent.TimeUnit;
 public class AuthGatewayRedisCache implements AuthGatewayCache {
 
     /**
-     * ReactiveStringRedisTemplate 对象
+     * ReactiveStringRedisTemplate object
      */
     private final ReactiveStringRedisTemplate template;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param factory ReactiveRedisConnectionFactory 对象
+     * @param template ReactiveRedisConnectionFactory object
      */
-    public AuthGatewayRedisCache(ReactiveRedisConnectionFactory factory) {
-        final RedisSerializationContext<String, String> context =
-                RedisSerializationContext.<String, String>
-                                newSerializationContext(new StringRedisSerializer())
-                        .key(new StringRedisSerializer())
-                        .value(new StringRedisSerializer())
-                        .build();
-        this.template = new ReactiveStringRedisTemplate(factory, context);
+    public AuthGatewayRedisCache(ReactiveStringRedisTemplate template) {
+        this.template = template;
     }
 
     @Override
@@ -80,35 +71,31 @@ public class AuthGatewayRedisCache implements AuthGatewayCache {
         return template.execute(connection ->
                 Flux.concat(
                         connection.stringCommands().set(
-                                ByteBuffer.wrap((ACCESS_TOKEN_PREFIX
-                                        + token.getAccessToken()).getBytes(StandardCharsets.UTF_8)),
+                                ByteBuffer.wrap((ACCESS_TOKEN_PREFIX + token.getAccessToken()).getBytes(StandardCharsets.UTF_8)),
                                 ByteBuffer.wrap(jcBytes),
                                 Expiration.from(EXPIRATION_TIME, TimeUnit.SECONDS),
                                 RedisStringCommands.SetOption.UPSERT
                         ),
                         connection.stringCommands().set(
-                                ByteBuffer.wrap((REFRESH_TOKEN_PREFIX
-                                        + token.getRefreshToken()).getBytes(StandardCharsets.UTF_8)),
+                                ByteBuffer.wrap((REFRESH_TOKEN_PREFIX + token.getRefreshToken()).getBytes(StandardCharsets.UTF_8)),
                                 ByteBuffer.wrap(jcBytes),
                                 Expiration.from(EXPIRATION_TIME, TimeUnit.SECONDS),
                                 RedisStringCommands.SetOption.UPSERT
                         ),
                         connection.stringCommands().set(
-                                ByteBuffer.wrap((USER_ACCESS_TOKEN_PREFIX + token.getUid()
-                                        + DELIMITER + token.getAccessToken()).getBytes(StandardCharsets.UTF_8)),
+                                ByteBuffer.wrap((USER_ACCESS_TOKEN_PREFIX + token.getUid() + DELIMITER + token.getAccessToken()).getBytes(StandardCharsets.UTF_8)),
                                 ByteBuffer.wrap(jcBytes),
                                 Expiration.from(EXPIRATION_TIME, TimeUnit.SECONDS),
                                 RedisStringCommands.SetOption.UPSERT
                         ),
                         connection.stringCommands().set(
-                                ByteBuffer.wrap((USER_REFRESH_TOKEN_PREFIX + token.getUid()
-                                        + DELIMITER + token.getRefreshToken()).getBytes(StandardCharsets.UTF_8)),
+                                ByteBuffer.wrap((USER_REFRESH_TOKEN_PREFIX + token.getUid() + DELIMITER + token.getRefreshToken()).getBytes(StandardCharsets.UTF_8)),
                                 ByteBuffer.wrap(jcBytes),
                                 Expiration.from(EXPIRATION_TIME, TimeUnit.SECONDS),
                                 RedisStringCommands.SetOption.UPSERT
                         )
                 )
-        ).count().map(r -> token);
+        ).collectList().map(l -> token);
     }
 
     @Override

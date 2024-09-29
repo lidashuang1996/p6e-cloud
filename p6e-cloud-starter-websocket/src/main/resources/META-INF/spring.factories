@@ -1,4 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-club.p6e.cloud.websocket.Properties,\
-club.p6e.cloud.websocket.PropertiesRefresher
+smart.site.cloud.websocket.Properties,\
+smart.site.cloud.websocket.PropertiesRefresher

@@ -77,8 +77,8 @@ public class Properties extends club.p6e.coat.common.Properties implements Seria
         final String version = TransformationUtil.objectToString(YamlUtil.paths(cmap, "version"));
         final Boolean securityEnable = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "security.enable"));
         final List<Object> securityVouchers = TransformationUtil.objectToList(YamlUtil.paths(cmap, "security.vouchers"));
-        final Boolean crossDomainEnable = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "crossDomain.enable"));
-        final List<Object> crossDomainWhiteList = TransformationUtil.objectToList(YamlUtil.paths(cmap, "crossDomain.whiteList"));
+        final Boolean crossDomainEnable = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "cross-domain.enable"));
+        final List<Object> crossDomainWhiteList = TransformationUtil.objectToList(YamlUtil.paths(cmap, "cross-domain.white-list"));
         final Map<String, Object> snowflake = TransformationUtil.objectToMap(YamlUtil.paths(cmap, "snowflake"));
         init(result, version, securityEnable, securityVouchers, crossDomainEnable, crossDomainWhiteList, snowflake);
         return result;
@@ -91,9 +91,9 @@ public class Properties extends club.p6e.coat.common.Properties implements Seria
         final java.util.Properties securityProperties = PropertiesUtil.matchProperties("security", properties);
         final Boolean securityEnable = PropertiesUtil.getBooleanProperty(securityProperties, "enable");
         final List<Object> securityVouchers = PropertiesUtil.getListObjectProperty(securityProperties, "vouchers");
-        final java.util.Properties crossDomainProperties = PropertiesUtil.matchProperties("crossDomain", properties);
+        final java.util.Properties crossDomainProperties = PropertiesUtil.matchProperties("cross-domain", properties);
         final Boolean crossDomainEnable = PropertiesUtil.getBooleanProperty(crossDomainProperties, "enable");
-        final List<Object> crossDomainWhiteList = PropertiesUtil.getListObjectProperty(crossDomainProperties, "whiteList");
+        final List<Object> crossDomainWhiteList = PropertiesUtil.getListObjectProperty(crossDomainProperties, "white-list");
         final Map<String, Object> snowflake = PropertiesUtil.getMapProperty(properties, "snowflake");
         init(result, version, securityEnable, securityVouchers, crossDomainEnable, crossDomainWhiteList, snowflake);
         return result;

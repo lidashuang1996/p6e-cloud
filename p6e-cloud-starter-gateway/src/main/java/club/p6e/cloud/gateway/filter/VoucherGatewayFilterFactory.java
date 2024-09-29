@@ -5,7 +5,6 @@ import lombok.experimental.Accessors;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.core.Ordered;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
@@ -14,27 +13,21 @@ import reactor.core.publisher.Mono;
 import java.io.Serializable;
 
 /**
- * 凭证过滤器网关
+ * Voucher Gateway Filter Factory
  *
  * @author lidashuang
  * @version 1.0
  */
 @Component
-public class VoucherGatewayFilterFactory
-        extends AbstractGatewayFilterFactory<VoucherGatewayFilterFactory.Config> {
+public class VoucherGatewayFilterFactory extends AbstractGatewayFilterFactory<VoucherGatewayFilterFactory.Config> {
 
     /**
-     * 顺序
-     */
-    private static final int ORDER = -1300;
-
-    /**
-     * 凭证的头部
+     * P6e Voucher Header Name
      */
     private static final String VOUCHER_HEADER = "P6e-Voucher";
 
     /**
-     * 构造方法
+     * Constructor initializers
      */
     public VoucherGatewayFilterFactory() {
         super(Config.class);
@@ -46,20 +39,19 @@ public class VoucherGatewayFilterFactory
     }
 
     /**
-     * 网关过滤器
+     * Custom Gateway Filter
      */
-    @SuppressWarnings("ALL")
-    public static class CustomGatewayFilter implements GatewayFilter, Ordered {
+    public static class CustomGatewayFilter implements GatewayFilter {
 
         /**
-         * 配置文件对象
+         * Config object
          */
         private final Config config;
 
         /**
-         * 构造方法初始化
+         * Constructor initializers
          *
-         * @param config 配置文件对象
+         * @param config Config object
          */
         public CustomGatewayFilter(Config config) {
             this.config = config;
@@ -72,16 +64,20 @@ public class VoucherGatewayFilterFactory
             return chain.filter(exchange.mutate().request(builder.build()).build());
         }
 
-        @Override
-        public int getOrder() {
-            return ORDER;
-        }
     }
 
+    /**
+     * Config
+     */
     @Data
     @Accessors(chain = true)
     public static class Config implements Serializable {
+
+        /**
+         * Voucher
+         */
         private String voucher;
+
     }
 
 }

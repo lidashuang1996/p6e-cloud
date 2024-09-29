@@ -17,7 +17,7 @@ import java.net.URI;
 import java.util.*;
 
 /**
- * 配置文件
+ * Properties
  *
  * @author lidashuang
  * @version 1.0
@@ -28,41 +28,7 @@ import java.util.*;
 @ConfigurationProperties(prefix = "p6e.cloud.gateway")
 public class Properties implements Serializable {
 
-    private static void initBase(
-            Properties properties,
-            Boolean logEnable,
-            Boolean logDetails,
-            List<Object> requestHeaderClear,
-            List<Object> responseHeaderOnly
-    ) {
-        if (logEnable != null) {
-            properties.getLog().setEnable(logEnable);
-        }
-        if (logDetails != null) {
-            properties.getLog().setDetails(logDetails);
-        }
-        if (requestHeaderClear != null) {
-            final List<String> list = new ArrayList<>();
-            for (Object item : requestHeaderClear) {
-                list.add(TransformationUtil.objectToString(item));
-            }
-            properties.setRequestHeaderClear(list.toArray(new String[0]));
-        }
-        if (responseHeaderOnly != null) {
-            final List<String> list = new ArrayList<>();
-            for (Object item : responseHeaderOnly) {
-                list.add(TransformationUtil.objectToString(item));
-            }
-            properties.setResponseHeaderOnly(list.toArray(new String[0]));
-        }
-    }
-
-    /**
-     * 初始化配置文件对象
-     *
-     * @param data Yaml 对象
-     * @return 配置文件对象
-     */
+    @SuppressWarnings("ALL")
     public static Properties initYaml(Object data) {
         final Properties result = new Properties();
         final Object config = YamlUtil.paths(data, "p6e.cloud.gateway");
@@ -133,12 +99,7 @@ public class Properties implements Serializable {
         return properties;
     }
 
-    /**
-     * 初始化配置文件对象
-     *
-     * @param properties Properties 对象
-     * @return 配置文件对象
-     */
+    @SuppressWarnings("ALL")
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
         properties = PropertiesUtil.matchProperties("p6e.cloud.gateway", properties);
@@ -187,6 +148,35 @@ public class Properties implements Serializable {
         return properties;
     }
 
+    private static void initBase(
+            Properties properties,
+            Boolean logEnable,
+            Boolean logDetails,
+            List<Object> requestHeaderClear,
+            List<Object> responseHeaderOnly
+    ) {
+        if (logEnable != null) {
+            properties.getLog().setEnable(logEnable);
+        }
+        if (logDetails != null) {
+            properties.getLog().setDetails(logDetails);
+        }
+        if (requestHeaderClear != null) {
+            final List<String> list = new ArrayList<>();
+            for (Object item : requestHeaderClear) {
+                list.add(TransformationUtil.objectToString(item));
+            }
+            properties.setRequestHeaderClear(list.toArray(new String[0]));
+        }
+        if (responseHeaderOnly != null) {
+            final List<String> list = new ArrayList<>();
+            for (Object item : responseHeaderOnly) {
+                list.add(TransformationUtil.objectToString(item));
+            }
+            properties.setResponseHeaderOnly(list.toArray(new String[0]));
+        }
+    }
+
     private static String initPropertiesRouteArgsKey(String content) {
         StringBuilder num = null;
         int mark = content.length();
@@ -204,25 +194,6 @@ public class Properties implements Serializable {
         return content.substring(0, mark) + (num == null ? "" : "." + num);
     }
 
-    /**
-     * Log
-     */
-    private Log log = new Log();
-
-    /**
-     * 请求头清除
-     */
-    private String[] requestHeaderClear = new String[]{};
-
-    /**
-     * 返回头唯一
-     */
-    private String[] responseHeaderOnly = new String[]{};
-
-    /**
-     * 路由
-     */
-    private List<RouteDefinition> routes = new ArrayList<>();
 
     /**
      * Log
@@ -242,5 +213,25 @@ public class Properties implements Serializable {
         private boolean details = false;
 
     }
+
+    /**
+     * Log
+     */
+    private Log log = new Log();
+
+    /**
+     * Request Header Clear
+     */
+    private String[] requestHeaderClear = new String[]{};
+
+    /**
+     * Response Header Only
+     */
+    private String[] responseHeaderOnly = new String[]{};
+
+    /**
+     * Route Definition List
+     */
+    private List<RouteDefinition> routes = new ArrayList<>();
 
 }

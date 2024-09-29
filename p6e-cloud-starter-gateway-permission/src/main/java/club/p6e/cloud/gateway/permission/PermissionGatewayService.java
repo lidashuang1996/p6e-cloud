@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 权限网关服务
+ * Permission Gateway Service
  *
  * @author lidashuang
  * @version 1.0
@@ -30,43 +30,49 @@ import java.util.Map;
 public class PermissionGatewayService {
 
     /**
-     * 用户的信息头
+     * P6e User Info Header Name
      */
     @SuppressWarnings("ALL")
     protected static final String USER_INFO_HEADER = "P6e-User-Info";
 
     /**
-     * 用户的权限头
+     * P6e User Permission Header Name
      */
     @SuppressWarnings("ALL")
     protected static final String USER_INFO_PERMISSION_HEADER = "P6e-User-Permission";
 
     /**
-     * 用户项目信息的头部
+     * P6e User Project Header Name
      */
     @SuppressWarnings("ALL")
     private static final String USER_PROJECT_HEADER = "P6e-User-Project";
 
     /**
-     * 用户组织信息的头部
+     * P6e User Organization Header Name
      */
     @SuppressWarnings("ALL")
     private static final String USER_ORGANIZATION_HEADER = "P6e-User-Organization";
 
     /**
-     * 权限验证器
+     * Permission validator object
      */
     protected final PermissionValidator validator;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param validator 权限验证器
+     * @param validator Permission validator object
      */
     public PermissionGatewayService(PermissionValidator validator) {
         this.validator = validator;
     }
 
+    /**
+     * Permission execute
+     *
+     * @param exchange ServerWebExchange object
+     * @return Mono<ServerWebExchange> ServerWebExchange object
+     */
     public Mono<ServerWebExchange> execute(ServerWebExchange exchange) {
         final ServerHttpRequest request = exchange.getRequest();
         final String path = request.getPath().value();
@@ -74,15 +80,25 @@ public class PermissionGatewayService {
         final String user = BaseWebFluxController.getHeader(request, USER_INFO_HEADER);
         final String project = BaseWebFluxController.getHeader(request, USER_PROJECT_HEADER);
         final String organization = BaseWebFluxController.getHeader(request, USER_ORGANIZATION_HEADER);
-        if (user != null && !user.isEmpty()) {
+        if (user == null || user.isEmpty()) {
+            return validator
+                    .execute(path, method, project, List.of("*"))
+                    .flatMap(permission -> {
+                        if ("@PERMISSION-IGNORE".equalsIgnoreCase(permission.getMark())) {
+                            return Mono.just(exchange.mutate().request(
+                                    exchange.getRequest().mutate().header(USER_INFO_PERMISSION_HEADER, JsonUtil.toJson(permission)).build()
+                            ).build());
+                        } else {
+                            return Mono.empty();
+                        }
+                    });
+        } else {
             final UserModel um = JsonUtil.fromJson(user, UserModel.class);
-            if (project != null
-                    && !project.isEmpty()
-                    && organization != null
-                    && !organization.isEmpty()
-                    && um != null
-                    && um.getPermission() != null
-                    && um.getPermission().get(project) != null) {
+            if (project == null || project.isEmpty()
+                    || organization == null || organization.isEmpty()
+                    || um == null || um.getPermission() == null || um.getPermission().get(project) == null) {
+                return Mono.empty();
+            } else {
                 return validator
                         .execute(path, method, project, um.getPermission().get(project).get("group"))
                         .flatMap(permission -> Mono.just(exchange.mutate().request(
@@ -90,9 +106,11 @@ public class PermissionGatewayService {
                         ).build()));
             }
         }
-        return Mono.empty();
     }
 
+    /**
+     * User Model
+     */
     @Data
     @Accessors(chain = true)
     private static class UserModel implements Serializable {

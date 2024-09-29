@@ -16,15 +16,6 @@
 
     <dependencies>
 
-        <!-- Spring Cloud Gateway [START] -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-            <!-- scope provided dependency -->
-            <scope>provided</scope>
-        </dependency>
-        <!-- Spring Cloud Gateway [END] -->
-
         <!-- Spring Reactive Redis [START] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -33,6 +24,15 @@
             <scope>provided</scope>
         </dependency>
         <!-- Spring Reactive Redis [END] -->
+
+        <!-- Spring Cloud Gateway [START] -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <!-- scope provided dependency -->
+            <scope>provided</scope>
+        </dependency>
+        <!-- Spring Cloud Gateway [END] -->
 
         <!-- P6e Coat Common [START] -->
         <dependency>

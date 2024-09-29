@@ -30,12 +30,5 @@
         </dependency>
         <!-- P6e Cloud Common [END] -->
 
-        <!--  Spring Boot Redis Reactive [START]  -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>
-        <!--  Spring Boot Redis Reactive [END]  -->
-
     </dependencies>
 </project>
