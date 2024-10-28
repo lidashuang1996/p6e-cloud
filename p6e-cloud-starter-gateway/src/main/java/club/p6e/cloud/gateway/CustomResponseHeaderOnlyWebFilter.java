@@ -41,6 +41,11 @@ public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
     private static final String[] HEADER_FILTERED = new String[]{
             "Content-Type",
             "Access-Control",
+            "Access-Control-Max-Age",
+            "Access-Control-Allow-Origin",
+            "Access-Control-Allow-Headers",
+            "Access-Control-Allow-Methods",
+            "Access-Control-Allow-Credentials"
     };
 
     /**
@@ -66,7 +71,7 @@ public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
     @Override
     public Mono<Void> filter(@NonNull ServerWebExchange exchange, @NonNull WebFilterChain chain) {
         final ServerHttpResponse response = exchange.getResponse();
-        final ServerHttpResponseDecorator responseDecorator = new ServerHttpResponseDecorator(response) {
+        final ServerHttpResponseDecorator decorator = new ServerHttpResponseDecorator(response) {
             @NonNull
             @Override
             public Mono<Void> writeWith(@NonNull Publisher<? extends DataBuffer> body) {
@@ -90,6 +95,6 @@ public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
                 return super.writeWith(body);
             }
         };
-        return chain.filter(exchange.mutate().response(responseDecorator).build());
+        return chain.filter(exchange.mutate().response(decorator).build());
     }
 }

@@ -63,15 +63,15 @@ public class PermissionGatewayFilterFactory extends AbstractGatewayFilterFactory
 
         @Override
         public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-            final AtomicReference<ServerWebExchange> atomicReference = new AtomicReference<>(exchange);
+            final AtomicReference<ServerWebExchange> reference = new AtomicReference<>(exchange);
             return service
-                    .execute(atomicReference.get())
+                    .execute(reference.get())
                     .map(e -> {
-                        atomicReference.set(e);
+                        reference.set(e);
                         return true;
                     })
                     .switchIfEmpty(Mono.just(false))
-                    .flatMap(r -> r ? chain.filter(atomicReference.get()) : exceptionErrorResult(exchange));
+                    .flatMap(b -> b ? chain.filter(reference.get()) : exceptionErrorResult(reference.get()));
         }
 
         /**

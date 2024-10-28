@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 配置文件
+ * Properties
  *
  * @author lidashuang
  * @version 1.0
@@ -27,6 +27,9 @@ import java.util.Map;
 @Component(value = "club.p6e.cloud.common.Properties")
 public class Properties extends club.p6e.coat.common.Properties implements Serializable {
 
+    /**
+     * INIT
+     */
     private static void init(
             Properties properties,
             String version,
@@ -70,6 +73,10 @@ public class Properties extends club.p6e.coat.common.Properties implements Seria
         }
     }
 
+    /**
+     * INIT YAML
+     */
+    @SuppressWarnings("ALL")
     public static Properties initYaml(Object data) {
         final Properties result = new Properties();
         final Object config = YamlUtil.paths(data, "p6e.cloud.common");
@@ -84,6 +91,10 @@ public class Properties extends club.p6e.coat.common.Properties implements Seria
         return result;
     }
 
+    /**
+     * INIT PROPERTIES
+     */
+    @SuppressWarnings("ALL")
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
         properties = PropertiesUtil.matchProperties("p6e.cloud.common", properties);
@@ -98,4 +109,5 @@ public class Properties extends club.p6e.coat.common.Properties implements Seria
         init(result, version, securityEnable, securityVouchers, crossDomainEnable, crossDomainWhiteList, snowflake);
         return result;
     }
+
 }

@@ -1,10 +1,13 @@
 package club.p6e.cloud.auth.client;
 
+import club.p6e.coat.common.utils.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
+ * Properties Refresher
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -12,31 +15,32 @@ import org.springframework.stereotype.Component;
 public class PropertiesRefresher {
 
     /**
-     * 注入日志对象
+     * Inject log objects
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesRefresher.class);
 
     /**
-     * 配置文件对象
+     * Properties object
      */
     private final Properties properties;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param properties 配置文件对象
+     * @param properties Properties object
      */
     public PropertiesRefresher(Properties properties) {
         this.properties = properties;
     }
 
     /**
-     * 执行刷新操作
+     * Execute refresh
      *
-     * @param properties 配置文件对象
+     * @param properties Properties object
      */
+    @SuppressWarnings("ALL")
     public void execute(Properties properties) {
-        LOGGER.info("[NEW PROPERTIES] ({}) >>>> {}", properties.getClass(), properties);
+        LOGGER.info("[ NEW PROPERTIES ] ({}) >>> {}", properties.getClass(), JsonUtil.toJson(properties));
         this.properties.setAuthorizeUrl(properties.getAuthorizeUrl());
         this.properties.setAuthorizeTokenUrl(properties.getAuthorizeTokenUrl());
         this.properties.setAuthorizeAppId(properties.getAuthorizeAppId());

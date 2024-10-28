@@ -44,7 +44,7 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<Objec
 
         @Override
         public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-            return service.execute(exchange).flatMap(chain::filter);
+            return service.execute(exchange).switchIfEmpty(Mono.just(exchange)).flatMap(chain::filter);
         }
 
     }

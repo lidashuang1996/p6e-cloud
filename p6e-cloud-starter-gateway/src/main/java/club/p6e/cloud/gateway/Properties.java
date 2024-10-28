@@ -28,6 +28,41 @@ import java.util.*;
 @ConfigurationProperties(prefix = "p6e.cloud.gateway")
 public class Properties implements Serializable {
 
+    /**
+     * INIT BASE
+     */
+    private static void initBase(
+            Properties properties,
+            Boolean logEnable,
+            Boolean logDetails,
+            List<Object> requestHeaderClear,
+            List<Object> responseHeaderOnly
+    ) {
+        if (logEnable != null) {
+            properties.getLog().setEnable(logEnable);
+        }
+        if (logDetails != null) {
+            properties.getLog().setDetails(logDetails);
+        }
+        if (requestHeaderClear != null) {
+            final List<String> list = new ArrayList<>();
+            for (final Object item : requestHeaderClear) {
+                list.add(TransformationUtil.objectToString(item));
+            }
+            properties.setRequestHeaderClear(list.toArray(new String[0]));
+        }
+        if (responseHeaderOnly != null) {
+            final List<String> list = new ArrayList<>();
+            for (final Object item : responseHeaderOnly) {
+                list.add(TransformationUtil.objectToString(item));
+            }
+            properties.setResponseHeaderOnly(list.toArray(new String[0]));
+        }
+    }
+
+    /**
+     * INIT YAML
+     */
     @SuppressWarnings("ALL")
     public static Properties initYaml(Object data) {
         final Properties result = new Properties();
@@ -35,12 +70,15 @@ public class Properties implements Serializable {
         final Map<String, Object> cmap = TransformationUtil.objectToMap(config);
         final Boolean logEnable = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "log.enable"));
         final Boolean logDetails = TransformationUtil.objectToBoolean(YamlUtil.paths(cmap, "log.details"));
-        final List<Object> requestHeaderClear = TransformationUtil.objectToList(YamlUtil.paths(cmap, "requestHeaderClear"));
-        final List<Object> responseHeaderOnly = TransformationUtil.objectToList(YamlUtil.paths(cmap, "responseHeaderOnly"));
+        final List<Object> requestHeaderClear = TransformationUtil.objectToList(YamlUtil.paths(cmap, "request-header-clear"));
+        final List<Object> responseHeaderOnly = TransformationUtil.objectToList(YamlUtil.paths(cmap, "response-header-only"));
         initBase(result, logEnable, logDetails, requestHeaderClear, responseHeaderOnly);
         return initYamlRoutes(TransformationUtil.objectToList(YamlUtil.paths(cmap, "routes")), result);
     }
 
+    /**
+     * INIT YAML ROUTES
+     */
     private static Properties initYamlRoutes(List<Object> routes, Properties properties) {
         for (final Object route : routes) {
             try {
@@ -93,12 +131,15 @@ public class Properties implements Serializable {
                 }
                 properties.getRoutes().add(routeDefinition);
             } catch (Exception e) {
-                // ignore
+                // ignore exception
             }
         }
         return properties;
     }
 
+    /**
+     * INIY PROPERTIES
+     */
     @SuppressWarnings("ALL")
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
@@ -112,6 +153,9 @@ public class Properties implements Serializable {
         return initPropertiesRoutes(PropertiesUtil.getListPropertiesProperty(properties, "routes"), result);
     }
 
+    /**
+     * INIT PROPERTIES ROUTES
+     */
     private static Properties initPropertiesRoutes(List<java.util.Properties> routes, Properties properties) {
         for (final java.util.Properties route : routes) {
             try {
@@ -142,41 +186,15 @@ public class Properties implements Serializable {
                 }
                 properties.getRoutes().add(routeDefinition);
             } catch (Exception e) {
-                // ignore
+                // ignore exception
             }
         }
         return properties;
     }
 
-    private static void initBase(
-            Properties properties,
-            Boolean logEnable,
-            Boolean logDetails,
-            List<Object> requestHeaderClear,
-            List<Object> responseHeaderOnly
-    ) {
-        if (logEnable != null) {
-            properties.getLog().setEnable(logEnable);
-        }
-        if (logDetails != null) {
-            properties.getLog().setDetails(logDetails);
-        }
-        if (requestHeaderClear != null) {
-            final List<String> list = new ArrayList<>();
-            for (Object item : requestHeaderClear) {
-                list.add(TransformationUtil.objectToString(item));
-            }
-            properties.setRequestHeaderClear(list.toArray(new String[0]));
-        }
-        if (responseHeaderOnly != null) {
-            final List<String> list = new ArrayList<>();
-            for (Object item : responseHeaderOnly) {
-                list.add(TransformationUtil.objectToString(item));
-            }
-            properties.setResponseHeaderOnly(list.toArray(new String[0]));
-        }
-    }
-
+    /**
+     * INIT PROPERTIES ROUTE ARGS KEY
+     */
     private static String initPropertiesRouteArgsKey(String content) {
         StringBuilder num = null;
         int mark = content.length();

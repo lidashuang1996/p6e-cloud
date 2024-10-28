@@ -8,6 +8,8 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 /**
+ * Auth Open Upload Aspect Impl
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -15,14 +17,14 @@ import java.util.Map;
 public class AuthOpenUploadAspectImpl implements OpenUploadAspect {
 
     /**
-     * 认证验证器对象
+     * AuthValidator object
      */
     private final AuthValidator validator;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param validator 认证验证器对象
+     * @param validator AuthValidator object
      */
     public AuthOpenUploadAspectImpl(AuthValidator validator) {
         this.validator = validator;

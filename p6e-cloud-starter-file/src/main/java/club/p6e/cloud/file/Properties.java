@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 配置文件
+ * Properties
  *
  * @author lidashuang
  * @version 1.0
@@ -30,10 +30,13 @@ import java.util.Map;
 public class Properties extends club.p6e.coat.file.Properties implements Serializable {
 
     /**
-     * 密钥
+     * Secret
      */
     private String secret;
 
+    /**
+     * INIT BASE
+     */
     private static void initBase(
             Properties properties,
             String sliceUploadPath,
@@ -47,6 +50,9 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         }
     }
 
+    /**
+     * INIT UPLOADS
+     */
     private static Map<String, club.p6e.coat.file.Properties.Upload> initUploads(Map<String, Object> data) {
         final Map<String, club.p6e.coat.file.Properties.Upload> result = new HashMap<>();
         for (final String key : data.keySet()) {
@@ -73,6 +79,9 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         return result;
     }
 
+    /**
+     * INIT DOWNLOADS
+     */
     private static Map<String, club.p6e.coat.file.Properties.Download> initDownloads(Map<String, Object> downloads) {
         final Map<String, club.p6e.coat.file.Properties.Download> result = new HashMap<>();
         for (final String key : downloads.keySet()) {
@@ -99,6 +108,9 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         return result;
     }
 
+    /**
+     * INIT RESOURCES
+     */
     private static Map<String, club.p6e.coat.file.Properties.Resource> initResources(Map<String, Object> resources) {
         final Map<String, club.p6e.coat.file.Properties.Resource> result = new HashMap<>();
         for (final String key : resources.keySet()) {
@@ -137,6 +149,9 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         return result;
     }
 
+    /**
+     * INIT YAML
+     */
     @SuppressWarnings("ALL")
     public static Properties initYaml(Object data) {
         final Properties result = new Properties();
@@ -145,6 +160,10 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         final String sliceUploadPath = TransformationUtil.objectToString(YamlUtil.paths(cmap, "slice-upload.path"));
         final Long sliceUploadMaxSize = TransformationUtil.objectToLong(YamlUtil.paths(cmap, "slice-upload.maxSize"));
         initBase(result, sliceUploadPath, sliceUploadMaxSize);
+        final String secret = TransformationUtil.objectToString(YamlUtil.paths(cmap, "secret"));
+        if (secret != null) {
+            result.setSecret(secret);
+        }
         final Map<String, Object> uploads = TransformationUtil.objectToMap(YamlUtil.paths(cmap, "uploads"));
         if (uploads != null) {
             result.setUploads(initUploads(uploads));
@@ -160,6 +179,9 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         return result;
     }
 
+    /**
+     * INIT PROPERTIES
+     */
     @SuppressWarnings("ALL")
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
@@ -168,6 +190,8 @@ public class Properties extends club.p6e.coat.file.Properties implements Seriali
         final String sliceUploadPath = PropertiesUtil.getStringProperty(sliceUploadProperties, "path");
         final Long sliceUploadMaxSize = PropertiesUtil.getLongProperty(sliceUploadProperties, "max-size");
         initBase(result, sliceUploadPath, sliceUploadMaxSize);
+        final String secret = PropertiesUtil.getStringProperty(properties, "secret");
+        result.setSecret(secret);
         final Map<String, Object> uploads = PropertiesUtil.getMapProperty(properties, "uploads");
         result.setUploads(initUploads(uploads));
         final Map<String, Object> resources = PropertiesUtil.getMapProperty(properties, "resources");

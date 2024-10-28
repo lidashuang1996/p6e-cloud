@@ -63,11 +63,11 @@ public class AuthGatewayRedisCache implements AuthGatewayCache {
 
     @Override
     public Mono<Token> refreshToken(Token token) {
-        final String json = JsonUtil.toJson(token);
-        if (json == null) {
+        final String data = JsonUtil.toJson(token);
+        if (data == null) {
             return Mono.empty();
         }
-        final byte[] jcBytes = json.getBytes(StandardCharsets.UTF_8);
+        final byte[] jcBytes = data.getBytes(StandardCharsets.UTF_8);
         return template.execute(connection ->
                 Flux.concat(
                         connection.stringCommands().set(

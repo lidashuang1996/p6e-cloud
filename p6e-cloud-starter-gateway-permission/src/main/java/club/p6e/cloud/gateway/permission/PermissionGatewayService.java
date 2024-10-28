@@ -84,7 +84,7 @@ public class PermissionGatewayService {
             return validator
                     .execute(path, method, project, List.of("*"))
                     .flatMap(permission -> {
-                        if ("@PERMISSION-IGNORE".equalsIgnoreCase(permission.getMark())) {
+                        if (permission.getMark() != null && permission.getMark().endsWith("@PERMISSION-IGNORE")) {
                             return Mono.just(exchange.mutate().request(
                                     exchange.getRequest().mutate().header(USER_INFO_PERMISSION_HEADER, JsonUtil.toJson(permission)).build()
                             ).build());

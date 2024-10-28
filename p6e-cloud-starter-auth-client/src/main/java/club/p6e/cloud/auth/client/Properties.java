@@ -14,6 +14,8 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
+ * Properties
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -25,6 +27,9 @@ import java.util.Map;
 @ConfigurationProperties(prefix = "p6e.cloud.auth.client")
 public class Properties extends club.p6e.coat.auth.client.Properties implements Serializable {
 
+    /**
+     * INIT BASE
+     */
     private static void initBase(
             Properties properties,
             String authorizeUrl,
@@ -71,47 +76,44 @@ public class Properties extends club.p6e.coat.auth.client.Properties implements 
     }
 
     /**
-     * 初始化配置文件对象
-     *
-     * @param data Yaml 对象
-     * @return 配置文件对象
+     * INIT YAML
      */
+    @SuppressWarnings("ALL")
     public static Properties initYaml(Object data) {
         final Properties result = new Properties();
         final Object config = YamlUtil.paths(data, "p6e.cloud.auth.client");
         final Map<String, Object> cmap = TransformationUtil.objectToMap(config);
-        final String authorizeUrl = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorizeUrl"));
-        final String authorizeTokenUrl = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorizeTokenUrl"));
-        final String authorizeAppId = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorizeAppId"));
-        final String authorizeAppSecret = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorizeAppSecret"));
-        final String authorizeAppRedirectUri = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorizeAppRedirectUri"));
-        final Map<String, Object> authorizeAppExtend = TransformationUtil.objectToMap(YamlUtil.paths(cmap, "authorizeAppExtend"));
-        final String jwtAccessTokenSecret = TransformationUtil.objectToString(YamlUtil.paths(cmap, "jwtAccessTokenSecret"));
-        final String jwtRefreshTokenSecret = TransformationUtil.objectToString(YamlUtil.paths(cmap, "jwtRefreshTokenSecret"));
+        final String authorizeUrl = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorize-url"));
+        final String authorizeTokenUrl = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorize-token-url"));
+        final String authorizeAppId = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorize-app-id"));
+        final String authorizeAppSecret = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorize-app-secret"));
+        final String authorizeAppRedirectUri = TransformationUtil.objectToString(YamlUtil.paths(cmap, "authorize-app-redirect-uri"));
+        final Map<String, Object> authorizeAppExtend = TransformationUtil.objectToMap(YamlUtil.paths(cmap, "authorize-app-extend"));
+        final String jwtAccessTokenSecret = TransformationUtil.objectToString(YamlUtil.paths(cmap, "jwt-access-token-secret"));
+        final String jwtRefreshTokenSecret = TransformationUtil.objectToString(YamlUtil.paths(cmap, "jwt-refresh-token-secret"));
         initBase(result, authorizeUrl, authorizeTokenUrl, authorizeAppId, authorizeAppSecret,
                 authorizeAppRedirectUri, authorizeAppExtend, jwtAccessTokenSecret, jwtRefreshTokenSecret);
         return result;
     }
 
     /**
-     * 初始化配置文件对象
-     *
-     * @param properties Properties 对象
-     * @return 配置文件对象
+     * INIT PROPERTIES
      */
+    @SuppressWarnings("ALL")
     public static Properties initProperties(java.util.Properties properties) {
         final Properties result = new Properties();
         properties = PropertiesUtil.matchProperties("p6e.cloud.auth.client", properties);
-        final String authorizeUrl = PropertiesUtil.getStringProperty(properties, "authorizeUrl");
-        final String authorizeTokenUrl = PropertiesUtil.getStringProperty(properties, "authorizeTokenUrl");
-        final String authorizeAppId = PropertiesUtil.getStringProperty(properties, "authorizeAppId");
-        final String authorizeAppSecret = PropertiesUtil.getStringProperty(properties, "authorizeAppSecret");
-        final String authorizeAppRedirectUri = PropertiesUtil.getStringProperty(properties, "authorizeAppRedirectUri");
-        final Map<String, Object> authorizeAppExtend = PropertiesUtil.getMapProperty(properties, "authorizeAppExtend");
-        final String jwtAccessTokenSecret = PropertiesUtil.getStringProperty(properties, "jwtAccessTokenSecret");
-        final String jwtRefreshTokenSecret = PropertiesUtil.getStringProperty(properties, "jwtRefreshTokenSecret");
+        final String authorizeUrl = PropertiesUtil.getStringProperty(properties, "authorize-url");
+        final String authorizeTokenUrl = PropertiesUtil.getStringProperty(properties, "authorize-token-url");
+        final String authorizeAppId = PropertiesUtil.getStringProperty(properties, "authorize-app-id");
+        final String authorizeAppSecret = PropertiesUtil.getStringProperty(properties, "authorize-app-secret");
+        final String authorizeAppRedirectUri = PropertiesUtil.getStringProperty(properties, "authorize-app-redirect-uri");
+        final Map<String, Object> authorizeAppExtend = PropertiesUtil.getMapProperty(properties, "authorize-app-extend");
+        final String jwtAccessTokenSecret = PropertiesUtil.getStringProperty(properties, "jwt-access-token-secret");
+        final String jwtRefreshTokenSecret = PropertiesUtil.getStringProperty(properties, "jwt-refresh-token-secret");
         initBase(result, authorizeUrl, authorizeTokenUrl, authorizeAppId, authorizeAppSecret,
                 authorizeAppRedirectUri, authorizeAppExtend, jwtAccessTokenSecret, jwtRefreshTokenSecret);
         return result;
     }
+
 }

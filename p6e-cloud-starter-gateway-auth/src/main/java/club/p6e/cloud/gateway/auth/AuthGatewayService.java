@@ -47,7 +47,7 @@ public class AuthGatewayService {
     }
 
     /**
-     * authentication
+     * Authentication
      *
      * @param exchange ServerWebExchange object
      * @return Mono<ServerWebExchange> ServerWebExchange object

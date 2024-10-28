@@ -16,11 +16,15 @@ import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
+ * Redis Properties Refresher
+ *
  * @author lidashuang
  * @version 1.0
  */
+@SuppressWarnings("ALL")
 public abstract class RedisPropertiesRefresher {
 
     /**
@@ -28,8 +32,16 @@ public abstract class RedisPropertiesRefresher {
      */
     public static class ReadyEventListener implements ApplicationListener<ApplicationReadyEvent> {
 
+        /**
+         * RedisPropertiesRefresher object
+         */
         private final RedisPropertiesRefresher refresher;
 
+        /**
+         * Constructor initializers
+         *
+         * @param refresher RedisPropertiesRefresher object
+         */
         public ReadyEventListener(RedisPropertiesRefresher refresher) {
             this.refresher = refresher;
         }
@@ -38,6 +50,7 @@ public abstract class RedisPropertiesRefresher {
         public void onApplicationEvent(@Nonnull ApplicationReadyEvent event) {
             refresher.init();
         }
+
     }
 
     /**
@@ -45,8 +58,16 @@ public abstract class RedisPropertiesRefresher {
      */
     public static class ContextClosedEventListener implements ApplicationListener<ContextClosedEvent> {
 
+        /**
+         * RedisPropertiesRefresher object
+         */
         private final RedisPropertiesRefresher refresher;
 
+        /**
+         * Constructor initializers
+         *
+         * @param refresher RedisPropertiesRefresher object
+         */
         public ContextClosedEventListener(RedisPropertiesRefresher refresher) {
             this.refresher = refresher;
         }
@@ -55,32 +76,39 @@ public abstract class RedisPropertiesRefresher {
         public void onApplicationEvent(@Nonnull ContextClosedEvent event) {
             refresher.close();
         }
+
     }
 
     /**
-     * 配置主题
+     * TOPIC
      */
     private static String CONFIG_TOPIC = "p6e-cloud-config";
 
-
-    private volatile long timestamp = 0;
+    /**
+     * TIMESTAMP
+     */
+    private final AtomicLong timestamp = new AtomicLong(0);
 
     /**
-     * Disposable 对象
+     * reactor.core.Disposable object
      */
     private reactor.core.Disposable subscription;
 
+    /**
+     * org.springframework.data.redis.core.StringRedisTemplate
+     */
     private org.springframework.data.redis.core.StringRedisTemplate stringRedisTemplate;
 
     /**
-     * 模板对象
+     * org.springframework.data.redis.core.ReactiveStringRedisTemplate
      */
     private org.springframework.data.redis.core.ReactiveStringRedisTemplate reactiveStringRedisTemplate;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param template 模板对象
+     * @param template  org.springframework.data.redis.core.StringRedisTemplate objcet
+     * @param refresher ConfigurableApplicationContext object
      */
     public RedisPropertiesRefresher(org.springframework.data.redis.core.StringRedisTemplate template, ConfigurableApplicationContext context) {
         this.stringRedisTemplate = template;
@@ -89,9 +117,10 @@ public abstract class RedisPropertiesRefresher {
     }
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param template 模板对象
+     * @param template  org.springframework.data.redis.core.ReactiveStringRedisTemplate objcet
+     * @param refresher ConfigurableApplicationContext object
      */
     public RedisPropertiesRefresher(org.springframework.data.redis.core.ReactiveStringRedisTemplate template, ConfigurableApplicationContext context) {
         this.reactiveStringRedisTemplate = template;
@@ -100,21 +129,18 @@ public abstract class RedisPropertiesRefresher {
     }
 
     /**
-     * 设置配置主题
+     * Set Config Topic
      *
-     * @param topic 主题名称
+     * @param topic Topic object
      */
     public static void setConfigTopic(String topic) {
         CONFIG_TOPIC = topic;
     }
 
     /**
-     * 初始化
+     * Init Data
      */
     protected void init() {
-        final String cmd = JsonUtil.toJson(new HashMap<>() {{
-            put("type", "init");
-        }});
         final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         try {
             Class.forName("org.springframework.data.redis.core.StringRedisTemplate");
@@ -144,10 +170,6 @@ public abstract class RedisPropertiesRefresher {
                         .listenTo(ChannelTopic.of(CONFIG_TOPIC))
                         .map(message -> JsonUtil.fromJsonToMap(message.getMessage(), String.class, String.class))
                         .subscribe(this::execute);
-                reactiveStringRedisTemplate
-                        .convertAndSend(CONFIG_TOPIC, cmd)
-                        .publishOn(reactor.core.scheduler.Schedulers.single())
-                        .subscribe();
                 executor.scheduleAtFixedRate(() -> {
                     reactiveStringRedisTemplate.convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new HashMap<>() {{
                         put("type", "heartbeat");
@@ -160,7 +182,7 @@ public abstract class RedisPropertiesRefresher {
     }
 
     /**
-     * 关闭
+     * Close
      */
     protected void close() {
         try {
@@ -178,27 +200,26 @@ public abstract class RedisPropertiesRefresher {
         }
         try {
             Class.forName("org.springframework.data.redis.core.ReactiveStringRedisTemplate");
-            stringRedisTemplate = null;
+            reactiveStringRedisTemplate = null;
         } catch (Exception e) {
             // ignore exception
         }
     }
 
     /**
-     * 执行
+     * Execute Message
      */
     protected void execute(Map<String, String> message) {
         if (message != null && message.get("type") != null) {
             if ("heartbeat".equalsIgnoreCase(message.get("type"))) {
-                if (timestamp <= 0) {
+                if (timestamp.get() <= 0) {
                     synchronized (this) {
-                        if (timestamp <= 0) {
+                        if (timestamp.get() <= 0) {
                             try {
                                 Class.forName("org.springframework.data.redis.core.StringRedisTemplate");
                                 stringRedisTemplate.convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new HashMap<>() {{
                                     put("type", "init");
                                 }}));
-                                timestamp = System.currentTimeMillis();
                                 return;
                             } catch (Exception e) {
                                 // ignore exception
@@ -208,7 +229,6 @@ public abstract class RedisPropertiesRefresher {
                                 reactiveStringRedisTemplate.convertAndSend(CONFIG_TOPIC, JsonUtil.toJson(new HashMap<>() {{
                                     put("type", "init");
                                 }})).subscribe();
-                                timestamp = System.currentTimeMillis();
                             } catch (Exception e) {
                                 // ignore exception
                             }
@@ -217,13 +237,17 @@ public abstract class RedisPropertiesRefresher {
                 }
             } else if ("config".equalsIgnoreCase(message.get("type"))
                     && message.get("format") != null && message.get("content") != null) {
-                config(message.get("format"), message.get("content"));
+                synchronized (this) {
+                    // refresh timestamp
+                    timestamp.set(System.currentTimeMillis());
+                    config(message.get("format"), message.get("content"));
+                }
             }
         }
     }
 
     /**
-     * 执行
+     * Config
      */
     protected abstract void config(String format, String content);
 
