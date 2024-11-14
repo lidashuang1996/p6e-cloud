@@ -30,16 +30,21 @@ import java.util.Map;
 public class PermissionGatewayService {
 
     /**
+     * P6e Permission Project Header Name
+     */
+    public static final String PERMISSION_PROJECT_HEADER = "P6e-Permission-Project";
+
+    /**
      * P6e User Info Header Name
      */
     @SuppressWarnings("ALL")
-    protected static final String USER_INFO_HEADER = "P6e-User-Info";
+    private static final String USER_INFO_HEADER = "P6e-User-Info";
 
     /**
      * P6e User Permission Header Name
      */
     @SuppressWarnings("ALL")
-    protected static final String USER_INFO_PERMISSION_HEADER = "P6e-User-Permission";
+    private static final String USER_INFO_PERMISSION_HEADER = "P6e-User-Permission";
 
     /**
      * P6e User Project Header Name
@@ -56,7 +61,7 @@ public class PermissionGatewayService {
     /**
      * Permission validator object
      */
-    protected final PermissionValidator validator;
+    private final PermissionValidator validator;
 
     /**
      * Constructor initializers
@@ -80,9 +85,10 @@ public class PermissionGatewayService {
         final String user = BaseWebFluxController.getHeader(request, USER_INFO_HEADER);
         final String project = BaseWebFluxController.getHeader(request, USER_PROJECT_HEADER);
         final String organization = BaseWebFluxController.getHeader(request, USER_ORGANIZATION_HEADER);
+        final String markPermissionProject = BaseWebFluxController.getHeader(request, PERMISSION_PROJECT_HEADER);
+        final boolean bool = markPermissionProject == null || markPermissionProject.isEmpty();
         if (user == null || user.isEmpty()) {
-            return validator
-                    .execute(path, method, project, List.of("*"))
+            return (bool ? validator.execute(path, method, List.of("*")) : validator.execute(path, method, project, List.of("*")))
                     .flatMap(permission -> {
                         if (permission.getMark() != null && permission.getMark().endsWith("@PERMISSION-IGNORE")) {
                             return Mono.just(exchange.mutate().request(
@@ -93,17 +99,26 @@ public class PermissionGatewayService {
                         }
                     });
         } else {
-            final UserModel um = JsonUtil.fromJson(user, UserModel.class);
-            if (project == null || project.isEmpty()
-                    || organization == null || organization.isEmpty()
-                    || um == null || um.getPermission() == null || um.getPermission().get(project) == null) {
-                return Mono.empty();
-            } else {
+            if (bool) {
+                final UserModel1 um = JsonUtil.fromJson(user, UserModel1.class);
                 return validator
-                        .execute(path, method, project, um.getPermission().get(project).get("group"))
+                        .execute(path, method, um.getPermission().get("group"))
                         .flatMap(permission -> Mono.just(exchange.mutate().request(
                                 exchange.getRequest().mutate().header(USER_INFO_PERMISSION_HEADER, JsonUtil.toJson(permission)).build()
                         ).build()));
+            } else {
+                final UserModel2 um = JsonUtil.fromJson(user, UserModel2.class);
+                if (project == null || project.isEmpty()
+                        || organization == null || organization.isEmpty()
+                        || um == null || um.getPermission() == null || um.getPermission().get(project) == null) {
+                    return Mono.empty();
+                } else {
+                    return validator
+                            .execute(path, method, project, um.getPermission().get(project).get("group"))
+                            .flatMap(permission -> Mono.just(exchange.mutate().request(
+                                    exchange.getRequest().mutate().header(USER_INFO_PERMISSION_HEADER, JsonUtil.toJson(permission)).build()
+                            ).build()));
+                }
             }
         }
     }
@@ -113,7 +128,16 @@ public class PermissionGatewayService {
      */
     @Data
     @Accessors(chain = true)
-    private static class UserModel implements Serializable {
+    private static class UserModel1 implements Serializable {
+        private Map<String, List<String>> permission = new HashMap<>();
+    }
+
+    /**
+     * User Model
+     */
+    @Data
+    @Accessors(chain = true)
+    private static class UserModel2 implements Serializable {
         private Map<String, Map<String, List<String>>> permission = new HashMap<>();
     }
 

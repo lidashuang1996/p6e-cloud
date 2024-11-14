@@ -147,8 +147,8 @@ public class Properties implements Serializable {
         final java.util.Properties logProperties = PropertiesUtil.matchProperties("log", properties);
         final Boolean logEnable = PropertiesUtil.getBooleanProperty(logProperties, "enable");
         final Boolean logDetails = PropertiesUtil.getBooleanProperty(logProperties, "details");
-        final List<Object> requestHeaderClear = PropertiesUtil.getListObjectProperty(properties, "requestHeaderClear");
-        final List<Object> responseHeaderOnly = PropertiesUtil.getListObjectProperty(properties, "responseHeaderOnly");
+        final List<Object> requestHeaderClear = PropertiesUtil.getListObjectProperty(properties, "request-header-clear");
+        final List<Object> responseHeaderOnly = PropertiesUtil.getListObjectProperty(properties, "response-header-only");
         initBase(result, logEnable, logDetails, requestHeaderClear, responseHeaderOnly);
         return initPropertiesRoutes(PropertiesUtil.getListPropertiesProperty(properties, "routes"), result);
     }

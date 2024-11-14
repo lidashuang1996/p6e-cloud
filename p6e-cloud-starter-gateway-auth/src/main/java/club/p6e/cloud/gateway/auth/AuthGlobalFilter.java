@@ -45,13 +45,13 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
      * P6e User Info Header Name
      */
     @SuppressWarnings("ALL")
-    protected static final String USER_INFO_HEADER = "P6e-User-Info";
+    private static final String USER_INFO_HEADER = "P6e-User-Info";
 
     /**
      * P6e User Permission Header Name
      */
     @SuppressWarnings("ALL")
-    protected static final String USER_INFO_PERMISSION_HEADER = "P6e-User-Permission";
+    private static final String USER_INFO_PERMISSION_HEADER = "P6e-User-Permission";
 
     @Override
     public int getOrder() {
