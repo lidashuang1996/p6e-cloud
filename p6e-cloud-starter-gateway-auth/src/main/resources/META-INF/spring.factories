@@ -2,4 +2,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 club.p6e.cloud.gateway.auth.AuthGatewayService,\
 club.p6e.cloud.gateway.auth.AuthGatewayRedisCache,\
-club.p6e.cloud.gateway.auth.AuthGatewayFilterFactory
+club.p6e.cloud.gateway.auth.AuthGatewayFilterFactory,\
+club.p6e.cloud.gateway.auth.AuthGlobalFilter

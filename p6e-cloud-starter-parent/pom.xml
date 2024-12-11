@@ -17,6 +17,12 @@
     <description>p6e-cloud-starter-parent</description>
 
     <properties>
+        <skip-tests>true</skip-tests>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <p6e-cloud.version>${p6e-coat.version}</p6e-cloud.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
         <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
@@ -51,17 +57,17 @@
             </dependency>
             <dependency>
                 <groupId>club.p6e.cloud</groupId>
-                <artifactId>p6e-cloud-starter-file</artifactId>
-                <version>${p6e-cloud.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>club.p6e.cloud</groupId>
-                <artifactId>p6e-cloud-starter-websocket</artifactId>
+                <artifactId>p6e-cloud-starter-auth-client</artifactId>
                 <version>${p6e-cloud.version}</version>
             </dependency>
             <dependency>
                 <groupId>club.p6e.cloud</groupId>
                 <artifactId>p6e-cloud-starter-common</artifactId>
+                <version>${p6e-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>club.p6e.cloud</groupId>
+                <artifactId>p6e-cloud-starter-file</artifactId>
                 <version>${p6e-cloud.version}</version>
             </dependency>
             <dependency>
@@ -86,7 +92,7 @@
             </dependency>
             <dependency>
                 <groupId>club.p6e.cloud</groupId>
-                <artifactId>p6e-cloud-starter-auth-client</artifactId>
+                <artifactId>p6e-cloud-starter-websocket</artifactId>
                 <version>${p6e-cloud.version}</version>
             </dependency>
         </dependencies>

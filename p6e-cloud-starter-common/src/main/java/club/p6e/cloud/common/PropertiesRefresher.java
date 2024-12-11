@@ -1,10 +1,13 @@
 package club.p6e.cloud.common;
 
+import club.p6e.coat.common.utils.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
+ * Properties Refresher
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -12,52 +15,36 @@ import org.springframework.stereotype.Component;
 public class PropertiesRefresher {
 
     /**
-     * 注入日志对象
+     * Inject log objects
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesRefresher.class);
 
     /**
-     * 配置文件对象
+     * Properties object
      */
     private final Properties properties;
 
-    private final club.p6e.coat.common.Properties commonProperties;
-
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param properties 配置文件对象
+     * @param properties Properties object
      */
-    public PropertiesRefresher(Properties properties, club.p6e.coat.common.Properties commonProperties) {
+    public PropertiesRefresher(Properties properties) {
         this.properties = properties;
-        this.commonProperties = commonProperties;
-        copy(properties, commonProperties);
     }
 
     /**
-     * 执行刷新操作
+     * Execute Refresh
      *
-     * @param properties 配置文件对象
+     * @param properties Properties object
      */
+    @SuppressWarnings("ALL")
     public void execute(Properties properties) {
-        LOGGER.info("[NEW PROPERTIES] (" + properties.getClass() + ") >>>> " + properties);
+        LOGGER.info("[ NEW PROPERTIES ] ({}) >>> {}", properties.getClass(), JsonUtil.toJson(properties));
         this.properties.setVersion(properties.getVersion());
         this.properties.setSecurity(properties.getSecurity());
         this.properties.setCrossDomain(properties.getCrossDomain());
         this.properties.setSnowflake(properties.getSnowflake());
-        copy(this.properties, this.commonProperties);
-    }
-
-    private void copy(Properties properties, club.p6e.coat.common.Properties commonProperties) {
-        commonProperties.setVersion(properties.getVersion());
-        commonProperties.getSecurity().setEnable(properties.getSecurity().isEnable());
-        commonProperties.getSecurity().getVouchers().clear();
-        commonProperties.getSecurity().getVouchers().addAll(properties.getSecurity().getVouchers());
-        commonProperties.getCrossDomain().setEnable(properties.getCrossDomain().isEnable());
-        commonProperties.getCrossDomain().getWhiteList().clear();
-        commonProperties.getCrossDomain().getWhiteList().addAll(properties.getCrossDomain().getWhiteList());
-        commonProperties.getSnowflake().clear();
-        commonProperties.getSnowflake().putAll(properties.getSnowflake());
     }
 
 }
