@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 自定义全局返回头唯一过滤器
+ * Custom Response Header Only WebFilter
  *
  * @author lidashuang
  * @version 1.0
@@ -31,27 +31,32 @@ import java.util.Set;
 public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
 
     /**
-     * 执行顺序
+     * Order
      */
-    private static final int ORDER = -2900;
+    private static final int ORDER = Integer.MAX_VALUE - 2000;
 
     /**
-     * 需要唯一的返回数据头
+     * Only Response Header
      */
     private static final String[] HEADER_FILTERED = new String[]{
             "Content-Type",
             "Access-Control",
+            "Access-Control-Max-Age",
+            "Access-Control-Allow-Origin",
+            "Access-Control-Allow-Headers",
+            "Access-Control-Allow-Methods",
+            "Access-Control-Allow-Credentials"
     };
 
     /**
-     * 配置文件对象
+     * Properties object
      */
     private final Properties properties;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param properties 配置文件对象
+     * @param properties Properties object
      */
     public CustomResponseHeaderOnlyWebFilter(Properties properties) {
         this.properties = properties;
@@ -66,13 +71,13 @@ public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
     @Override
     public Mono<Void> filter(@NonNull ServerWebExchange exchange, @NonNull WebFilterChain chain) {
         final ServerHttpResponse response = exchange.getResponse();
-        final ServerHttpResponseDecorator responseDecorator = new ServerHttpResponseDecorator(response) {
+        final ServerHttpResponseDecorator decorator = new ServerHttpResponseDecorator(response) {
             @NonNull
             @Override
             public Mono<Void> writeWith(@NonNull Publisher<? extends DataBuffer> body) {
                 final HttpHeaders httpHeaders = response.getHeaders();
                 final Set<String> httpHeaderNames = httpHeaders.keySet();
-                for (String httpHeaderName : httpHeaderNames) {
+                for (final String httpHeaderName : httpHeaderNames) {
                     final List<String> httpHeaderValue = httpHeaders.get(httpHeaderName);
                     if (httpHeaderValue != null && !httpHeaderValue.isEmpty()) {
                         for (final String header : HEADER_FILTERED) {
@@ -90,6 +95,6 @@ public class CustomResponseHeaderOnlyWebFilter implements WebFilter, Ordered {
                 return super.writeWith(body);
             }
         };
-        return chain.filter(exchange.mutate().response(responseDecorator).build());
+        return chain.filter(exchange.mutate().response(decorator).build());
     }
 }

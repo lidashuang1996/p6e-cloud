@@ -1,9 +1,12 @@
 package club.p6e.cloud.gateway;
 
+import club.p6e.coat.common.utils.JsonUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * 配置文件属性刷新器
+ * Properties Refresher
  *
  * @author lidashuang
  * @version 1.0
@@ -12,20 +15,25 @@ import org.springframework.stereotype.Component;
 public class PropertiesRefresher {
 
     /**
-     * 配置文件对象
+     * Inject log objects
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesRefresher.class);
+
+    /**
+     * Properties object
      */
     private final Properties properties;
 
     /**
-     * 自定义路由定位器
+     * CustomRouteLocator object
      */
     private final CustomRouteLocator locator;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param properties 配置文件对象
-     * @param locator    网关路由定位器
+     * @param properties Properties object
+     * @param locator    CustomRouteLocator object
      */
     public PropertiesRefresher(Properties properties, CustomRouteLocator locator) {
         this.locator = locator;
@@ -34,18 +42,18 @@ public class PropertiesRefresher {
     }
 
     /**
-     * 执行刷新操作
+     * Execute refresh
      *
-     * @param properties 配置文件对象
+     * @param properties Properties object
      */
+    @SuppressWarnings("ALL")
     public void execute(Properties properties) {
+        LOGGER.info("[ NEW PROPERTIES ] ({}) >>> {}", properties.getClass(), JsonUtil.toJson(properties));
         this.properties.setLog(properties.getLog());
-        this.properties.setReferer(properties.getReferer());
-        this.properties.setCrossDomain(properties.getCrossDomain());
         this.properties.setRequestHeaderClear(properties.getRequestHeaderClear());
         this.properties.setResponseHeaderOnly(properties.getResponseHeaderOnly());
         this.properties.setRoutes(properties.getRoutes());
-        // 使用自定义的网关路由定位器执行新的路由配置
+        // Use custom gateway routing locators to perform new routing configurations
         this.locator.refresh(this.properties.getRoutes());
     }
 

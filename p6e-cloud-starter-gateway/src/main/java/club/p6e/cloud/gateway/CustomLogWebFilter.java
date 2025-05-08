@@ -25,10 +25,7 @@ import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
 
-import java.io.ByteArrayOutputStream;
-import java.io.SequenceInputStream;
 import java.io.Serializable;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -40,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 自定义全局日志过滤器
+ * Custom Log Web Filter
  *
  * @author lidashuang
  * @version 1.0
@@ -53,18 +50,18 @@ import java.util.Map;
 public class CustomLogWebFilter implements WebFilter, Ordered {
 
     /**
-     * 执行顺序
+     * Order
      */
-    private static final int ORDER = -3000;
+    private static final int ORDER = Integer.MAX_VALUE - 1000;
 
     /**
-     * 用户的信息头
+     * P6e User Info Header Name
      */
     @SuppressWarnings("ALL")
     private static final String USER_INFO_HEADER = "P6e-User-Info";
 
     /**
-     * 日志对象
+     * Inject log objects
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomLogWebFilter.class);
 
@@ -74,14 +71,14 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
     private static final DataBufferFactory DATA_BUFFER_FACTORY = new DefaultDataBufferFactory();
 
     /**
-     * 配置对象
+     * Properties object
      */
     private final Properties properties;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param properties 配置对象
+     * @param properties Properties object
      */
     public CustomLogWebFilter(Properties properties) {
         this.properties = properties;
@@ -96,13 +93,13 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
     @Override
     public Mono<Void> filter(@NonNull ServerWebExchange exchange, @NonNull WebFilterChain chain) {
         if (properties.getLog().isEnable()) {
-            // 创建日志模型
+            // create log model
             final Model model = new Model();
-            // 请求日志处理
-            final ServerHttpRequest request = new LogServerHttpRequestDecorator(exchange, model);
-            // 结果日志处理
+            // request log processing
+            final ServerHttpRequest request = new LogServerHttpRequestDecorator(exchange, model, properties);
+            // result log processing
             final ServerHttpResponse response = new LogServerHttpResponseDecorator(exchange, model, properties);
-            // 继续执行
+            // execute
             return chain.filter(exchange.mutate().request(request).response(response).build());
         } else {
             return chain.filter(exchange);
@@ -110,7 +107,7 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
     }
 
     /**
-     * 日志模型
+     * Log Model
      */
     @Data
     @Accessors(chain = true)
@@ -135,36 +132,44 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
         public String toString() {
             return JsonUtil.toJson(this);
         }
+
     }
 
     /**
-     * 日志 Request 解码器
+     * Log Server Http Request Decorator
      */
     private static class LogServerHttpRequestDecorator extends ServerHttpRequestDecorator {
 
         /**
-         * 模型对象
+         * Log mode object
          */
         private final Model model;
 
         /**
-         * 返回的 Request 对象
+         * Properties object
+         */
+        private final Properties properties;
+
+        /**
+         * ServerHttpRequest object
          */
         private final ServerHttpRequest request;
 
         /**
-         * 构造方法初始化
+         * Constructor initializers
          *
-         * @param exchange ServerWebExchange 对象
-         * @param model    对象
+         * @param model      Log mode object
+         * @param exchange   ServerHttpRequest object
+         * @param properties Properties object
          */
-        public LogServerHttpRequestDecorator(ServerWebExchange exchange, Model model) {
+        public LogServerHttpRequestDecorator(ServerWebExchange exchange, Model model, Properties properties) {
             super(exchange.getRequest());
             final ServerHttpRequest request = exchange.getRequest();
             this.model = model;
+            this.properties = properties;
             this.request = exchange.getRequest();
 
-            // 初始化写入数据
+            // initialize writing data
             model.setIp(ip(request));
             model.setId(request.getId());
             model.setPath(request.getPath().value());
@@ -178,93 +183,87 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
         @NonNull
         @Override
         public Flux<DataBuffer> getBody() {
-            return super.getBody()
-                    .reduce(SequenceInputStream.nullInputStream(),
-                            (s, d) -> new SequenceInputStream(s, d.asInputStream()))
-                    .publishOn(Schedulers.boundedElastic())
-                    .map(inputStream -> {
-                        int len;
-                        final byte[] b = new byte[1024];
-                        final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        try {
-                            while ((len = inputStream.read(b)) != -1) {
-                                byteArrayOutputStream.write(b, 0, len);
-                            }
-                        } catch (Exception e) {
-                            LOGGER.error("[LOG INPUT ERROR]", e);
-                        }
-                        return byteArrayOutputStream.toByteArray();
-                    })
-                    .map(bytes -> {
-                        // 写入指定的请求数据类型
-                        final Map<String, String> rBodyMap = new HashMap<>(3);
-                        final List<String> types = request.getHeaders().get(HttpHeaders.CONTENT_TYPE);
-                        if (types == null || types.isEmpty()) {
-                            rBodyMap.put("type", "unknown");
-                            rBodyMap.put("size", String.valueOf(bytes.length));
-                        } else {
-                            final String type = types.get(0);
-                            rBodyMap.put("type", type);
-                            rBodyMap.put("size", String.valueOf(bytes.length));
-                            // 如果请求的类型为 JSON / FORM 那么就打印全部的信息
-                            if (type.startsWith(MediaType.APPLICATION_JSON_VALUE)
-                                    || type.startsWith(MediaType.APPLICATION_FORM_URLENCODED_VALUE)) {
-                                rBodyMap.put("content", new String(bytes, StandardCharsets.UTF_8)
-                                        .replaceAll("\r", "").replaceAll("\n", ""));
+            if (properties.getLog().isEnable()) {
+                return DataBufferUtils
+                        .join(super.getBody())
+                        .map(buffer -> {
+                            final byte[] bytes = new byte[buffer.readableByteCount()];
+                            buffer.read(bytes);
+                            DataBufferUtils.release(buffer);
+                            return bytes;
+                        })
+                        .defaultIfEmpty(new byte[0])
+                        .map(bytes -> {
+                            final Map<String, String> rBodyMap = new HashMap<>(3);
+                            final List<String> types = request.getHeaders().get(HttpHeaders.CONTENT_TYPE);
+                            if (types == null || types.isEmpty()) {
+                                rBodyMap.put("type", "unknown");
+                                rBodyMap.put("size", String.valueOf(bytes.length));
                             } else {
-                                final int length = Math.min(1024, bytes.length);
-                                final byte[] cBytes = new byte[length];
-                                System.arraycopy(bytes, 0, cBytes, 0, length);
-                                rBodyMap.put("content", new String(cBytes, StandardCharsets.UTF_8));
+                                final String type = types.get(0);
+                                rBodyMap.put("type", type);
+                                rBodyMap.put("size", String.valueOf(bytes.length));
+                                final byte[] content = new byte[Math.min(bytes.length, 10240)];
+                                System.arraycopy(bytes, 0, content, 0, content.length);
+                                // If the requested type is JSON/FORM, then print all the information
+                                if (type.startsWith(MediaType.APPLICATION_JSON_VALUE)
+                                        || type.startsWith(MediaType.APPLICATION_FORM_URLENCODED_VALUE)) {
+                                    rBodyMap.put("content", new String(content, StandardCharsets.UTF_8)
+                                            .replaceAll("\r", "").replaceAll("\n", ""));
+                                } else {
+                                    rBodyMap.put("content", new String(content, StandardCharsets.UTF_8));
+                                }
                             }
-                        }
-                        model.setRequestBody(JsonUtil.toJson(rBodyMap));
-                        return DATA_BUFFER_FACTORY.wrap(bytes);
-                    })
-                    .flux();
+                            model.setRequestBody(JsonUtil.toJson(rBodyMap));
+                            return DATA_BUFFER_FACTORY.wrap(bytes);
+                        })
+                        .flux();
+            } else {
+                return super.getBody();
+            }
         }
 
         /**
-         * 本机 IP
+         * IP request header
          */
         @SuppressWarnings("ALL")
         private static final String LOCAL_IP = "127.0.0.1";
 
         /**
-         * 未知 IP
+         * IP request header
          */
         @SuppressWarnings("ALL")
         private final static String IP_UNKNOWN = "unknown";
 
         /**
-         * IP 请求头
+         * IP request header
          */
         @SuppressWarnings("ALL")
         private static final String IP_HEADER_X_REQUEST_IP = "x-request-ip";
 
         /**
-         * IP 请求头
+         * IP request header
          */
         @SuppressWarnings("ALL")
         private static final String IP_HEADER_X_FORWARDED_FOR = "x-forwarded-for";
 
         /**
-         * IP 请求头
+         * IP request header
          */
         @SuppressWarnings("ALL")
         private static final String IP_HEADER_PROXY_CLIENT_IP = "proxy-client-ip";
 
         /**
-         * IP 请求头
+         * IP request header
          */
         @SuppressWarnings("ALL")
         private static final String IP_HEADER_WL_PROXY_CLIENT_IP = "wl-proxy-client-ip";
 
         /**
-         * 获取用户的 IP 地址
+         * Obtain user IP address
          *
-         * @param request Request 对象
-         * @return IP 地址
+         * @param request ServerHttpRequest object
+         * @return IP object
          */
         public String ip(ServerHttpRequest request) {
             final HttpHeaders httpHeaders = request.getHeaders();
@@ -288,7 +287,7 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
                         try {
                             list = List.of(InetAddress.getLocalHost().getHostAddress());
                         } catch (Exception e) {
-                            LOGGER.error("[LOG IP ERROR]", e);
+                            LOGGER.error("[ LOG IP ERROR] >>> {}", e.getMessage());
                         }
                     } else {
                         list = List.of(inetSocketAddressHost);
@@ -303,36 +302,36 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
     }
 
     /**
-     * 日志 Response 解码器
+     * Log Server Http Response Decorator
      */
     private static class LogServerHttpResponseDecorator extends ServerHttpResponseDecorator {
 
         /**
-         * 模型对象
+         * Mode object
          */
         private final Model model;
 
         /**
-         * 配置对象
+         * Properties object
          */
         private final Properties properties;
 
         /**
-         * 返回的 Request 对象
+         * ServerHttpRequest object
          */
         private final ServerHttpRequest request;
 
         /**
-         * 返回的 Response 对象
+         * ServerHttpResponse object
          */
         private final ServerHttpResponse response;
 
         /**
-         * 构造方法初始化
+         * Constructor initializers
          *
-         * @param exchange   ServerWebExchange 对象
-         * @param model      对象
-         * @param properties 配置对象
+         * @param exchange   ServerWebExchange object
+         * @param model      Mode object
+         * @param properties Properties object
          */
         public LogServerHttpResponseDecorator(ServerWebExchange exchange, Model model, Properties properties) {
             super(exchange.getResponse());
@@ -349,43 +348,38 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
         Mono<Void> writeWith(@NonNull Publisher<? extends DataBuffer> body) {
             if (properties.getLog().isEnable()) {
                 return super.writeWith(DataBufferUtils.join(body)
-                        .map(dataBuffer -> {
-                            // 读取数据
-                            final byte[] bytes = new byte[dataBuffer.readableByteCount()];
-                            dataBuffer.read(bytes);
-                            // 释放掉内存
-                            DataBufferUtils.release(dataBuffer);
+                        .map(buffer -> {
+                            final byte[] bytes = new byte[buffer.readableByteCount()];
+                            buffer.read(bytes);
+                            DataBufferUtils.release(buffer);
                             return bytes;
                         })
                         .defaultIfEmpty(new byte[0])
                         .flatMap(bytes -> {
-                            // 重新写入到返回
-                            // 写入指定的请求数据类型
                             final Map<String, String> rBodyMap = new HashMap<>(3);
                             final List<String> types = response.getHeaders().get(HttpHeaders.CONTENT_TYPE);
                             if (types == null || types.isEmpty()) {
                                 rBodyMap.put("type", "unknown");
                                 rBodyMap.put("size", String.valueOf(bytes.length));
                             } else {
+                                final byte[] content = new byte[Math.min(bytes.length, 10240)];
+                                System.arraycopy(bytes, 0, content, 0, content.length);
                                 final String type = types.get(0);
                                 rBodyMap.put("type", type);
                                 rBodyMap.put("size", String.valueOf(bytes.length));
-                                // 如果请求的类型为 JSON / FORM 那么就打印全部的信息
+                                // if the requested type is JSON/FORM, then print all the information
                                 if (type.startsWith(MediaType.APPLICATION_JSON_VALUE)) {
-                                    rBodyMap.put("content", new String(bytes, StandardCharsets.UTF_8)
+                                    rBodyMap.put("content", new String(content, StandardCharsets.UTF_8)
                                             .replaceAll("\r", "").replaceAll("\n", ""));
                                 } else {
-                                    final int length = Math.min(1024, bytes.length);
-                                    final byte[] cBytes = new byte[length];
-                                    System.arraycopy(bytes, 0, cBytes, 0, length);
-                                    rBodyMap.put("content", new String(cBytes, StandardCharsets.UTF_8));
+                                    rBodyMap.put("content", new String(content, StandardCharsets.UTF_8));
                                 }
                             }
                             model.setResponseDateTime(LocalDateTime.now());
                             model.setResponseBody(JsonUtil.toJson(rBodyMap));
                             model.setResponseHeaders(JsonUtil.toJson(response.getHeaders()));
                             model.setResponseCookies(JsonUtil.toJson(response.getCookies()));
-                            // 从请求头中获取最新请求头数据里面的用户信息
+                            // retrieve the latest user information from the request header
                             // ===== USER INFO ========================================
                             final List<String> userInfoData = request.getHeaders().get(USER_INFO_HEADER);
                             if (userInfoData != null) {
@@ -395,14 +389,13 @@ public class CustomLogWebFilter implements WebFilter, Ordered {
                             if (model.getRequestDateTime() != null && model.getResponseDateTime() != null) {
                                 final long s = model.getRequestDateTime().toInstant(ZoneOffset.of("+8")).toEpochMilli();
                                 final long e = model.getResponseDateTime().toInstant(ZoneOffset.of("+8")).toEpochMilli();
-                                // 写入请求间隔的时间
+                                // time interval for writing requests
                                 model.setIntervalDateTime(e - s);
                             }
                             if (properties.getLog().isDetails()) {
                                 LOGGER.info(model.toString());
                             } else {
-                                LOGGER.info("[" + model.getRequestMethod() + "] "
-                                        + model.getPath() + " \r\n ::: " + model.getUser());
+                                LOGGER.info("[ {} ] {} \r\n USER : {}", model.getRequestMethod(), model.getPath(), model.getUser());
                             }
                             return Mono.just(DATA_BUFFER_FACTORY.wrap(bytes));
                         }));

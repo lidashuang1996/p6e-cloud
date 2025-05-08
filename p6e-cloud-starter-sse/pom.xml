@@ -9,19 +9,26 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>p6e-cloud-starter-auth</artifactId>
+    <artifactId>p6e-cloud-starter-sse</artifactId>
     <version>3.1.0</version>
-    <name>p6e-cloud-starter-auth</name>
-    <description>p6e-cloud-starter-auth</description>
+    <name>p6e-cloud-starter-sse</name>
+    <description>p6e-cloud-starter-sse</description>
 
     <dependencies>
-        
-        <!-- P6e Coat Auth [START] -->
+
+        <!-- Spring Web Flux [ START ] -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <!-- Spring Web Flux [ END ] -->
+
+        <!-- P6e Coat SSE [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>
-            <artifactId>p6e-coat-starter-auth</artifactId>
+            <artifactId>p6e-coat-starter-sse</artifactId>
         </dependency>
-        <!-- P6e Coat Auth [END] -->
+        <!-- P6e Coat SSE [END] -->
 
         <!-- P6e Cloud Common [START] -->
         <dependency>

@@ -15,63 +15,27 @@
     <description>p6e-cloud-starter-websocket</description>
 
     <dependencies>
-        <!-- Spring Cloud Redis Reactive [START] -->
+
+        <!-- Spring Web Flux [ START ] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
-        <!-- Spring Cloud Redis Reactive [END] -->
+        <!-- Spring Web Flux [ END ] -->
 
-        <!-- Spring Cloud Alibaba Nacos [START] -->
-        <!-- Spring Cloud Alibaba BootStrap [ START ] -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
-        <!-- Spring Cloud Alibaba BootStrap [ END ] -->
-        <!-- Spring Cloud Alibaba Nacos Config [START] -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-        <!-- Spring Cloud Alibaba Nacos Config [END] -->
-        <!-- Spring Cloud Alibaba Nacos Discovery [START] -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <!-- Spring Cloud Alibaba Nacos Discovery [END] -->
-        <!-- Spring Cloud Alibaba Nacos [END] -->
-
-        <!-- P6e WebSocket [START] -->
         <!-- P6e Coat WebSocket [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>
             <artifactId>p6e-coat-starter-websocket</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>club.p6e.coat</groupId>
-                    <artifactId>p6e-coat-starter-common</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <!-- P6e Coat WebSocket [END] -->
+
         <!-- P6e Cloud Common [START] -->
         <dependency>
             <groupId>club.p6e.cloud</groupId>
             <artifactId>p6e-cloud-starter-common</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-data-jpa</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <!-- P6e Cloud Common [END] -->
-        <!-- P6e WebSocket [END] -->
+
     </dependencies>
 </project>

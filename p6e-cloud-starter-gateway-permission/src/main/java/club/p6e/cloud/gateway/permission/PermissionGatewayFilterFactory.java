@@ -1,9 +1,9 @@
 package club.p6e.cloud.gateway.permission;
 
+import club.p6e.coat.common.controller.BaseWebFluxController;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.core.Ordered;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * 权限网关过滤器工厂
+ * Permission Gateway Filter Factory
  *
  * @author lidashuang
  * @version 1.0
@@ -25,19 +25,14 @@ import java.util.concurrent.atomic.AtomicReference;
 public class PermissionGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {
 
     /**
-     * 顺序（越小越先被执行）
-     */
-    private static final int ORDER = -900;
-
-    /**
-     * 权限服务对象
+     * PermissionGatewayService object
      */
     private final PermissionGatewayService service;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param service 权限服务对象
+     * @param service PermissionGatewayService object
      */
     public PermissionGatewayFilterFactory(PermissionGatewayService service) {
         this.service = service;
@@ -49,50 +44,57 @@ public class PermissionGatewayFilterFactory extends AbstractGatewayFilterFactory
     }
 
     /**
-     * 自定义网关过滤器
+     * Custom Gateway Filter
      *
-     * @param service 权限服务
+     * @param service PermissionGatewayService object
      */
-    private record CustomGatewayFilter(PermissionGatewayService service) implements GatewayFilter, Ordered {
+    private record CustomGatewayFilter(PermissionGatewayService service) implements GatewayFilter {
 
         /**
-         * 格式化时间对象
+         * P6e User Info Header Name
+         */
+        @SuppressWarnings("ALL")
+        protected static final String USER_INFO_HEADER = "P6e-User-Info";
+
+        /**
+         * Date Time Formatter object
          */
         private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
+        @Override
+        public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+            final AtomicReference<ServerWebExchange> reference = new AtomicReference<>(exchange);
+            return service
+                    .execute(reference.get())
+                    .map(e -> {
+                        reference.set(e);
+                        return true;
+                    })
+                    .switchIfEmpty(Mono.just(false))
+                    .flatMap(b -> b ? chain.filter(reference.get()) : exceptionErrorResult(reference.get()));
+        }
+
         /**
-         * 权限异常结果统一返回内容
+         * Exception Error Result
          *
-         * @param exchange 参数 ServerWebExchange 对象
-         * @return Mono<Void> 请求结果直接返回
+         * @param exchange ServerWebExchange object
+         * @return Mono<Void> Void object
          */
         private static Mono<Void> exceptionErrorResult(ServerWebExchange exchange) {
             final ServerHttpRequest request = exchange.getRequest();
             final ServerHttpResponse response = exchange.getResponse();
-            final String result = "{\"timestamp\":\"" + DATE_TIME_FORMATTER.format(LocalDateTime.now()) + "\",\"path\":\""
+            final String user = BaseWebFluxController.getHeader(request, USER_INFO_HEADER);
+            final String result1 = "{\"timestamp\":\"" + DATE_TIME_FORMATTER.format(LocalDateTime.now()) + "\",\"path\":\""
+                    + request.getPath() + "\",\"message\":\"NO_AUTH\",\"requestId\":\"" + request.getId() + "\",\"code\":401}";
+            final String result2 = "{\"timestamp\":\"" + DATE_TIME_FORMATTER.format(LocalDateTime.now()) + "\",\"path\":\""
                     + request.getPath() + "\",\"message\":\"NO_PERMISSION\",\"requestId\":\"" + request.getId() + "\",\"code\":403}";
             response.setStatusCode(HttpStatus.FORBIDDEN);
             response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
-            return response.writeWith(Mono.just(response.bufferFactory().wrap(result.getBytes(StandardCharsets.UTF_8))));
+            return response.writeWith(Mono.just(response.bufferFactory().wrap(
+                    ((user == null || user.isEmpty()) ? result1 : result2).getBytes(StandardCharsets.UTF_8)
+            )));
         }
 
-        @Override
-        public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-            final AtomicReference<ServerWebExchange> atomicReference = new AtomicReference<>(exchange);
-            return service
-                    .execute(exchange)
-                    .map(e -> {
-                        atomicReference.set(e);
-                        return true;
-                    })
-                    .switchIfEmpty(Mono.just(false))
-                    .flatMap(r -> r ? chain.filter(atomicReference.get()) : exceptionErrorResult(exchange));
-        }
-
-        @Override
-        public int getOrder() {
-            return ORDER;
-        }
     }
 
 }
