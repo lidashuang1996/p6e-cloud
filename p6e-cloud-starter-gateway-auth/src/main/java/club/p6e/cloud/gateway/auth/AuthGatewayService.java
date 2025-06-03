@@ -66,7 +66,7 @@ public class AuthGatewayService {
         } else {
             return cache
                     .getAccessToken(token)
-                    .flatMap(this::executeTokenAutomaticRenewal)
+                    .flatMap(cache::refresh)
                     .flatMap(t -> cache.getUser(t.getUid()))
                     .flatMap(u -> Mono.just(exchange.mutate().request(
                             exchange.getRequest().mutate()
@@ -86,6 +86,7 @@ public class AuthGatewayService {
      * @param token Token object
      * @return Token object
      */
+    @SuppressWarnings("ALL")
     private Mono<AuthGatewayCache.Token> executeTokenAutomaticRenewal(AuthGatewayCache.Token token) {
         return cache.getAccessTokenExpire(token.getAccessToken()).flatMap(l -> l > 1800L ? Mono.just(token) : cache.refresh(token));
     }

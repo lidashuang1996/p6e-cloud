@@ -27,6 +27,8 @@ import java.util.concurrent.TimeUnit;
 )
 public class AuthGatewayRedisCache implements AuthGatewayCache {
 
+    public static long AUTH_EXPIRATION_TIME = 3600L;
+
     /**
      * ReactiveStringRedisTemplate object
      */
@@ -57,7 +59,7 @@ public class AuthGatewayRedisCache implements AuthGatewayCache {
                 .opsForValue()
                 .get(USER_PREFIX + uid)
                 .flatMap(content -> template.opsForValue().set(
-                        USER_PREFIX + uid, content, Duration.ofSeconds(EXPIRATION_TIME)
+                        USER_PREFIX + uid, content, Duration.ofSeconds(AUTH_EXPIRATION_TIME)
                 ).map(b -> content));
     }
 
@@ -73,25 +75,25 @@ public class AuthGatewayRedisCache implements AuthGatewayCache {
                         connection.stringCommands().set(
                                 ByteBuffer.wrap((ACCESS_TOKEN_PREFIX + token.getAccessToken()).getBytes(StandardCharsets.UTF_8)),
                                 ByteBuffer.wrap(jcBytes),
-                                Expiration.from(EXPIRATION_TIME, TimeUnit.SECONDS),
+                                Expiration.from(AUTH_EXPIRATION_TIME, TimeUnit.SECONDS),
                                 RedisStringCommands.SetOption.UPSERT
                         ),
                         connection.stringCommands().set(
                                 ByteBuffer.wrap((REFRESH_TOKEN_PREFIX + token.getRefreshToken()).getBytes(StandardCharsets.UTF_8)),
                                 ByteBuffer.wrap(jcBytes),
-                                Expiration.from(EXPIRATION_TIME, TimeUnit.SECONDS),
+                                Expiration.from(AUTH_EXPIRATION_TIME, TimeUnit.SECONDS),
                                 RedisStringCommands.SetOption.UPSERT
                         ),
                         connection.stringCommands().set(
                                 ByteBuffer.wrap((USER_ACCESS_TOKEN_PREFIX + token.getUid() + DELIMITER + token.getAccessToken()).getBytes(StandardCharsets.UTF_8)),
                                 ByteBuffer.wrap(jcBytes),
-                                Expiration.from(EXPIRATION_TIME, TimeUnit.SECONDS),
+                                Expiration.from(AUTH_EXPIRATION_TIME, TimeUnit.SECONDS),
                                 RedisStringCommands.SetOption.UPSERT
                         ),
                         connection.stringCommands().set(
                                 ByteBuffer.wrap((USER_REFRESH_TOKEN_PREFIX + token.getUid() + DELIMITER + token.getRefreshToken()).getBytes(StandardCharsets.UTF_8)),
                                 ByteBuffer.wrap(jcBytes),
-                                Expiration.from(EXPIRATION_TIME, TimeUnit.SECONDS),
+                                Expiration.from(AUTH_EXPIRATION_TIME, TimeUnit.SECONDS),
                                 RedisStringCommands.SetOption.UPSERT
                         )
                 )

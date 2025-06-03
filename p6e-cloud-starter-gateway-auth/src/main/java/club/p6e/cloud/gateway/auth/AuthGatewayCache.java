@@ -46,7 +46,7 @@ public interface AuthGatewayCache {
     /**
      * Expiration Time
      */
-    long EXPIRATION_TIME = 3600 * 2L;
+    long EXPIRATION_TIME = 3600;
 
     /**
      * User Cache Prefix
