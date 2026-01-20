@@ -5,6 +5,7 @@ import lombok.experimental.Accessors;
 import reactor.core.publisher.Mono;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * Auth Gateway Cache
@@ -79,7 +80,7 @@ public interface AuthGatewayCache {
      * @param uid 用户
      * @return 读取用户内容
      */
-    Mono<String> getUser(String uid);
+    Mono<String> getUser(String uid, Map<String, Object> data);
 
     /**
      * Refresh
@@ -87,7 +88,7 @@ public interface AuthGatewayCache {
      * @param token Token object
      * @return Token object
      */
-    Mono<Token> refresh(Token token);
+    Mono<Token> refresh(Token token, Map<String, Object> data);
 
     /**
      * Refresh
@@ -95,7 +96,7 @@ public interface AuthGatewayCache {
      * @param uid User Id
      * @return User Content
      */
-    Mono<String> refreshUser(String uid);
+    Mono<String> refreshUser(String uid, Map<String, Object> data);
 
     /**
      * Get Refresh Token Content
@@ -103,7 +104,7 @@ public interface AuthGatewayCache {
      * @param token Refresh Token
      * @return Refresh Token Content
      */
-    Mono<Token> refreshToken(Token token);
+    Mono<Token> refreshToken(Token token, Map<String, Object> data);
 
     /**
      * Get Access Token Content
@@ -111,7 +112,7 @@ public interface AuthGatewayCache {
      * @param token Access Token
      * @return Access Token Content
      */
-    Mono<Token> getAccessToken(String token);
+    Mono<Token> getAccessToken(String token, Map<String, Object> data);
 
     /**
      * Get Access Token Expiration Time
@@ -119,6 +120,6 @@ public interface AuthGatewayCache {
      * @param token Access Token
      * @return Access Token Expiration Time
      */
-    Mono<Long> getAccessTokenExpire(String token);
+    Mono<Long> getAccessTokenExpire(String token, Map<String, Object> data);
 
 }

@@ -36,14 +36,16 @@ public class AuthGatewayService {
      * AuthGatewayCache object
      */
     private final AuthGatewayCache cache;
+    private final AuthParamHandler handler;
 
     /**
      * Constructor initializers
      *
      * @param cache AuthGatewayCache object
      */
-    public AuthGatewayService(AuthGatewayCache cache) {
+    public AuthGatewayService(AuthGatewayCache cache, AuthParamHandler handler) {
         this.cache = cache;
+        this.handler = handler;
     }
 
     /**
@@ -64,31 +66,23 @@ public class AuthGatewayService {
         if (token == null) {
             return Mono.empty();
         } else {
-            return cache
-                    .getAccessToken(token)
-                    .flatMap(cache::refresh)
-                    .flatMap(t -> cache.getUser(t.getUid()))
-                    .flatMap(u -> Mono.just(exchange.mutate().request(
-                            exchange.getRequest().mutate()
-                                    .header(USER_INFO_HEADER, u)
-                                    .header(USER_AUTH_HEADER, "1")
-                                    .build()
-                    ).build()))
-                    .switchIfEmpty(Mono.defer(() -> Mono.just(exchange.mutate().request(
-                            exchange.getRequest().mutate().header(USER_AUTH_HEADER, "1").build()
-                    ).build())));
+            final String ft = token;
+            return handler.execute(exchange)
+                    .flatMap(r -> cache
+                            .getAccessToken(ft, r)
+                            .flatMap(t -> cache.refresh(t, r))
+                            .flatMap(t -> cache.getUser(t.getUid(), r))
+                            .flatMap(u -> Mono.just(exchange.mutate().request(
+                                    exchange.getRequest().mutate()
+                                            .header(USER_INFO_HEADER, u)
+                                            .header(USER_AUTH_HEADER, "1")
+                                            .build()
+                            ).build()))
+                            .switchIfEmpty(Mono.defer(() -> Mono.just(exchange.mutate().request(
+                                    exchange.getRequest().mutate().header(USER_AUTH_HEADER, "1").build()
+                            ).build())))
+                    );
         }
-    }
-
-    /**
-     * Token Automatic Renewal
-     *
-     * @param token Token object
-     * @return Token object
-     */
-    @SuppressWarnings("ALL")
-    private Mono<AuthGatewayCache.Token> executeTokenAutomaticRenewal(AuthGatewayCache.Token token) {
-        return cache.getAccessTokenExpire(token.getAccessToken()).flatMap(l -> l > 1800L ? Mono.just(token) : cache.refresh(token));
     }
 
 }
