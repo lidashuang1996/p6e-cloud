@@ -55,33 +55,38 @@ public class AuthGatewayService {
      * @return Mono<ServerWebExchange> ServerWebExchange object
      */
     public Mono<ServerWebExchange> execute(ServerWebExchange exchange) {
-        final ServerHttpRequest request = exchange.getRequest();
-        String token = BaseWebFluxController.getHeaderToken(request);
-        if (token == null) {
-            token = BaseWebFluxController.getAccessToken(request);
-        }
-        if (token == null) {
-            token = BaseWebFluxController.getCookieAccessToken(request);
-        }
-        if (token == null) {
-            return Mono.empty();
+        final String userAuth = exchange.getRequest().getHeaders().getFirst(USER_AUTH_HEADER);
+        if ("1".equals(userAuth)) {
+            return Mono.just(exchange);
         } else {
-            final String ft = token;
-            return handler.execute(exchange)
-                    .flatMap(r -> cache
-                            .getAccessToken(ft, r)
-                            .flatMap(t -> cache.refresh(t, r))
-                            .flatMap(t -> cache.getUser(t.getUid(), r))
-                            .flatMap(u -> Mono.just(exchange.mutate().request(
-                                    exchange.getRequest().mutate()
-                                            .header(USER_INFO_HEADER, u)
-                                            .header(USER_AUTH_HEADER, "1")
-                                            .build()
-                            ).build()))
-                            .switchIfEmpty(Mono.defer(() -> Mono.just(exchange.mutate().request(
-                                    exchange.getRequest().mutate().header(USER_AUTH_HEADER, "1").build()
-                            ).build())))
-                    );
+            final ServerHttpRequest request = exchange.getRequest();
+            String token = BaseWebFluxController.getHeaderToken(request);
+            if (token == null) {
+                token = BaseWebFluxController.getAccessToken(request);
+            }
+            if (token == null) {
+                token = BaseWebFluxController.getCookieAccessToken(request);
+            }
+            if (token == null) {
+                return Mono.empty();
+            } else {
+                final String ft = token;
+                return handler.execute(exchange)
+                        .flatMap(r -> cache
+                                .getAccessToken(ft, r)
+                                .flatMap(t -> cache.refresh(t, r))
+                                .flatMap(t -> cache.getUser(t.getUid(), r))
+                                .flatMap(u -> Mono.just(exchange.mutate().request(
+                                        exchange.getRequest().mutate()
+                                                .header(USER_INFO_HEADER, u)
+                                                .header(USER_AUTH_HEADER, "1")
+                                                .build()
+                                ).build()))
+                                .switchIfEmpty(Mono.defer(() -> Mono.just(exchange.mutate().request(
+                                        exchange.getRequest().mutate().header(USER_AUTH_HEADER, "1").build()
+                                ).build())))
+                        );
+            }
         }
     }
 
