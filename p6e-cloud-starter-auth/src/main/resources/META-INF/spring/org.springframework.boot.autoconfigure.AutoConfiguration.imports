@@ -1,6 +1,1 @@
-club.p6e.cloud.auth.expansion.AuthUserExpansion
-club.p6e.cloud.auth.expansion.PermissionUrlGroupRepositoryExpansion
-club.p6e.cloud.auth.expansion.PermissionUrlGroupRelationUrlRepositoryExpansion
-club.p6e.cloud.auth.expansion.PermissionUrlGroupRelationUserRepositoryExpansion
 club.p6e.cloud.auth.Properties
-club.p6e.cloud.auth.PropertiesRefresher

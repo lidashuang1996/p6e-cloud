@@ -15,39 +15,33 @@
     <description>p6e-cloud-starter-gateway-auth</description>
 
     <dependencies>
-        <!-- Spring Cloud Gateway [START] -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-        <!-- Spring Cloud Gateway [END] -->
 
         <!-- Spring Reactive Redis [START] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+            <!-- scope provided dependency -->
+            <scope>provided</scope>
         </dependency>
         <!-- Spring Reactive Redis [END] -->
+
+        <!-- Spring Cloud Gateway [START] -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <!-- scope provided dependency -->
+            <scope>provided</scope>
+        </dependency>
+        <!-- Spring Cloud Gateway [END] -->
 
         <!-- P6e Coat Common [START] -->
         <dependency>
             <groupId>club.p6e.coat</groupId>
             <artifactId>p6e-coat-starter-common</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-data-jpa</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web-flux</artifactId>
-                </exclusion>
-            </exclusions>
+            <!-- scope provided dependency -->
+            <scope>provided</scope>
         </dependency>
         <!-- P6e Coat Common [END] -->
+
     </dependencies>
 </project>

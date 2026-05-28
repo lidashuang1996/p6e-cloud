@@ -11,7 +11,7 @@ import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
 /**
- * 自定义全局请求头清除过滤器
+ * Custom Request Header Clear Web Filter
  *
  * @author lidashuang
  * @version 1.0
@@ -22,34 +22,39 @@ import reactor.core.publisher.Mono;
         ignored = CustomRequestHeaderClearWebFilter.class
 )
 public class CustomRequestHeaderClearWebFilter implements WebFilter, Ordered {
-    /**
-     * 执行顺序
-     */
-    protected static final int ORDER = -2800;
 
     /**
-     * 重置默认的数据内容
+     * Order
+     */
+    protected static final int ORDER = Integer.MIN_VALUE + 2000;
+
+    /**
+     * Reset default data content
      */
     protected static final String HEADER_CONTENT_NULL = "";
 
     /**
-     * 需要重置的请求数据头
+     * Request headers that need to be reset
      */
     protected static final String[] HEADER_FILTERED = new String[]{
             "P6e-Voucher",
+            "P6e-Language",
             "P6e-User-Info",
+            "P6e-User-Auth",
             "P6e-User-Permission",
+            "P6e-User-Project",
+            "P6e-User-Organization"
     };
 
     /**
-     * 配置文件对象
+     * Properties object
      */
     protected final Properties properties;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param properties 配置文件对象
+     * @param properties Properties object
      */
     public CustomRequestHeaderClearWebFilter(Properties properties) {
         this.properties = properties;
@@ -65,9 +70,9 @@ public class CustomRequestHeaderClearWebFilter implements WebFilter, Ordered {
     public Mono<Void> filter(@NonNull ServerWebExchange exchange, @NonNull WebFilterChain chain) {
         final ServerHttpRequest request = exchange.getRequest();
         final ServerHttpRequest.Builder requestBuilder = request.mutate();
-        // 删除关键的头
-        // 这个请求是内部自己用来调用的
-        // 禁止请求发送携带这个请求头到下游服务
+        // delete http headers
+        // request header is used internally for calling
+        // Prohibit sending requests that carry this request header to downstream services
         for (final String header : HEADER_FILTERED) {
             requestBuilder.header(header, HEADER_CONTENT_NULL);
         }

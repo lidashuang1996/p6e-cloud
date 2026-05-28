@@ -8,6 +8,8 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 /**
+ * Auth Close Upload Aspect Impl
+ *
  * @author lidashuang
  * @version 1.0
  */
@@ -15,14 +17,14 @@ import java.util.Map;
 public class AuthCloseUploadAspectImpl implements CloseUploadAspect {
 
     /**
-     * 认证验证器对象
+     * AuthValidator object
      */
     private final AuthValidator validator;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param validator 认证验证器对象
+     * @param validator AuthValidator object
      */
     public AuthCloseUploadAspectImpl(AuthValidator validator) {
         this.validator = validator;
@@ -40,8 +42,9 @@ public class AuthCloseUploadAspectImpl implements CloseUploadAspect {
                 .map(s -> true)
                 .switchIfEmpty(Mono.error(new AuthException(
                         this.getClass(),
-                        "fun before(Map<String, Object> data).",
-                        "Request authentication information has expired."
+                        "fun before(Map<String, Object> data). ==> " +
+                                "before(...) request for authentication information does not exist or has expired.",
+                        "before(...) request for authentication information does not exist or has expired."
                 )));
     }
 

@@ -1,20 +1,23 @@
 package club.p6e.cloud.gateway.permission;
 
+import club.p6e.coat.common.controller.BaseWebFluxController;
 import club.p6e.coat.common.utils.JsonUtil;
 import club.p6e.coat.permission.PermissionValidator;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * 权限网关服务
+ * Permission Gateway Service
  *
  * @author lidashuang
  * @version 1.0
@@ -27,54 +30,115 @@ import java.util.List;
 public class PermissionGatewayService {
 
     /**
-     * 用户的信息头
+     * P6e Permission Project Header Name
+     */
+    public static final String PERMISSION_PROJECT_HEADER = "P6e-Permission-Project";
+
+    /**
+     * P6e User Info Header Name
      */
     @SuppressWarnings("ALL")
     private static final String USER_INFO_HEADER = "P6e-User-Info";
 
     /**
-     * 用户的权限头
+     * P6e User Permission Header Name
      */
     @SuppressWarnings("ALL")
-    private static final String USER_INFO_PERMISSION = "P6e-User-Permission";
+    private static final String USER_INFO_PERMISSION_HEADER = "P6e-User-Permission";
 
     /**
-     * 权限验证器
+     * P6e User Project Header Name
+     */
+    @SuppressWarnings("ALL")
+    private static final String USER_PROJECT_HEADER = "P6e-User-Project";
+
+    /**
+     * P6e User Organization Header Name
+     */
+    @SuppressWarnings("ALL")
+    private static final String USER_ORGANIZATION_HEADER = "P6e-User-Organization";
+
+    /**
+     * Permission validator object
      */
     private final PermissionValidator validator;
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param validator 权限验证器
+     * @param validator Permission validator object
      */
     public PermissionGatewayService(PermissionValidator validator) {
         this.validator = validator;
     }
 
+    /**
+     * Permission execute
+     *
+     * @param exchange ServerWebExchange object
+     * @return Mono<ServerWebExchange> ServerWebExchange object
+     */
     public Mono<ServerWebExchange> execute(ServerWebExchange exchange) {
-        final String path = exchange.getRequest().getPath().value();
-        final String method = exchange.getRequest().getMethod().name().toUpperCase();
-        final String user = exchange.getRequest().getHeaders().getFirst(USER_INFO_HEADER);
-        final UserModel um = JsonUtil.fromJson(user, UserModel.class);
-        if (um == null || um.getPermissions() == null || um.getPermissions().isEmpty()) {
-            return Mono.empty();
+        final ServerHttpRequest request = exchange.getRequest();
+        final String path = request.getPath().value();
+        final String method = request.getMethod().name().toUpperCase();
+        final String user = BaseWebFluxController.getHeader(request, USER_INFO_HEADER);
+        final String project = BaseWebFluxController.getHeader(request, USER_PROJECT_HEADER);
+        final String organization = BaseWebFluxController.getHeader(request, USER_ORGANIZATION_HEADER);
+        final String markPermissionProject = BaseWebFluxController.getHeader(request, PERMISSION_PROJECT_HEADER);
+        final boolean bool = markPermissionProject == null || markPermissionProject.isEmpty();
+        if (user == null || user.isEmpty()) {
+            return (bool ? validator.execute(path, method, List.of("*")) : validator.execute(path, method, project, List.of("*")))
+                    .flatMap(permission -> {
+                        if (permission.getMark() != null && permission.getMark().endsWith("@PERMISSION-IGNORE")) {
+                            return Mono.just(exchange.mutate().request(
+                                    exchange.getRequest().mutate().header(USER_INFO_PERMISSION_HEADER, JsonUtil.toJson(permission)).build()
+                            ).build());
+                        } else {
+                            return Mono.empty();
+                        }
+                    });
         } else {
-            return validator
-                    .execute(path, method, um.getPermissions())
-                    .flatMap(permission -> Mono.just(exchange.mutate().request(
-                            exchange.getRequest().mutate().header(
-                                    USER_INFO_PERMISSION, JsonUtil.toJson(permission)
-                            ).build()
-                    ).build()));
+            if (bool) {
+                final UserModel1 um = JsonUtil.fromJson(user, UserModel1.class);
+                return validator
+                        .execute(path, method, um.getPermission().get("group"))
+                        .flatMap(permission -> Mono.just(exchange.mutate().request(
+                                exchange.getRequest().mutate().header(USER_INFO_PERMISSION_HEADER, JsonUtil.toJson(permission)).build()
+                        ).build()));
+            } else {
+                final UserModel2 um = JsonUtil.fromJson(user, UserModel2.class);
+                if (project == null || project.isEmpty()
+                        || organization == null || organization.isEmpty()
+                        || um == null || um.getPermission() == null || um.getPermission().get(project) == null) {
+                    return Mono.empty();
+                } else {
+                    return validator
+                            .execute(path, method, project, um.getPermission().get(project).get("group"))
+                            .flatMap(permission -> Mono.just(exchange.mutate().request(
+                                    exchange.getRequest().mutate().header(USER_INFO_PERMISSION_HEADER, JsonUtil.toJson(permission)).build()
+                            ).build()));
+                }
+            }
         }
     }
 
-
+    /**
+     * User Model
+     */
     @Data
     @Accessors(chain = true)
-    private static class UserModel implements Serializable {
-        private List<String> permissions = new ArrayList<>();
+    private static class UserModel1 implements Serializable {
+        private Map<String, List<String>> permission = new HashMap<>();
+    }
+
+    /**
+     * User Model
+     */
+    @Data
+    @Accessors(chain = true)
+    private static class UserModel2 implements Serializable {
+        private Map<String, Map<String, List<String>>> permission = new HashMap<>();
     }
 
 }

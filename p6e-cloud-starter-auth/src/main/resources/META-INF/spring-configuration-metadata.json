@@ -1,0 +1,124 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "p6e.cloud.auth.enable",
+      "type": "java.lang.Boolean",
+      "description": "Application is enable auth service.",
+      "defaultValue": false
+    },
+    {
+      "name": "p6e.cloud.auth.interceptor",
+      "type": "java.lang.String[]",
+      "description": "Application request interceptor path config.",
+      "defaultValue": []
+    },
+    {
+      "name": "p6e.cloud.auth.redirect-index-page",
+      "type": "java.lang.Boolean",
+      "description": "Application request redirect index page.",
+      "defaultValue": false
+    },
+    {
+      "name": "p6e.cloud.auth.redirect-index-page-path",
+      "type": "java.lang.String",
+      "description": "Application request redirect index page path.",
+      "defaultValue": "/"
+    },
+    {
+      "name": "p6e.cloud.auth.jwt-access-token-secret",
+      "description": "JWT access token secret.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "p6e.cloud.auth.jwt-refresh-token-secret",
+      "description": "JWT refresh token secret.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "p6e.cloud.auth.mode",
+      "description": "Aut mode config.",
+      "type": "club.p6e.coat.auth.Properties.Mode"
+    },
+    {
+      "name": "p6e.cloud.auth.auth.validator",
+      "description": "Auth validator config.",
+      "type": "club.p6e.coat.auth.Properties.Bean"
+    },
+    {
+      "name": "p6e.cloud.auth.auth.authority",
+      "description": "Auth authority config.",
+      "type": "club.p6e.coat.auth.Properties.Bean"
+    },
+    {
+      "name": "p6e.cloud.auth.cache.type",
+      "description": "Auth cache type config (REDIS/MEMORY).",
+      "type": "club.p6e.coat.auth.Properties.Cache.Type"
+    },
+    {
+      "name": "p6e.cloud.auth.login.enable",
+      "description": "Auth login enable.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "p6e.cloud.auth.login.account-password.enable",
+      "description": "Auth login account password enable.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "p6e.cloud.auth.login.account-password.enable-transmission-encryption",
+      "description": "Auth login account password enable transmission encryption config.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "p6e.cloud.auth.login.verification-code.enable",
+      "description": "Auth login verification code enable.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "p6e.cloud.auth.login.qr-code.enable",
+      "description": "Auth login qr code enable.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "p6e.cloud.auth.login.others",
+      "description": "Auth login qr others config.",
+      "type": "java.util.Map<java.lang.String, club.p6e.coat.auth.Properties.Login.Other>"
+    },
+    {
+      "name": "p6e.cloud.auth.register.enable",
+      "description": "Auth register enable.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "p6e.cloud.auth.register.enable-other-login-binding",
+      "description": "Auth register enable other login binding.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "p6e.cloud.auth.forgot-password.enable",
+      "description": "Auth forgot password enable.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "p6e.cloud.auth.page.me",
+      "description": "Auth me page content data.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "p6e.cloud.auth.page.login",
+      "description": "Auth login page content data.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "p6e.cloud.auth.page.register",
+      "description": "Auth register page content data.",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "p6e.cloud.auth.page.forgot-password",
+      "description": "Auth forgot password page content data.",
+      "type": "java.lang.String"
+    }
+  ]
+}

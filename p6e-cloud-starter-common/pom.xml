@@ -15,12 +15,6 @@
     <description>p6e-cloud-starter-common</description>
 
     <dependencies>
-        <!-- Spring Reactive Redis [START] -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>
-        <!-- Spring Reactive Redis [END] -->
 
         <!-- Spring Cloud Alibaba Nacos [START] -->
         <!-- Spring Cloud Alibaba BootStrap [ START ] -->
@@ -49,5 +43,21 @@
             <artifactId>p6e-coat-starter-common</artifactId>
         </dependency>
         <!-- P6e Coat Common [END] -->
+
+        <!-- Spring Reactive Redis [START] -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+            <!-- scope provided dependency -->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <!-- scope provided dependency -->
+            <scope>provided</scope>
+        </dependency>
+        <!-- Spring Reactive Redis [END] -->
+
     </dependencies>
 </project>

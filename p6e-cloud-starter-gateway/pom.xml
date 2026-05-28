@@ -15,6 +15,7 @@
     <description>p6e-cloud-starter-gateway</description>
 
     <dependencies>
+
         <!-- Spring Cloud Gateway [START] -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -22,46 +23,19 @@
         </dependency>
         <!-- Spring Cloud Gateway [END] -->
 
-        <!-- Spring Cloud Alibaba Nacos [START] -->
-        <!-- Spring Cloud Alibaba BootStrap [ START ] -->
+        <!-- Spring Reactive Redis [START] -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
         </dependency>
-        <!-- Spring Cloud Alibaba BootStrap [ END ] -->
-        <!-- Spring Cloud Alibaba Nacos Config [START] -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-        <!-- Spring Cloud Alibaba Nacos Config [END] -->
-        <!-- Spring Cloud Alibaba Nacos Discovery [START] -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <!-- Spring Cloud Alibaba Nacos Discovery [END] -->
-        <!-- Spring Cloud Alibaba Nacos [END] -->
+        <!-- Spring Reactive Redis [END] -->
 
         <!-- P6e Coat Common [START] -->
         <dependency>
             <groupId>club.p6e.cloud</groupId>
             <artifactId>p6e-cloud-starter-common</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-data-jpa</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web-flux</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <!-- P6e Coat Common [END] -->
+
     </dependencies>
 </project>

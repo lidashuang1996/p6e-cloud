@@ -5,9 +5,10 @@ import lombok.experimental.Accessors;
 import reactor.core.publisher.Mono;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
- * 网关认证缓存接口
+ * Auth Gateway Cache
  *
  * @author lidashuang
  * @version 1.0
@@ -15,7 +16,7 @@ import java.io.Serializable;
 public interface AuthGatewayCache {
 
     /**
-     * 令牌模型
+     * Token Model
      */
     @Data
     @Accessors(chain = true)
@@ -31,17 +32,47 @@ public interface AuthGatewayCache {
          */
         private String accessToken;
 
+        /**
+         * REFRESH TOKEN
+         */
+        private String refreshToken;
+
     }
 
     /**
-     * 用户缓存前缀
+     * Delimiter
+     */
+    String DELIMITER = ":";
+
+    /**
+     * Expiration Time
+     */
+    long EXPIRATION_TIME = 3600;
+
+    /**
+     * User Cache Prefix
      */
     String USER_PREFIX = "AUTH:USER:";
 
     /**
-     * ACCESS TOKEN 缓存前缀
+     * Access Token Cache Prefix
      */
     String ACCESS_TOKEN_PREFIX = "AUTH:ACCESS_TOKEN:";
+
+    /**
+     * Refresh Token Cache Prefix
+     */
+    String REFRESH_TOKEN_PREFIX = "AUTH:REFRESH_TOKEN:";
+
+    /**
+     * User Access Token Cache Prefix
+     */
+    String USER_ACCESS_TOKEN_PREFIX = "AUTH:USER:ACCESS_TOKEN:";
+
+    /**
+     * User Refresh Token Cache Prefix
+     */
+    String USER_REFRESH_TOKEN_PREFIX = "AUTH:USER:REFRESH_TOKEN:";
 
     /**
      * 读取用户内容
@@ -49,15 +80,46 @@ public interface AuthGatewayCache {
      * @param uid 用户
      * @return 读取用户内容
      */
-    Mono<String> getUser(String uid);
+    Mono<String> getUser(String uid, Map<String, Object> data);
 
     /**
-     * 读取 ACCESS TOKEN 令牌内容
+     * Refresh
      *
-     * @param token 令牌
-     * @return ACCESS TOKEN 令牌内容
+     * @param token Token object
+     * @return Token object
      */
-    Mono<Token> getAccessToken(String token);
+    Mono<Token> refresh(Token token, Map<String, Object> data);
 
+    /**
+     * Refresh
+     *
+     * @param uid User Id
+     * @return User Content
+     */
+    Mono<String> refreshUser(String uid, Map<String, Object> data);
+
+    /**
+     * Get Refresh Token Content
+     *
+     * @param token Refresh Token
+     * @return Refresh Token Content
+     */
+    Mono<Token> refreshToken(Token token, Map<String, Object> data);
+
+    /**
+     * Get Access Token Content
+     *
+     * @param token Access Token
+     * @return Access Token Content
+     */
+    Mono<Token> getAccessToken(String token, Map<String, Object> data);
+
+    /**
+     * Get Access Token Expiration Time
+     *
+     * @param token Access Token
+     * @return Access Token Expiration Time
+     */
+    Mono<Long> getAccessTokenExpire(String token, Map<String, Object> data);
 
 }

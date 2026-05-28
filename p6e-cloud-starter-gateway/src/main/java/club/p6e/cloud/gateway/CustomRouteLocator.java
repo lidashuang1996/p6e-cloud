@@ -10,9 +10,10 @@ import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- * 自定义网关路由器定位器
+ * Custom Route Locator
  *
  * @author lidashuang
  * @version 1.0
@@ -25,28 +26,28 @@ import java.util.List;
 public class CustomRouteLocator implements RouteDefinitionRepository {
 
     /**
-     * 事件创建对象
+     * ApplicationEventPublisher object
      */
     private final ApplicationEventPublisher publisher;
 
     /**
-     * 路由对象
+     * RouteDefinitionList object
      */
     private final List<RouteDefinition> routeDefinitions = new ArrayList<>();
 
     /**
-     * 构造方法初始化
+     * Constructor initializers
      *
-     * @param publisher 事件创建器
+     * @param publisher ApplicationEventPublisher object
      */
     public CustomRouteLocator(ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
 
     /**
-     * 刷新路由
+     * Refresh Route Definitions
      *
-     * @param routeDefinitions 路由定义对象
+     * @param routeDefinitions RouteDefinitionList object
      */
     public void refresh(List<RouteDefinition> routeDefinitions) {
         this.routeDefinitions.clear();

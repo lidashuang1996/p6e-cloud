@@ -15,19 +15,6 @@
     <description>p6e-cloud-starter-gateway-permission</description>
 
     <dependencies>
-        <!-- Spring Cloud Gateway [START] -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-        <!-- Spring Cloud Gateway [END] -->
-
-        <!-- Spring Reactive Redis [START] -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>
-        <!-- Spring Reactive Redis [END] -->
 
         <!-- P6e Coat Permission [START] -->
         <dependency>
@@ -35,6 +22,16 @@
             <artifactId>p6e-coat-starter-permission</artifactId>
         </dependency>
         <!-- P6e Coat Permission [END] -->
+
+        <!-- Spring Cloud Gateway [START] -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <!-- scope provided dependency -->
+            <scope>provided</scope>
+        </dependency>
+        <!-- Spring Cloud Gateway [END] -->
+
     </dependencies>
 
 </project>

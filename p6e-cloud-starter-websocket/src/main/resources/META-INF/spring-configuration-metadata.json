@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "name": "p6e.cloud.websocket",
+      "type": "smart.site.cloud.websocket.Properties",
+      "sourceType": "smart.site.cloud.websocket.Properties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "p6e.cloud.websocket.secret",
+      "type": "java.lang.String",
+      "description": "WebSocket auth secret."
+    },
+    {
+      "name": "p6e.cloud.websocket.thread-pool-length",
+      "type": "java.lang.Integer",
+      "description": "WebSocket thread pool length configuration.",
+      "defaultValue": 15
+    },
+    {
+      "name": "p6e.cloud.websocket.channels",
+      "type": "java.util.List<smart.site.cloud.websocket.Properties.Channel>",
+      "description": "WebSocket channel configuration.",
+      "defaultValue": []
+    }
+  ],
+  "hints": [
+    {
+      "name": "p6e.cloud.websocket.channels",
+      "providers": [
+        {
+          "name": "index",
+          "parameters": {
+            "template": "p6e.cloud.websocket.channels[%d]"
+          }
+        },
+        {
+          "name": "class",
+          "parameters": {
+            "target": "smart.site.cloud.websocket.Properties.Channel"
+          }
+        }
+      ]
+    }
+  ]
+}
